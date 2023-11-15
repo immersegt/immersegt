@@ -34,33 +34,23 @@ import {
   const mockdata = [
     {
       icon: IconCode,
-      title: 'Open source',
-      description: 'This Pokémon’s cry is very loud and distracting',
+      title: 'My Team',
+      description: 'Your team\'s hub for inviting and reviewing teammates',
     },
     {
       icon: IconCoin,
-      title: 'Free for everyone',
-      description: 'The fluid of Smeargle’s tail secretions changes',
+      title: 'Join a Team',
+      description: 'Search existing teams to find your crew or join up with friends',
     },
     {
       icon: IconBook,
-      title: 'Documentation',
-      description: 'Yanma is capable of seeing 360 degrees without',
+      title: 'Search for Members',
+      description: 'Look at other participant profiles and invite individuals to your team',
     },
     {
       icon: IconFingerprint,
-      title: 'Security',
-      description: 'The shell’s rounded shape and the grooves on its.',
-    },
-    {
-      icon: IconChartPie3,
-      title: 'Analytics',
-      description: 'This Pokémon uses its flying ability to quickly chase',
-    },
-    {
-      icon: IconNotification,
-      title: 'Notifications',
-      description: 'Combusken battles with the intensely hot flames it spews',
+      title: 'Network on Discord',
+      description: 'Talk to fellow participants on the ImmerseGT Discord',
     },
   ];
   
@@ -97,12 +87,15 @@ import {
               <a href="#" className="link">
                 Home
               </a>
+              <a href="#" className="link">
+                Register
+              </a>
               <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a href="#" className="link">
                     <Center inline>
                       <Box component="span" mr={5}>
-                        Register
+                        Team
                       </Box>
                       <IconChevronDown
                         style={{ width: rem(16), height: rem(16) }}
@@ -114,10 +107,7 @@ import {
   
                 <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                   <Group justify="space-between" px="md">
-                    <Text fw={500}>Features</Text>
-                    <Anchor href="#" fz="xs">
-                      View all
-                    </Anchor>
+                    <Text fw={500}>Team Formation</Text>
                   </Group>
   
                   <Divider my="sm" />
@@ -130,20 +120,17 @@ import {
                     <Group justify="space-between">
                       <div>
                         <Text fw={500} fz="sm">
-                          Get started
+                          New to ImmerseGT?
                         </Text>
                         <Text size="xs" c="dimmed">
-                          Their food sources have decreased, and their numbers
+                          Make sure to fill out your applicant information so we can help you find a team.
                         </Text>
                       </div>
-                      <Button variant="default">Get started</Button>
+                      <Button variant="default">Register</Button>
                     </Group>
                   </div>
                 </HoverCard.Dropdown>
               </HoverCard>
-              <a href="#" className="link">
-                Team
-              </a>
               <a href="#" className="link">
                 Schedule
               </a>
@@ -173,10 +160,13 @@ import {
             <a href="#" className="link">
               Home
             </a>
+            <a href="#" className="link">
+              Register
+            </a>
             <UnstyledButton className="link" onClick={toggleLinks}>
               <Center inline>
                 <Box component="span" mr={5}>
-                  Register
+                  Team
                 </Box>
                 <IconChevronDown
                   style={{ width: rem(16), height: rem(16) }}
@@ -185,9 +175,6 @@ import {
               </Center>
             </UnstyledButton>
             <Collapse in={linksOpened}>{links}</Collapse>
-            <a href="#" className="link">
-              Team
-            </a>
             <a href="#" className="link">
               Schedule
             </a>
