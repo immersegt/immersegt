@@ -1,5 +1,4 @@
-# Mantine Next Template
+# ImmerseGT Event Platform
 
-Get started with the template by clicking `Use this template` button on the top of the page.
-
-[Documentation](https://mantine.dev/guides/next/)
+Event platform for the 2024 ImmerseGT Hackathon hosted by GTXR and Startup Exchange. This in-person and virtual XR hackathon is open to all and has over $20,000 in prizes.
+Our platform allows participants to create an account, register for the hackathon, search for other participants, form teams, and view an up-to-date schedule of the event.
