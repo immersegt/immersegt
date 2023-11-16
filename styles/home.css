@@ -45,7 +45,25 @@
 
 .homeImage {
     margin-right: 10vw;
+    animation: breathing 10s ease infinite normal;
 }
+
+  @keyframes breathing {
+    0% {
+      transform: scale(0.95);
+      rotate: 0deg;
+    }
+  
+    50% {
+      transform: scale(1);
+      rotate: 10deg;
+    }
+  
+    100% {
+      transform: scale(0.95);
+      rotate: 0deg;
+    }
+  }
 
 .buttonGroup {
     display: flex;
