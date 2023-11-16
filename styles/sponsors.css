@@ -1,4 +1,22 @@
 .sponsorsHeader {
     background-color: rgb(19, 20, 21);
-    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sponsorsList {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    margin-left: 20vh;
+    margin-right: 20vh;
+}
+.sponsorsTitle {
+    padding-top: 30px;
+    font-size: 24px;
+    color: rgb(200, 200, 200);
 }
