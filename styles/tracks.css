@@ -32,12 +32,39 @@
     padding-right: 8vw;
 }
 
-.indicator {
-    width: rem(12px);
-    height: rem(4px);
-    transition: width 250ms ease;
+.spacer {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
 
-    &[data-active] {
-        width: rem(40px);
-    }
+.teamHolder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vw;
+    justify-content: center;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    padding-bottom: 10px;
+}
+
+.mockTeamCard {
+    transition: 0.5s;
+}
+
+.mockTeamCard:hover {
+    scale: 105%;
+}
+
+.illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.illustrationContainer {
+    width: 300px;
+}
+
+.illustrationContainer2 {
+    max-width: 900px;
 }

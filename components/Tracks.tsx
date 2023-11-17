@@ -7,6 +7,12 @@ import { useState } from 'react';
 import classes from '../styles/carousel.module.css';
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
+import Card from "../components/Card";
+import Illustration1 from '../public/Illustration1.png';
+import Illustration2 from '../public/Illustration2.png';
+import Illustration3 from '../public/Illustration3.png';
+import { Divider } from '@mantine/core';
+
 
 const trackList = [
     {
@@ -51,14 +57,19 @@ const trackList = [
     },
 ];
 
-
+const mockCard = {
+    name: "The Best Team",
+    description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
+    members: ["John Doe", "Barry Allen", "James Smith", "Savitar", "Henry Allen"],
+    joined: false
+};
 
 const Tracks = () => {
     const [active, setActive] = useState(0);
     const autoplay = useRef(Autoplay({ delay: 4000 }));
     return (
         <div className="tracksHeader">
-            <div className="tracksTitle">Choose Your Track</div>
+            <div className="tracksTitle">1. Choose Your Track</div>
             <div className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes.</div>
             <Carousel
                 classNames={classes}
@@ -80,6 +91,20 @@ const Tracks = () => {
                     <TrackCard title={val.title} description={val.description} key={val.id} active={val.id === active + 1} />
                 ))}
             </Carousel>
+            <div className="spacer"><Divider color="rgb(39, 0, 47)"/></div>
+            <div className="tracksTitle">2. Find Your Team</div>
+            <div className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</div>
+            <div className="teamHolder">
+            <div className="illustrationContainer"><img src={Illustration1.src} className="illustration"/></div>
+            <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined}/></div>
+            <div className="illustrationContainer"><img src={Illustration2.src} className="illustration"/></div>
+            </div>
+            <div className="spacer"><Divider color="rgb(39, 0, 47)"/></div>
+            <div className="tracksTitle">3. Build Your Product</div>
+            <div className="tracksDescription">We provide the headsets, you provide the code. Once you have chosen a track and team, work over the course of 36 hours to plan an idea, build a prototype, and come up with a presentation to show to the judges. </div>
+            <div className="teamHolder">
+            <div className="illustrationContainer2"><img src={Illustration3.src} className="illustration"/></div>
+            </div>
         </div>
     )
 }
