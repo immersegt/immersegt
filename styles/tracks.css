@@ -1,0 +1,42 @@
+.tracksHeader {
+    width: 100%;
+    background-color: #EDD7FF;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    justify-content: center;
+    text-align: center;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.tracksTitle {
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: rgb(39, 0, 47);
+}
+.tracksDescription {
+    padding-bottom: 40px;
+    font-size: 18px;
+    color: rgb(39, 0, 47);
+    margin-left: 14vw;
+    margin-right: 14vw;
+}
+
+.tracksHolder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-left: 8vw;
+    padding-right: 8vw;
+}
+
+.indicator {
+    width: rem(12px);
+    height: rem(4px);
+    transition: width 250ms ease;
+  
+    &[data-active] {
+      width: rem(40px);
+    }
+  }

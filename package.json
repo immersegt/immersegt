@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.0.17",
+    "@mantine/carousel": "^7.2.2",
     "@mantine/core": "^7.2.0",
     "@mantine/ds": "^7.2.2",
     "@mantine/hooks": "^7.2.0",
+    "embla-carousel-autoplay": "^7.1.0",
+    "embla-carousel-react": "^7.1.0",
     "next": "^14.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

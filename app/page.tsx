@@ -13,6 +13,7 @@ const HomePage = () => {
       <div>
         <Header/>
         <Sponsors/>
+        <Tracks/>
       </div>
   )
 }
