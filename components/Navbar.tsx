@@ -35,21 +35,25 @@ const mockdata = [
     icon: IconCode,
     title: 'My Team',
     description: 'Your team\'s hub for inviting and reviewing teammates',
+    link: "/team"
   },
   {
     icon: IconCoin,
     title: 'Join a Team',
     description: 'Search existing teams to find your crew or join up with friends',
+    link: "/team/formation"
   },
   {
     icon: IconBook,
     title: 'Search for Members',
     description: 'Look at other participant profiles and invite individuals to your team',
+    link: "/team"
   },
   {
     icon: IconFingerprint,
     title: 'Network on Discord',
     description: 'Talk to fellow participants on the ImmerseGT Discord',
+    link: "/team"
   },
 ];
 
@@ -63,13 +67,14 @@ const Navbar = () => {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item) => (
+    <a href={item.link}>
     <UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
         </ThemeIcon>
         <div>
-          <Text size="sm" fw={500}>
+          <Text size="sm" fw={500} c = "rgb(200, 200, 200)">
             {item.title}
           </Text>
           <Text size="xs" c="dimmed">
@@ -78,6 +83,7 @@ const Navbar = () => {
         </div>
       </Group>
     </UnstyledButton>
+    </a>
   ));
 
   return (

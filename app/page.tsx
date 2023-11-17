@@ -6,7 +6,6 @@ import Tracks from '../components/Tracks';
 import Workshops from '../components/Workshops';
 import Judges from '../components/Judges';
 import FAQ from '../components/FAQ';
-import Platform from '../components/Platform';
 
 const HomePage = () => {
   return (
