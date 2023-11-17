@@ -14,6 +14,8 @@ const HomePage = () => {
         <Header/>
         <Sponsors/>
         <Tracks/>
+        <Workshops/>
+        <FAQ/>
       </div>
   )
 }

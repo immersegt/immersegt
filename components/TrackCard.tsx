@@ -1,5 +1,4 @@
 import '../styles/trackcard.css';
-import {Paper} from '@mantine/core';
 
 interface trackCardProps {
     title: string,

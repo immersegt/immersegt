@@ -1,0 +1,40 @@
+.workshopsHeader {
+    width: 100%;
+    padding-top: 90px;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.workshopsHolder {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        flex-wrap: wrap;
+    }
+}
+
+.workshopsTitle {
+    font-size: 32px;
+    color: #845EF7;
+}
+
+.workshopsDescription {
+    font-size: 18px;
+    color: rgb(200, 200, 200);
+}
+
+.workshopsBox {
+    max-width: 700px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 40px;
+    padding: 40px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    flex-grow: 1;
+}

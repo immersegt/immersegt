@@ -22,7 +22,7 @@ const Sponsors = () => {
         <div className="sponsorsTitle">Meet Our Sponsors</div>
         <div className="sponsorsList">
             {list.map((val, index) => (
-                <img src={val.src} width={(dwidth * widths[index])+"px"}/>
+                <img src={val.src} width={(dwidth * widths[index])+"px"} key={index}/>
             ))}
         </div>
         </div>
