@@ -1,5 +1,6 @@
 .faqwrapper {
     min-height: rem(650px);
+    padding-bottom: 50px;
 }
 
 .faqtitle {
