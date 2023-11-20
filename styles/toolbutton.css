@@ -1,0 +1,46 @@
+.toolButton {
+    background-color: rgb(26, 27, 30);
+    border: 1px solid rgb(55, 58, 64);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    max-width: 500px;
+    min-width: 300px;
+    flex-wrap: wrap;
+}
+
+.toolButton:hover {
+    background-color: rgb(36, 37, 40);
+}
+
+.toolButtonImageHolder {
+    width: 80px;
+    height: 80px;
+}
+
+.toolButtonImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.toolButtonInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 320px;
+}
+
+.toolButtonTitle {
+    font-size: 20px;
+    color: rgb(200, 200, 200);
+}
+
+.toolButtonDescription {
+    font-size: 14px;
+    color: rgb(200, 200, 200);
+}
