@@ -1,0 +1,27 @@
+.judgeCard {
+    width: 350px;
+    height: 400px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.judgeCardImage {
+    border-radius: 50%;
+    width: 175px;
+}
+
+.judgeCardName {
+    font-size: 32px;
+    color: rgb(200, 200, 200);
+}
+
+.judgeCardCompany {
+    font-size: 18px;
+    color: rgb(200, 200, 200);
+}

@@ -8,7 +8,7 @@ const links = [
   { link: '/register', label: 'Register' },
   { link: '/team', label: 'Team' },
   { link: '/schedule', label: 'Schedule' },
-  { link: '/discord', label: 'Discord' },
+  { link: 'https://discord.com/', label: 'Discord' },
 ];
 
 const Footer = () => {

@@ -42,11 +42,11 @@ const faqQuestions = [
   
 export function FAQ() {
   return (
-    <Container size="sm" className="faqwrapper">
+    <Container size="md" className="faqwrapper">
         <Divider my="sm" />
-      <Title ta="center" className="faqtitle">
+      <div className="faqtitle">
         Frequently Asked Questions
-      </Title>
+      </div>
 
       <Accordion variant="separated">
         {faqQuestions.map((val) => (

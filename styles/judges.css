@@ -1,0 +1,48 @@
+.judgesBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.judgesTitle {
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: rgb(200, 200, 200);
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.judgesHolder {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+.minimized {
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 90%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 90%);
+    height: 450px;
+    overflow-y: hidden;
+    margin-bottom: -60px;
+}
+
+.expanded {
+    
+}
+
+.judgeOverview {
+    padding-bottom: 40px;
+    font-size: 18px;
+    color: rgb(200, 200, 200);
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
