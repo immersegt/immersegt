@@ -5,6 +5,7 @@ import { Button } from '@mantine/core';
 import "@fontsource/open-sans";
 import TeamCard from 'components/Card';
 import 'styles/index.css'
+import 'styles/formation.css';
 
 const rowStyle = {
   display: "flex",
@@ -14,7 +15,7 @@ const rowStyle = {
   alignItems: "flex-start",
 }
 
-export default function Formation() {
+const Formation = () => {
   const [teams, setTeams] = useState([
     {
       name: "Team Name 1",
@@ -44,3 +45,5 @@ export default function Formation() {
     </div>
   </div>;
 }
+
+export default Formation;

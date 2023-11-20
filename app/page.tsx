@@ -12,6 +12,7 @@ const HomePage = () => {
       <div>
         <Header/>
         <Sponsors/>
+        <a id="tracks"/>
         <Tracks/>
         <Workshops/>
         <FAQ/>

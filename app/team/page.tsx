@@ -2,8 +2,19 @@
 import 'styles/index.css'
 
 const Team = () => {
+    const foundTeam = false;
     return (
-        <div>Team Page</div>
+        <div>
+            {foundTeam ? (
+                <div>
+                    Team Page
+                </div>
+            ) : (
+                <div>
+                    You Are Not Currently on a Team
+                </div>
+            )}
+        </div>
     )
 }
 

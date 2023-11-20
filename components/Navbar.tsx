@@ -47,13 +47,13 @@ const mockdata = [
     icon: IconBook,
     title: 'Search for Members',
     description: 'Look at other participant profiles and invite individuals to your team',
-    link: "/team"
+    link: "/team/individual"
   },
   {
     icon: IconFingerprint,
     title: 'Network on Discord',
     description: 'Talk to fellow participants on the ImmerseGT Discord',
-    link: "/team"
+    link: "https://discord.com/"
   },
 ];
 
