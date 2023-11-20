@@ -67,23 +67,21 @@ const Navbar = () => {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item) => (
-    <a href={item.link}>
-    <UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
-      <Group wrap="nowrap" align="flex-start">
-        <ThemeIcon size={34} variant="default" radius="md">
-          <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
-        </ThemeIcon>
-        <div>
-          <Text size="sm" fw={500} c = "rgb(200, 200, 200)">
-            {item.title}
-          </Text>
-          <Text size="xs" c="dimmed">
-            {item.description}
-          </Text>
-        </div>
-      </Group>
-    </UnstyledButton>
-    </a>
+      <UnstyledButton className="subLink" key={item.title} style={LinkStyle} component="a" href={item.link}>
+        <Group wrap="nowrap" align="flex-start">
+          <ThemeIcon size={34} variant="default" radius="md">
+            <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
+          </ThemeIcon>
+          <div>
+            <Text size="sm" fw={500} c="rgb(200, 200, 200)">
+              {item.title}
+            </Text>
+            <Text size="xs" c="dimmed">
+              {item.description}
+            </Text>
+          </div>
+        </Group>
+      </UnstyledButton>
   ));
 
   return (
@@ -132,7 +130,7 @@ const Navbar = () => {
                         Make sure to fill out your applicant information so we can help you find a team.
                       </Text>
                     </div>
-                    <a href="/register"><Button variant="default">Register</Button></a>
+                    <Button variant="default" component="a" href="/register">Register</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
@@ -143,8 +141,8 @@ const Navbar = () => {
           </Group>
 
           <Group visibleFrom="sm">
-            <a href="/account"><Button variant="default">Log in</Button></a>
-            <a href="/account"><Button color="grape.6">Sign up</Button></a>
+            <Button variant="default" component="a" href="/account">Log in</Button>
+            <Button color="grape.6" component="a" href="/account">Sign up</Button>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -188,8 +186,8 @@ const Navbar = () => {
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
-            <a href="/account"><Button variant="default">Log in</Button></a>
-            <a href="/account"><Button color="grape.6">Sign up</Button></a>
+            <Button variant="default" component="a" href="/account">Log in</Button>
+            <Button color="grape.6" component="a" href="/account">Sign up</Button>
           </Group>
         </ScrollArea>
       </Drawer>

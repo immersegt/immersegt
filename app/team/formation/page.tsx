@@ -39,7 +39,7 @@ export default function Formation() {
   return <div>
     <div style={rowStyle}>
       {teams.map((val) => (
-        <TeamCard name={val.name} description={val.description} members={val.members} joined={val.joined} />
+        <TeamCard name={val.name} description={val.description} members={val.members} joined={val.joined} disabled={false}/>
       ))}
     </div>
   </div>;

@@ -1,59 +1,39 @@
 'use client';
-import { Card, Image, Text, Badge, Button, Group, CardSection } from '@mantine/core';
+import { Card, Text, Badge, Button, Group, CardSection, Textarea } from '@mantine/core';
+import '../styles/teamcard.css';
+import { useState } from "react";
 
 interface cardProps {
   name: string,
   description: string,
   members: Array<string>,
-  joined: boolean
+  joined: boolean,
+  disabled: boolean
 }
 
-const cardStyle = {
-  backgroundColor: 'rgba(50, 55, 58, 1)',
-  borderRadius: '10px',
-  flexGrow: 1,
-  textAlign: "center" as "center",
-  height: "300px"
-}
-const cardStyle2 = {
-  maxWidth: "400px",
-  backgroundColor: "rgba(26, 27, 30, 1)"
-}
-const cardStyle3 = {
-  maxWidth: "400px",
-  backgroundColor: "rgba(26, 27, 30, 1)",
-  border: "1px solid rgb(251, 176, 59)"
-}
+const TeamCard = ({ name, description, members, joined, disabled }: cardProps) => {
+  const [editing, setEditing] = useState(false);
+  const [message, setMessage] = useState('');
 
-const buttonRowStyle = {
-  display: "flex"
-}
-const buttonStyle = {
-  flexGrow: 1
-}
-const nameStyle = {
-  margin: "10px",
-  display: "flex",
-  flexWrap: "wrap" as "wrap",
-  gap: "10px",
-}
-const titleStyle = {
-  fontSize: "18px"
-}
-const titleStyle2 = {
-  fontSize: "18px",
-  color: "rgb(251, 176, 59)"
-}
-const testStyle = {
-  backgroundColor: "rgba(16, 17, 20, 1)"
-}
+  const startEdit = (disabled: boolean) => {
+    if (!disabled){
+      setEditing(true);
+    }
+  }
+  const submit = () => {
+    setEditing(false);
+    setMessage('');
+  }
+  const stopEdit = () => {
+    setEditing(false);
+    setMessage('');
+  }
 
-const TeamCard = ({ name, description, members, joined }: cardProps) => {
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder style={joined ? cardStyle3 : cardStyle2}>
+    <Card shadow="sm" padding="lg" radius="md" withBorder className={joined ? "cardStyle3" : "cardStyle2"}>
 
       <Group justify="space-between" mb="xs">
-        <Text fw={500} style={joined ? titleStyle2 : titleStyle}><b>{name}</b></Text>
+        <Text fw={500} className={joined ? "titleStyle2" : "titleStyle"}><b>{name}</b></Text>
         {joined ? (
           <Badge color="orange" variant="light" size="lg">JOINED</Badge>
         ) : members.length === 6 ? (
@@ -63,36 +43,52 @@ const TeamCard = ({ name, description, members, joined }: cardProps) => {
         )}
 
       </Group>
-
-      <Text size="sm" c="dimmed">{description}</Text>
-      <CardSection withBorder mt="sm" style={testStyle}>
-        <div style={nameStyle}>
-          {members.map((val) => (
-            <Badge color="gray" variant="light">
-              {val}
-            </Badge>
-          ))}
+      {editing ? (
+        <div>
+          <Textarea placeholder="Attach a brief message to your join request..." radius="md" autosize minRows={4} maxRows={4} onChange={(event) => setMessage(event.currentTarget.value)}/>
+          <Group justify="space-between" className="buttonRowStyle">
+              <Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle" onClick={submit}>
+                SEND REQUEST
+              </Button>
+              <Button variant="light" color="red" mt="md" radius="md" className="buttonStyle" onClick={stopEdit}>
+                CANCEL
+              </Button>
+            </Group>
         </div>
-      </CardSection>
-      {joined ? (
-        <Group justify="space-between" style={buttonRowStyle}>
-          <Button variant="light" color="grape" mt="md" radius="md" style={buttonStyle}>
-            EDIT TEAM
-          </Button>
-          <Button variant="light" color="red" mt="md" radius="md" style={buttonStyle}>
-            LEAVE TEAM
-          </Button>
-        </Group>
       ) : (
-        <Group justify="space-between" style={buttonRowStyle}>
-          <Button variant="light" color="grape" mt="md" radius="md" style={buttonStyle} disabled={members.length === 6}>
-            ASK TO TEAM
-          </Button>
-          <Button variant="light" color="gray" mt="md" radius="md" style={buttonStyle} disabled={members.length === 6}>
-            SAVE TEAM
-          </Button>
-        </Group>
+        <div>
+          <Text size="sm" c="dimmed" className="descriptionStyle">{description}</Text>
+          <CardSection withBorder mt="sm" className="badgeHolder">
+            <div className="nameStyle">
+              {members.map((val) => (
+                <Badge color="gray" variant="light">
+                  {val}
+                </Badge>
+              ))}
+            </div>
+          </CardSection>
+          {joined ? (
+            <Group justify="space-between" className="buttonRowStyle">
+              <Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle" component="a" href="/team">
+                EDIT TEAM
+              </Button>
+              <Button variant="light" color="red" mt="md" radius="md" className="buttonStyle">
+                LEAVE TEAM
+              </Button>
+            </Group>
+          ) : (
+            <Group justify="space-between" className="buttonRowStyle">
+              <Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle" onClick={()=> {startEdit(disabled)}} disabled={members.length === 6}>
+                ASK TO TEAM
+              </Button>
+              <Button variant="light" color="gray" mt="md" radius="md" className="buttonStyle" disabled={members.length === 6}>
+                SAVE TEAM
+              </Button>
+            </Group>
+          )}
+        </div>
       )}
+
 
     </Card>
   )

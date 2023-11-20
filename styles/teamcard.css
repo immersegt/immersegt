@@ -1,0 +1,42 @@
+.cardStyle2 {
+    width: 400px;
+    background-color: rgb(26, 27, 30);
+}
+
+.cardStyle3 {
+    width: 400px;
+    background-color: rgb(26, 27, 30);
+    border: 1px solid rgb(251, 176, 59);
+}
+
+.buttonRowStyle {
+    display: flex;
+}
+
+.buttonStyle {
+    flex-grow: 1;
+}
+
+.nameStyle {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.titleStyle {
+    font-size: 18px;
+}
+
+.titleStyle2 {
+    font-size: 18px;
+    color: rgb(251, 176, 59);
+}
+
+.badgeHolder {
+    background-color: rgb(16, 17, 20);
+}
+
+.descriptionStyle {
+    text-align: left;
+}

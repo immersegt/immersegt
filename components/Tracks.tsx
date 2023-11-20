@@ -96,7 +96,7 @@ const Tracks = () => {
             <div className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</div>
             <div className="teamHolder">
             <div className="illustrationContainer"><img src={Illustration1.src} className="illustration"/></div>
-            <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined}/></div>
+            <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} disabled={true}/></div>
             <div className="illustrationContainer"><img src={Illustration2.src} className="illustration"/></div>
             </div>
             <div className="spacer"><Divider color="rgb(39, 0, 47)"/></div>
