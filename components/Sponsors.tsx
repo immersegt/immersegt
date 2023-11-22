@@ -1,4 +1,6 @@
+import '../styles/index.css';
 import '../styles/sponsors.css';
+
 import Google from '../public/google.png';
 import Meta from '../public/meta.png';
 import Accenture from '../public/accenture.png';
@@ -18,14 +20,14 @@ const widths = [1, 1, 1, 1, 0.85, 1, 0.7, 1, 1, 1, 1, 1]
 
 const Sponsors = () => {
     return (
-        <div className="sponsorsHeader">
-        <div className="sponsorsTitle">Meet Our Sponsors</div>
+        <section className="sponsorsHeader">
+        <h2>Meet Our Sponsors</h2>
         <div className="sponsorsList">
             {list.map((val, index) => (
                 <img src={val.src} width={(dwidth * widths[index])+"px"} key={index}/>
             ))}
         </div>
-        </div>
+        </section>
     )
 }
 export default Sponsors;

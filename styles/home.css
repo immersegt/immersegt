@@ -1,71 +1,72 @@
 .homeHeader {
-    /*background-image: linear-gradient(to right top, #090017, #090017, #090017, #090017, #090017, #0c0019, #0e011b, #10011d, #150122, #190126, #1c012a, #21002d);
-    */
-    width: 100%;
-    height: 94vh;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    overflow: hidden;
-    padding-bottom: 4vh;
+  width: 100%;
+  height: 94vh;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 4vh;
 }
 
 .homeInfo {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 15vw;
-    gap: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 15vw;
+  gap: 20px;
 
 }
 
 .homeSubtitle {
-    font-size: 28px;
-    color: #845EF7;
+  font-size: 28px;
+  color: #845EF7;
 }
 
 .homeTitle {
-    font-size: 68px;
-    line-height: 72px;
+  font-size: 68px;
+  line-height: 72px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.homeDescription {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: rgb(230, 230, 230);
 }
 
 .homeTitleEmphasis {
-    background: #845EF7;
-    background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.homeText {
-    font-size: 18px;
-    margin-bottom: 18px;
-    color: rgb(230, 230, 230);
+  background: #845EF7;
+  background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .homeImage {
-    margin-right: 10vw;
-    animation: breathing 10s ease infinite normal;
+  margin-right: 10vw;
+  animation: breathing 10s ease infinite normal;
 }
 
-  @keyframes breathing {
-    0% {
-      transform: scale(0.95);
-      rotate: 0deg;
-    }
-  
-    50% {
-      transform: scale(1);
-      rotate: 10deg;
-    }
-  
-    100% {
-      transform: scale(0.95);
-      rotate: 0deg;
-    }
+@keyframes breathing {
+  0% {
+    transform: scale(0.95);
+    rotate: 0deg;
   }
 
+  50% {
+    transform: scale(1);
+    rotate: 10deg;
+  }
+
+  100% {
+    transform: scale(0.95);
+    rotate: 0deg;
+  }
+}
+
 .buttonGroup {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }

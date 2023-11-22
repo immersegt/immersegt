@@ -1,5 +1,8 @@
 'use client';
+
+import '../styles/index.css';
 import '../styles/tracks.css';
+
 import TrackCard from '../components/TrackCard';
 import { Carousel } from '@mantine/carousel';
 import "@mantine/carousel/styles.css";
@@ -68,44 +71,55 @@ const Tracks = () => {
     const [active, setActive] = useState(0);
     const autoplay = useRef(Autoplay({ delay: 4000 }));
     return (
-        <div className="tracksHeader">
-            <div className="tracksTitle">1. Choose Your Track</div>
-            <div className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes.</div>
-            <Carousel
-                classNames={classes}
-                slideSize="100%"
-                height={260}
-                slideGap="md"
-                controlsOffset="lg"
-                loop
-                withIndicators
-                onSlideChange={(slide) => {
-                    setActive(slide);
-                    console.log(slide);
-                }} 
-                plugins={[autoplay.current as any]}
-                onMouseEnter={autoplay.current.stop}
-                onMouseLeave={autoplay.current.reset}
-                align="center">
-                {trackList.map((val) => (
-                    <TrackCard title={val.title} description={val.description} key={val.id} active={val.id === active + 1} />
-                ))}
-            </Carousel>
-            <div className="spacer"><Divider color="rgb(39, 0, 47)"/></div>
-            <div className="tracksTitle">2. Find Your Team</div>
-            <div className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</div>
-            <div className="teamHolder">
-            <div className="illustrationContainer"><img src={Illustration1.src} className="illustration"/></div>
-            <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} disabled={true}/></div>
-            <div className="illustrationContainer"><img src={Illustration2.src} className="illustration"/></div>
-            </div>
-            <div className="spacer"><Divider color="rgb(39, 0, 47)"/></div>
-            <div className="tracksTitle">3. Build Your Product</div>
-            <div className="tracksDescription">We provide the headsets, you provide the code. Once you have chosen a track and team, work over the course of 36 hours to plan an idea, build a prototype, and come up with a presentation to show to the judges. </div>
-            <div className="teamHolder">
-            <div className="illustrationContainer2"><img src={Illustration3.src} className="illustration"/></div>
-            </div>
-        </div>
+        <section className="tracksHeader">
+            <section className="trackSection">
+                <h2 className="purple">1. Choose Your Track</h2>
+                <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes.</p>
+                <Carousel
+                    classNames={classes}
+                    slideSize="100%"
+                    height={260}
+                    slideGap="md"
+                    controlsOffset="lg"
+                    loop
+                    withIndicators
+                    onSlideChange={(slide) => {
+                        setActive(slide);
+                        console.log(slide);
+                    }}
+                    plugins={[autoplay.current as any]}
+                    onMouseEnter={autoplay.current.stop}
+                    onMouseLeave={autoplay.current.reset}
+                    align="center">
+                    {trackList.map((val) => (
+                        <TrackCard title={val.title} description={val.description} key={val.id} active={val.id === active + 1} />
+                    ))}
+                </Carousel>
+            </section>
+
+            <Divider color="rgb(39, 0, 47)" />
+
+            <section className="trackSection">
+                <h2 className="purple">2. Find Your Team</h2>
+                <p className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</p>
+                <div className="teamHolder">
+                    <div className="illustrationContainer"><img src={Illustration1.src} className="illustration" /></div>
+                    <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} disabled={true} /></div>
+                    <div className="illustrationContainer"><img src={Illustration2.src} className="illustration" /></div>
+                </div>
+                
+            </section>
+
+            <Divider color="rgb(39, 0, 47)" />
+
+            <section className="trackSection">
+                <h2 className="purple">3. Build Your Product</h2>
+                <p className="tracksDescription">We provide the headsets, you provide the code. Once you have chosen a track and team, work over the course of 36 hours to plan an idea, build a prototype, and come up with a presentation to show to the judges. </p>
+                <div className="teamHolder">
+                    <div className="illustrationContainer2"><img src={Illustration3.src} className="illustration" /></div>
+                </div>
+            </section>
+        </section>
     )
 }
 export default Tracks;

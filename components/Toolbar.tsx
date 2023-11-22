@@ -1,3 +1,4 @@
+import '../styles/index.css';
 import '../styles/toolbar.css';
 
 const Toolbar = () => {

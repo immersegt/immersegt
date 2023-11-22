@@ -11,3 +11,47 @@ body {
   html {
     scroll-behavior: smooth;
   }
+
+  h2 {
+    font-size: 24px;
+    font-weight: normal;
+    color: rgb(200, 200, 200);
+  }
+
+  h3 {
+    font-size: 18px;
+    color: rgb(193, 194, 197);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h3.highlight {
+    color: rgb(251, 176, 59);
+  }
+
+  p {
+    font-size: 16px;
+    color: rgb(144, 146, 150);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  p.small {
+    font-size: 14px;
+  }
+
+  .purple {
+    color: rgb(39, 0, 47);
+  }
+
+  .light-purple {
+    color: #EDD7FF;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }

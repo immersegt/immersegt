@@ -1,18 +1,15 @@
 .tracksHeader {
     width: 100%;
     background-color: #EDD7FF;
-    padding-top: 70px;
-    padding-bottom: 70px;
     justify-content: center;
     text-align: center;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
 }
 
-.tracksTitle {
-    padding-bottom: 10px;
-    font-size: 24px;
-    color: rgb(39, 0, 47);
+.trackSection {
+    padding-top: 50px;
+    padding-bottom: 60px;
 }
 
 .tracksDescription {
@@ -30,11 +27,6 @@
     justify-content: center;
     padding-left: 8vw;
     padding-right: 8vw;
-}
-
-.spacer {
-    margin-top: 60px;
-    margin-bottom: 60px;
 }
 
 .teamHolder {

@@ -1,4 +1,8 @@
 'use client';
+
+import '../styles/index.css';
+import '../styles/navbar.css';
+
 import {
   HoverCard,
   Group,
@@ -28,7 +32,6 @@ import {
   IconCoin,
   IconChevronDown,
 } from '@tabler/icons-react';
-import '../styles/navbar.css';
 
 const mockdata = [
   {

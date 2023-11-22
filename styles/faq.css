@@ -1,13 +1,7 @@
 .faqwrapper {
     min-height: rem(650px);
     padding-bottom: 50px;
-}
-
-.faqtitle {
-    margin-top: 30px;
-    margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
-    font-size: 24px;
-    color: rgb(200, 200, 200);
+    padding-top: 10px;
     text-align: center;
 }
 

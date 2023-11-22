@@ -1,4 +1,6 @@
+import '../styles/index.css';
 import '../styles/scheduleitem.css';
+
 import Info from '../public/info.png';
 import Check from '../public/check.png';
 
@@ -12,17 +14,18 @@ interface ScheduleItemProps {
 const ScheduleItem = ({ title, date, description, save }: ScheduleItemProps) => {
     return (
         <div className="scheduleItem">
-            <div className="scheduleItemTime">
-                {date}
-            </div>
-            <div className="scheduleItemTitle">
-                {title}
-            </div>
-            <div className={description === "" ? "hidden" : "scheduleItemDescription"}>
-                |&nbsp;&nbsp;<em>{description}</em>
-            </div>
+            <p className="nowrap">{date}</p>
+            <h3 className="nowrap">{title}</h3>
+            {description === "" ? (
+                <div />
+            ) : (
+                <p className="scheduleItemDescription">
+                    |&nbsp;&nbsp;<i>{description}</i>
+                </p>
+            )}
+
             <div className="scheduleItemImageContainer">
-                {save ? (<img className="scheduleItemImage" src={Check.src} />) : (<div/>)}
+                {save ? (<img className="scheduleItemImage" src={Check.src} />) : (<div />)}
                 <img className="scheduleItemImage" src={Info.src} />
             </div>
         </div>

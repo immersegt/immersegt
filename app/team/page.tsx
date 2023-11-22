@@ -1,4 +1,5 @@
 'use client';
+
 import 'styles/index.css'
 
 const Team = () => {

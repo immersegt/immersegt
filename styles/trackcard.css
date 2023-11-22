@@ -1,6 +1,9 @@
 .trackCard {
     width: 400px;
     height: 210px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     border: 1px solid rgb(39, 0, 47);
     color: rgb(39, 0, 47);
     border-radius: 20px;
@@ -12,27 +15,8 @@
     margin-left: 20px;
     margin-right: 20px;
 }
-.trackCardActive {
-    width: 400px;
-    height: 210px;
-    border: 1px solid rgb(39, 0, 47);
-    border-radius: 20px;
-    padding: 30px;
-    text-align: left;
-    transition: 0.5s;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: rgb(39, 0, 47);
-    color: #EDD7FF;
-    scale: 110%;
-}
 
-.trackCardTitle {
-    font-size: 20px;
-    margin-bottom: 16px;
-}
-.trackCardContent {
-    font-size: 16px;
+.trackCard.active {
+    background-color: rgb(39, 0, 47);
+    scale: 110%;
 }

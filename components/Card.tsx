@@ -1,6 +1,9 @@
 'use client';
-import { Card, Text, Badge, Button, Group, CardSection, Textarea } from '@mantine/core';
+
 import '../styles/teamcard.css';
+import '../styles/index.css';
+
+import { Card, Text, Badge, Button, Group, CardSection, Textarea } from '@mantine/core';
 import { useState } from "react";
 
 interface cardProps {
@@ -33,7 +36,7 @@ const TeamCard = ({ name, description, members, joined, disabled }: cardProps) =
     <Card shadow="sm" padding="lg" radius="md" withBorder className={joined ? "cardStyle3" : "cardStyle2"}>
 
       <Group justify="space-between" mb="xs">
-        <Text fw={500} className={joined ? "titleStyle2" : "titleStyle"}><b>{name}</b></Text>
+        <h3 className={joined ? "highlight" : ""}><b>{name}</b></h3>
         {joined ? (
           <Badge color="orange" variant="light" size="lg">JOINED</Badge>
         ) : members.length === 6 ? (
@@ -57,7 +60,7 @@ const TeamCard = ({ name, description, members, joined, disabled }: cardProps) =
         </div>
       ) : (
         <div>
-          <Text size="sm" c="dimmed" className="descriptionStyle">{description}</Text>
+          <p className="small">{description}</p>
           <CardSection withBorder mt="sm" className="badgeHolder">
             <div className="nameStyle">
               {members.map((val) => (

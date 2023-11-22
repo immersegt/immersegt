@@ -1,3 +1,4 @@
+import '../styles/index.css';
 import '../styles/judgecard.css';
 
 interface judgeCardProps {
@@ -8,11 +9,11 @@ interface judgeCardProps {
 
 const JudgeCard = ({ name, company, image }: judgeCardProps) => {
     return (
-        <div className="judgeCard">
+        <section className="judgeCard">
             <img src={image} className="judgeCardImage"/>
-            <div className="judgeCardName"><b>{name}</b></div>
-            <div className="judgeCardCompany">{company}</div>
-        </div>
+            <h2><b>{name}</b></h2>
+            <p>{company}</p>
+        </section>
     )
 }
 

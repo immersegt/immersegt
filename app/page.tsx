@@ -1,5 +1,7 @@
 'use client';
+
 import '../styles/index.css'
+
 import Header from '../components/Header';
 import Sponsors from '../components/Sponsors';
 import Tracks from '../components/Tracks';
@@ -9,7 +11,7 @@ import FAQ from '../components/FAQ';
 
 const HomePage = () => {
   return (
-      <div>
+      <main>
         <Header/>
         <Sponsors/>
         <a id="tracks"/>
@@ -17,7 +19,7 @@ const HomePage = () => {
         <Judges/>
         <FAQ/>
         <Conclusion/>
-      </div>
+      </main>
   )
 }
 

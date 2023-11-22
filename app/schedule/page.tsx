@@ -1,6 +1,8 @@
 'use client';
+
 import 'styles/index.css'
 import 'styles/schedule.css';
+
 import ScheduleItem from 'components/ScheduleItem';
 import Countdown from 'react-countdown';
 import EventCard from 'components/EventCard';

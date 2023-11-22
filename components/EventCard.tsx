@@ -1,4 +1,6 @@
+import '../styles/index.css';
 import '../styles/eventcard.css';
+
 import {Card, Badge, Group, Button} from '@mantine/core';
 
 interface EventCardProps {
@@ -11,20 +13,14 @@ interface EventCardProps {
 
 const EventCard = ({title, time, location, description, soon} : EventCardProps) => {
     return (
-        <div>
+        <section>
             <Card shadow="sm" padding="lg" radius="md" withBorder className="eventCard">
                 <div className="eventCardHeader">
-                    <div className="eventTitle">
-                        <b>{title}</b>
-                    </div>
+                    <h3 className="eventTitle">{title}</h3>
                     {soon ? <Badge variant="light" color="orange">SOON</Badge> : <div/>}
                 </div>
-                <div className="eventCardSubheader">
-                    {time} | {location}
-                </div>
-                <div className="eventDescription">
-                    {description}
-                </div>
+                <p>{time} | {location}</p>
+                <p className="small">{description}</p>
                 <div className="buttonRowStyle">
               <Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle">
                 INTERESTED
@@ -34,7 +30,7 @@ const EventCard = ({title, time, location, description, soon} : EventCardProps) 
               </Button>
             </div>
             </Card>
-        </div>
+        </section>
     )
 }
 

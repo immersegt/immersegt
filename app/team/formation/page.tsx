@@ -108,7 +108,7 @@ const Formation = () => {
 
   return (
     <div className="formationContainer">
-      <div className="formationTools">
+      <aside className="formationTools">
         <ToolButton 
         title="Create a New Team"
         description="This could be the beginning of something great. Invite your friends or search for other participants."
@@ -118,17 +118,19 @@ const Formation = () => {
         description="Search for teams that match your applicant profile and are currently looking for members."
         image={Idea.src}/>
         <Filter/>
-      </div>
+      </aside>
+
       <div className="verticalRule"></div>
-      <div className="formationDisplay">
-        <div className="formationDisplayTitle"><em>367 Team(s) Found</em></div>
+
+      <main className="formationDisplay">
+        <span className="formationDisplayTitle"><i>367 Team(s) Found</i></span>
         <div className="formationHolder">
         {teams.map((val) => (
           <TeamCard name={val.name} description={val.description} members={val.members} joined={val.joined} disabled={false} />
         ))}
         </div>
         <Toolbar/>
-      </div>
+      </main>
     </div>
   )
 }

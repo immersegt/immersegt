@@ -11,21 +11,6 @@
     justify-content: space-between;
 }
 
-.eventTitle {
-    font-size: 18px;
-    color: rgb(200, 200, 200);
-}
-
-.eventCardSubheader {
-    font-size: 16px;
-    color: rgb(150, 150, 150);
-}
-
-.eventDescription {
-    font-size: 14px;
-    color: rgb(150, 150, 150);
-}
-
 .buttonRowStyle {
     display: flex;
     justify-content: space-between;

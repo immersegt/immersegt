@@ -1,7 +1,9 @@
 'use client';
 
-import { Container, Group, Anchor } from '@mantine/core';
+import '../styles/index.css';
 import '../styles/footer.css';
+
+import { Container, Group, Anchor } from '@mantine/core';
 
 const links = [
   { link: '/', label: 'About' },
@@ -24,12 +26,12 @@ const Footer = () => {
   ));
 
   return (
-    <div className="footer">
+    <footer className="footer">
       <Container className="inner">
-        <div className="title"><b>ImmerseGT</b></div>
+        <span className="title"><b>ImmerseGT</b></span>
         <Group className="links">{items}</Group>
       </Container>
-    </div>
+    </footer>
   );
 }
 

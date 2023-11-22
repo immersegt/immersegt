@@ -1,10 +1,11 @@
+import '../styles/index.css';
 import '../styles/filter.css';
 
 const Filter = () => {
     return (
-        <div className="filter">
-            <div className="filterTitle">Filter</div>
-        </div>
+        <section className="filter">
+            <h2>Filter</h2>
+        </section>
     )
 }
 

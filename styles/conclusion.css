@@ -1,11 +1,7 @@
-.ConclusionContainer {
+.ConclusionBanner {
     padding-left: 10vw;
     padding-right: 10vw;
-}
-
-.ConclusionBanner {
     width: 100%;
-    border-radius: 25px;
     background: #845EF7;
     background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
     display: flex;
@@ -13,14 +9,17 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 50px;
     padding-top: 70px;
     padding-bottom: 70px;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 .ConclusionTitle {
     font-size: 40px;
     color: rgb(255, 255, 255);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .ConclusionSubtitle {
@@ -32,7 +31,5 @@
 .ConclusionText {
     font-size: 18px;
     color: rgb(230, 230, 230);
-    padding-left: 7vw;
-    padding-right: 7vw;
     margin-bottom: 30px;
 }

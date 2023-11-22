@@ -29,13 +29,3 @@
     gap: 10px;
     max-width: 320px;
 }
-
-.toolButtonTitle {
-    font-size: 20px;
-    color: rgb(200, 200, 200);
-}
-
-.toolButtonDescription {
-    font-size: 14px;
-    color: rgb(200, 200, 200);
-}
