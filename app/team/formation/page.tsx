@@ -7,6 +7,7 @@ import TeamCard from 'components/Card';
 import 'styles/index.css'
 import 'styles/formation.css';
 import Plus from 'public/plus.png';
+import Idea from 'public/idea.png';
 import ToolButton from 'components/ToolButton';
 import Filter from 'components/Filter';
 import Toolbar from 'components/Toolbar';
@@ -115,7 +116,7 @@ const Formation = () => {
         <ToolButton 
         title="Recommend a Team"
         description="Search for teams that match your applicant profile and are currently looking for members."
-        image={Plus.src}/>
+        image={Idea.src}/>
         <Filter/>
       </div>
       <div className="verticalRule"></div>

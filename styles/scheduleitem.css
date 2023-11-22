@@ -1,0 +1,52 @@
+.scheduleItem {
+    background-color: rgb(26, 27, 30);
+    border: 1px solid rgb(55, 58, 64);
+    height: 60px;
+    display: flex;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+    align-items: center;
+}
+
+.scheduleItemTime {
+    font-size: 16px;
+    color: rgb(150, 150, 150);
+    white-space: nowrap;
+}
+
+.scheduleItemTitle {
+    font-size: 16px;
+    color: rgb(220, 220, 220);
+    white-space: nowrap;
+}
+
+.scheduleItemDescription {
+    font-size: 16px;
+    height: 20px;
+    color: rgb(150, 150, 150);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.scheduleItemImageContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.scheduleItemImage {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.scheduleItemImage:hover {
+    filter: brightness(1.1);
+}

@@ -16,11 +16,6 @@
     background-color: rgb(36, 37, 40);
 }
 
-.toolButtonImageHolder {
-    width: 80px;
-    height: 80px;
-}
-
 .toolButtonImage {
     border-radius: 50%;
     width: 80px;

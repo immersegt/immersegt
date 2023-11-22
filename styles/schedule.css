@@ -1,0 +1,7 @@
+.scheduleContainer {
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgb(100, 100, 100);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

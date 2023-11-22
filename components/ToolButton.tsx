@@ -10,9 +10,7 @@ interface ToolButtonProps {
 const ToolButton = ({ title, description, image }: ToolButtonProps) => {
     return (
         <UnstyledButton className="toolButton">
-            <div className="toolButtonImageHolder">
-                <img src={image} className="toolButtonImage" />
-            </div>
+            <img src={image} className="toolButtonImage" />
             <div className="toolButtonInfo">
                 <div className="toolButtonTitle">
                     {title}

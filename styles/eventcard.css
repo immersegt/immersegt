@@ -1,0 +1,37 @@
+.eventCard {
+    width: 400px;
+    background-color: rgb(26, 27, 30);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.eventCardHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.eventTitle {
+    font-size: 18px;
+    color: rgb(200, 200, 200);
+}
+
+.eventCardSubheader {
+    font-size: 16px;
+    color: rgb(150, 150, 150);
+}
+
+.eventDescription {
+    font-size: 14px;
+    color: rgb(150, 150, 150);
+}
+
+.buttonRowStyle {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.buttonStyle {
+    flex-grow: 1;
+}
