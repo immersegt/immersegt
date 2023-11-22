@@ -93,7 +93,7 @@ const Navbar = () => {
         <Group justify="space-between" h="100%">
           <div className="title"><b>ImmerseGT</b> Event Platform</div>
 
-          <Group h="100%" gap={0} visibleFrom="sm">
+          <Group h="100%" gap={0} visibleFrom="md">
             <a href="/" className="link">
               Home
             </a>
@@ -143,12 +143,12 @@ const Navbar = () => {
             </a>
           </Group>
 
-          <Group visibleFrom="sm">
+          <Group visibleFrom="md">
             <Button variant="default" component="a" href="/account">Log in</Button>
             <Button color="grape.6" component="a" href="/account">Sign up</Button>
           </Group>
 
-          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
+          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="md" />
         </Group>
       </header>
 
@@ -158,7 +158,7 @@ const Navbar = () => {
         size="100%"
         padding="md"
         title="Navigation"
-        hiddenFrom="sm"
+        hiddenFrom="md"
         zIndex={1000000}
       >
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">

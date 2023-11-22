@@ -21,6 +21,12 @@
     gap: 10px;
 }
 
+.scheduleItemButton {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+
 .scheduleItemImage {
     border-radius: 50%;
     width: 36px;

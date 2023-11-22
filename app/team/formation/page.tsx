@@ -120,7 +120,7 @@ const Formation = () => {
         <Filter/>
       </aside>
 
-      <div className="verticalRule"></div>
+      <div className="verticalRule"/>
 
       <main className="formationDisplay">
         <span className="formationDisplayTitle"><i>367 Team(s) Found</i></span>

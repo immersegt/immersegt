@@ -1,6 +1,8 @@
 import '../styles/index.css';
 import '../styles/scheduleitem.css';
 
+import { UnstyledButton } from '@mantine/core';
+
 import Info from '../public/info.png';
 import Check from '../public/check.png';
 
@@ -25,8 +27,8 @@ const ScheduleItem = ({ title, date, description, save }: ScheduleItemProps) => 
             )}
 
             <div className="scheduleItemImageContainer">
-                {save ? (<img className="scheduleItemImage" src={Check.src} />) : (<div />)}
-                <img className="scheduleItemImage" src={Info.src} />
+                {save ? (<UnstyledButton className="scheduleItemButton"><img className="scheduleItemImage" src={Check.src} /></UnstyledButton>) : (<div />)}
+                <UnstyledButton className="scheduleItemButton"><img className="scheduleItemImage" src={Info.src} /></UnstyledButton>
             </div>
         </div>
     )
