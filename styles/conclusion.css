@@ -1,6 +1,9 @@
-.ConclusionBanner {
+.ConclusionHolder {
     padding-left: 10vw;
     padding-right: 10vw;
+}
+
+.ConclusionBanner {
     width: 100%;
     background: #845EF7;
     background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
@@ -13,6 +16,7 @@
     padding-bottom: 70px;
     padding-left: 10vw;
     padding-right: 10vw;
+    border-radius: 50px;
 }
 
 .ConclusionTitle {
