@@ -5,16 +5,19 @@ import '../styles/index.css';
 
 import { Card, Text, Badge, Button, Group, CardSection, Textarea } from '@mantine/core';
 import { useState } from "react";
+import { FaStar } from "react-icons/fa";
 
 interface cardProps {
   name: string,
   description: string,
   members: Array<string>,
   joined: boolean,
-  disabled: boolean
+  disabled: boolean,
+  saved: boolean,
+  toggleSave: any
 }
 
-const TeamCard = ({ name, description, members, joined, disabled }: cardProps) => {
+const TeamCard = ({ name, description, members, joined, disabled, saved, toggleSave }: cardProps) => {
   const [editing, setEditing] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -35,17 +38,18 @@ const TeamCard = ({ name, description, members, joined, disabled }: cardProps) =
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder className={joined ? "cardStyle3" : "cardStyle2"}>
 
-      <Group justify="space-between" mb="xs">
+      <div className="titleStyle">
+      {saved ? <FaStar className="starStyle"/> : <span/>}
         <h3 className={joined ? "highlight" : ""}><b>{name}</b></h3>
         {joined ? (
-          <Badge color="orange" variant="light" size="lg">JOINED</Badge>
+          <Badge color="orange" variant="light" size="lg" className="badgeStyle">JOINED</Badge>
         ) : members.length === 6 ? (
-          <Badge color="red" variant="light" size="lg">CLOSED</Badge>
+          <Badge color="red" variant="light" size="lg" className="badgeStyle">CLOSED</Badge>
         ) : (
-          <Badge color="green" variant="light" size="lg">OPEN</Badge>
+          <Badge color="green" variant="light" size="lg" className="badgeStyle">OPEN</Badge>
         )}
 
-      </Group>
+      </div>
       {editing ? (
         <div>
           <Textarea placeholder="Attach a brief message to your join request..." radius="md" autosize minRows={4} maxRows={4} onChange={(event) => setMessage(event.currentTarget.value)}/>
@@ -84,7 +88,7 @@ const TeamCard = ({ name, description, members, joined, disabled }: cardProps) =
               <Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle" onClick={()=> {startEdit(disabled)}} disabled={members.length === 6}>
                 ASK TO TEAM
               </Button>
-              <Button variant="light" color="gray" mt="md" radius="md" className="buttonStyle" disabled={members.length === 6}>
+              <Button variant="light" color="gray" mt="md" radius="md" className="buttonStyle" disabled={members.length === 6} onClick={toggleSave}>
                 SAVE TEAM
               </Button>
             </Group>

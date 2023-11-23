@@ -13,98 +13,124 @@ import Filter from 'components/Filter';
 import Toolbar from 'components/Toolbar';
 
 const Formation = () => {
+  const [saved, setSaved] = useState([]);
   const [teams, setTeams] = useState([
     {
+      id: 1,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 2,
       name: "Team Name 2",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member", "Member 4", "Member 5", "Member 6"],
-      joined: false
+      joined: false,
     },
     {
+      id: 3,
       name: "Team Name 3",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: true
+      joined: true,
     },
     {
+      id: 4,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 5,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 6,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 7,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 8,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 9,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 10,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 11,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 12,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 13,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 14,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
     {
+      id: 15,
       name: "Team Name 1",
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false
+      joined: false,
     },
   ]);
+
+  const toggleSave = (id: number) => {
+    if (saved.includes(id)){
+      const updated = saved.filter(val => val != id);
+      setSaved(updated);
+    }else{
+      const updated = [...saved, id];
+      setSaved(updated);
+    }
+  }
 
   return (
     <div className="formationContainer">
@@ -126,7 +152,7 @@ const Formation = () => {
         <span className="formationDisplayTitle"><i>367 Team(s) Found</i></span>
         <div className="formationHolder">
         {teams.map((val) => (
-          <TeamCard name={val.name} description={val.description} members={val.members} joined={val.joined} disabled={false} />
+          <TeamCard name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={()=>{toggleSave(val.id)}} disabled={false} />
         ))}
         </div>
         <Toolbar/>

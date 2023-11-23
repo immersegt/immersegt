@@ -29,3 +29,18 @@
 .badgeHolder {
     background-color: rgb(16, 17, 20);
 }
+
+.starStyle {
+    color: rgb(251, 176, 59);
+    margin-right: 20px;
+}
+
+.titleStyle {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.badgeStyle {
+    margin-left: auto;
+}

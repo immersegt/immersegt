@@ -1,0 +1,53 @@
+.teamPage {
+    display: flex;
+}
+
+.teamMain {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.teamAside {
+    display: flex;
+    flex-direction: column;
+}
+
+.teamBox {
+    background-color: rgb(26, 27, 30);
+    border: 1px solid rgb(55, 58, 64);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.teamBox.info {
+
+}
+
+.teamBox.member {
+
+}
+
+.teamBox.links {
+
+}
+
+.teamBox.invite {
+
+}
+
+.teamBox.request {
+
+}
+
+.verticalRule3 {
+    border-left: 1px solid rgb(55, 58, 64);
+    height: 100px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+
+    @media only screen and (max-width: 1120px) {
+        visibility: hidden;
+        height: 0vh;
+    }
+}

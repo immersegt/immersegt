@@ -64,7 +64,8 @@ const mockCard = {
     name: "The Best Team",
     description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
     members: ["John Doe", "Barry Allen", "James Smith", "Savitar", "Henry Allen"],
-    joined: false
+    joined: false,
+    saved: false
 };
 
 const Tracks = () => {
@@ -104,7 +105,7 @@ const Tracks = () => {
                 <p className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</p>
                 <div className="teamHolder">
                     <div className="illustrationContainer"><img src={Illustration1.src} className="illustration" /></div>
-                    <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} disabled={true} /></div>
+                    <div className="mockTeamCard"><Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockCard.saved} disabled={true} /></div>
                     <div className="illustrationContainer"><img src={Illustration2.src} className="illustration" /></div>
                 </div>
                 
