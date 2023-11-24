@@ -85,6 +85,7 @@ const AuthenticationForm = (props: PaperProps) => {
               label="I accept terms and conditions"
               checked={form.values.terms}
               onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}
+              color="grape.5"
             />
           )}
         </Stack>
@@ -95,7 +96,7 @@ const AuthenticationForm = (props: PaperProps) => {
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
           </Anchor>
-          <Button type="submit" radius="xl">
+          <Button type="submit" radius="xl" color="grape.5">
             {upperFirst(type)}
           </Button>
         </Group>

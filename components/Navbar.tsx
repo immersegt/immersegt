@@ -73,7 +73,7 @@ const Navbar = () => {
       <UnstyledButton className="subLink" key={item.title} style={LinkStyle} component="a" href={item.link}>
         <Group wrap="nowrap" align="flex-start">
           <ThemeIcon size={34} variant="default" radius="md">
-            <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
+            <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.grape[5]} />
           </ThemeIcon>
           <div>
             <Text size="sm" fw={500} c="rgb(200, 200, 200)">
@@ -109,7 +109,7 @@ const Navbar = () => {
                     </Box>
                     <IconChevronDown
                       style={{ width: rem(16), height: rem(16) }}
-                      color={theme.colors.blue[6]}
+                      color={theme.colors.grape[5]}
                     />
                   </Center>
                 </a>
