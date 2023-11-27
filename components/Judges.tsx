@@ -138,7 +138,7 @@ const Judges = () => {
     }
 
     return (
-        <section className="judgesBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
+        <section className="judgesBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-offset="0px">
             <h2>Meet Our Judges</h2>
             <p className="judgeOverview">Practice your idea pitch in front of a variety of industry experts and innovators in the ImmerseGT
             judging round. Attend multiple event workshops to further learn from and network with experts as you gain hands-on experience in building XR technologies 

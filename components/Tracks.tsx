@@ -79,7 +79,7 @@ const Tracks = () => {
     const autoplay = useRef(Autoplay({ delay: 4000 }));
     return (
         <section className="tracksHeader">
-            <section className="trackSection" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
+            <section className="trackSection" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                 <h2 className="purple">1. Choose Your Track</h2>
                 <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes.</p>
                 <Carousel
@@ -106,7 +106,7 @@ const Tracks = () => {
 
             <Divider color="rgb(39, 0, 47)" />
 
-            <section className="trackSection" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
+            <section className="trackSection" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-offset="0px">
                 <h2 className="purple">2. Find Your Team</h2>
                 <p className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</p>
                 <div className="teamHolder">
@@ -119,7 +119,7 @@ const Tracks = () => {
 
             <Divider color="rgb(39, 0, 47)" />
 
-            <section className="trackSection" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
+            <section className="trackSection" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-offset="0px">
                 <h2 className="purple">3. Build Your Product</h2>
                 <p className="tracksDescription">We provide the headsets, you provide the code. Once you have chosen a track and team, work over the course of 36 hours to plan an idea, build a prototype, and come up with a presentation to show to the judges. </p>
                 <div className="teamHolder">

@@ -50,7 +50,7 @@ export function FAQ() {
     AOS.init();
   }, []);
   return (
-    <Container size="md" className="faqwrapper" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
+    <Container size="md" className="faqwrapper" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-offset="0px">
       <Divider my="sm" />
       <h2>Frequently Asked Questions</h2>
 

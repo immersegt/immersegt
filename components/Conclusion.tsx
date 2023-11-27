@@ -14,7 +14,7 @@ const Conclusion = () => {
       }, []);
     return (
         <section className="ConclusionHolder">
-            <div className="ConclusionBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true">
+            <div className="ConclusionBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true"  data-aos-offset="0px">
                 <h2 className="ConclusionTitle"><b>Don't miss out on ImmerseGT.</b></h2>
                 <span className="ConclusionSubtitle">April 23rd-25th @ Georgia Tech</span>
                 <p className="ConclusionText">Register for the ImmerseGT hackathon and prepare for three days of building XR projects,

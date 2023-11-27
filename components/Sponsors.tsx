@@ -28,7 +28,7 @@ const Sponsors = () => {
     }, []);
     return (
         <section className="sponsorsContainer">
-            <div className="sponsorsHeader" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
+            <div className="sponsorsHeader" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-offset="0px">
                 <h2>Meet Our Sponsors</h2>
                 <div className="sponsorsList">
                     {list.map((val, index) => (
