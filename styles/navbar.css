@@ -2,11 +2,28 @@
   font-size: 18px;
 }
 
+@keyframes slide-down2 {
+  0% {
+    transform: translateY(-1vw);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-1vw);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .header {
   height: rem(60px);
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
   border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  animation: 1.5s ease 0s 1 slide-down2;
 }
 
 .link {
@@ -38,6 +55,22 @@
   @mixin hover {
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
   }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-1vw);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.dropdown {
+  animation: 0.3s ease 0s 1 slide-down;
 }
 
 .dropdownFooter {

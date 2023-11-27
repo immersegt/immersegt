@@ -115,7 +115,7 @@ const Navbar = () => {
                 </a>
               </HoverCard.Target>
 
-              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
+              <HoverCard.Dropdown style={{ overflow: 'hidden' }} className="dropdown">
                 <Text fw={500}>Team Formation</Text>
                 <Divider my="sm" />
 

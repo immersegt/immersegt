@@ -3,6 +3,10 @@ import '../styles/faq.css';
 
 import { Container, Accordion, Divider } from '@mantine/core';
 
+import {useEffect} from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const faqQuestions = [
   {
     id: "1",
@@ -42,8 +46,11 @@ const faqQuestions = [
 ];
 
 export function FAQ() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <Container size="md" className="faqwrapper">
+    <Container size="md" className="faqwrapper" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
       <Divider my="sm" />
       <h2>Frequently Asked Questions</h2>
 

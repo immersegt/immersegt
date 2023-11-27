@@ -22,6 +22,10 @@ import Markus from '../public/markus.png';
 import Chloe from '../public/chloe.png';
 import Will from '../public/will.png';
 
+import {useEffect} from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const JudgeData = [
     {
         id: 1,
@@ -123,6 +127,10 @@ const JudgeData = [
 ];
 
 const Judges = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
+
     const [minimize, setMinimize] = useState(true);
 
     const toggleMinimize = () => {
@@ -130,7 +138,7 @@ const Judges = () => {
     }
 
     return (
-        <section className="judgesBanner">
+        <section className="judgesBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true" data-aos-offset="0">
             <h2>Meet Our Judges</h2>
             <p className="judgeOverview">Practice your idea pitch in front of a variety of industry experts and innovators in the ImmerseGT
             judging round. Attend multiple event workshops to further learn from and network with experts as you gain hands-on experience in building XR technologies 

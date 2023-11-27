@@ -4,11 +4,17 @@ import '../styles/conclusion.css';
 import { Button } from '@mantine/core';
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const Conclusion = () => {
-    return (
+import {useEffect} from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
+const Conclusion = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
+    return (
         <section className="ConclusionHolder">
-            <div className="ConclusionBanner">
+            <div className="ConclusionBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="top-center" data-aos-once="true">
                 <h2 className="ConclusionTitle"><b>Don't miss out on ImmerseGT.</b></h2>
                 <span className="ConclusionSubtitle">April 23rd-25th @ Georgia Tech</span>
                 <p className="ConclusionText">Register for the ImmerseGT hackathon and prepare for three days of building XR projects,

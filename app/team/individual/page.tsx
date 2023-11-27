@@ -1,6 +1,6 @@
 'use client';
 
-import '../styles/index.css';
+import 'styles/index.css';
 import 'styles/individual.css';
 
 const Individual = () => {

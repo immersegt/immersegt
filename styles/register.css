@@ -10,9 +10,9 @@
 
 .formBox {
     width: 100%;
-    padding: 50px;
+    padding-top: 50px;
     display: flex;
-    gap: 50px;
+    gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
     text-align: left;
@@ -21,11 +21,23 @@
 
 .formStepper {
     flex-grow: 1;
-    max-width: 300px;
+    max-width: 200px;
 }
 
 .formQuestions {
     flex-grow: 1;
     min-width: 250px;
-    max-width: 600px;
+    max-width: 500px;
+}
+
+.verticalRule4 {
+    border-left: 1px solid rgb(55, 58, 64);
+    height: 300px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+
+    @media only screen and (max-width: 630px) {
+        visibility: hidden;
+        height: 0vh;
+    }
 }
