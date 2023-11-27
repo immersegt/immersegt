@@ -142,10 +142,12 @@ const Judges = () => {
             <p className="judgeOverview">Practice your idea pitch in front of a variety of industry experts and innovators in the ImmerseGT
             judging round. Attend multiple event workshops to further learn from and network with experts as you gain hands-on experience in building XR technologies 
             from scratch and listen to people from all throughout the 404.</p>
-            <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}  data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
+            <div data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
+            <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}>
                 {JudgeData.map((val) => (
                     <JudgeCard name={val.name} company={val.company} image={val.image}/>
                 ))}
+            </div>
             </div>
             <Button color="#CC5DE8" size="md" radius="md" onClick={toggleMinimize}>
                 {minimize ? "EXPAND LIST" : "COLLAPSE LIST"}

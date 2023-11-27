@@ -1,5 +1,7 @@
 .title {
   font-size: 18px;
+  color: rgb(255, 255, 255);
+  text-decoration-line: none;
 }
 
 @keyframes slide-down2 {

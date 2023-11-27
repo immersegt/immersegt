@@ -91,7 +91,7 @@ const Navbar = () => {
     <Box>
       <header className="header">
         <Group justify="space-between" h="100%">
-          <div className="title"><b>ImmerseGT</b> Event Platform</div>
+          <a className="title" href="/"><b>ImmerseGT</b> Event Platform</a>
 
           <Group h="100%" gap={0} visibleFrom="md">
             <a href="/" className="link">
