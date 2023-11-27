@@ -17,9 +17,9 @@ const Formation = () => {
   const [teams, setTeams] = useState([
     {
       id: 1,
-      name: "Team Name 1",
-      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
-      members: ["Member 1", "Team Member 2", "Another Member"],
+      name: "Obnoxiously long team name goes right here that will take up multiple lines",
+      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team. Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
+      members: ["Member 1", "Team Member 2", "Another Member", "Super long member"],
       joined: false,
     },
     {
@@ -138,7 +138,9 @@ const Formation = () => {
         <ToolButton 
         title="Create a New Team"
         description="This could be the beginning of something great. Invite your friends or search for other participants."
-        image={Plus.src}/>
+        image={Plus.src}
+        href="/create"
+        />
         <ToolButton 
         title="Recommend a Team"
         description="Search for teams that match your applicant profile and are currently looking for members."

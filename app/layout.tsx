@@ -1,6 +1,8 @@
 import "@mantine/core/styles.css";
 import React from "react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
+import '@mantine/notifications/styles.css';
+import { Notifications } from '@mantine/notifications';
 import { theme } from "../theme";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -35,6 +37,7 @@ export default function RootLayout({ children }: { children: any }) {
           <Navbar/>
           <div style={contentStyle}>{children}</div>
           <Footer/>
+          <Notifications />
           </MantineProvider>
       </body>
     </html>

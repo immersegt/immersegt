@@ -1,5 +1,5 @@
 import '../styles/index.css';
-import '../styles/home.css';
+import '../styles/header.css';
 
 import GogglesImg from '../public/goggles.png';
 import {Button} from '@mantine/core';

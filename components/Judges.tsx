@@ -5,6 +5,10 @@ import {Button} from '@mantine/core';
 import {useState} from 'react';
 import JudgeCard from '../components/JudgeCard';
 
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Robert from '../public/robert.png';
 import Matt from '../public/matt.png';
 import JP from '../public/jp.png';
@@ -21,10 +25,6 @@ import Jeasy from '../public/jeasy.png';
 import Markus from '../public/markus.png';
 import Chloe from '../public/chloe.png';
 import Will from '../public/will.png';
-
-import {useEffect} from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const JudgeData = [
     {
@@ -129,8 +129,7 @@ const JudgeData = [
 const Judges = () => {
     useEffect(() => {
         AOS.init();
-      }, []);
-
+    }, []);
     const [minimize, setMinimize] = useState(true);
 
     const toggleMinimize = () => {
@@ -138,12 +137,12 @@ const Judges = () => {
     }
 
     return (
-        <section className="judgesBanner" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-offset="0px">
+        <section className="judgesBanner">
             <h2>Meet Our Judges</h2>
             <p className="judgeOverview">Practice your idea pitch in front of a variety of industry experts and innovators in the ImmerseGT
             judging round. Attend multiple event workshops to further learn from and network with experts as you gain hands-on experience in building XR technologies 
             from scratch and listen to people from all throughout the 404.</p>
-            <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}>
+            <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}  data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                 {JudgeData.map((val) => (
                     <JudgeCard name={val.name} company={val.company} image={val.image}/>
                 ))}

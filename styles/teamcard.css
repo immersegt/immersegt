@@ -1,14 +1,15 @@
-.cardStyle2 {
+.cardStyle {
     width: 400px;
     background-color: rgb(26, 27, 30);
     text-align: left;
+    border: 1px solid rgb(54, 58, 64);
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.2s;
 }
 
-.cardStyle3 {
-    width: 400px;
-    background-color: rgb(26, 27, 30);
+.cardStyle.gold {
     border: 1px solid rgb(251, 176, 59);
-    text-align: left;
 }
 
 .buttonRowStyle {
@@ -19,11 +20,33 @@
     flex-grow: 1;
 }
 
+.buttonStyle.row {
+    width: 45%;
+}
+
 .nameStyle {
-    margin: 10px;
+    background-color: rgb(16, 17,20);
+    border-top: 1px solid rgb(54, 58, 64);
+    border-bottom: 1px solid rgb(54, 58, 64);
+    margin-top: 10px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.nameStyle::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.nameBadge {
+    overflow: visible;
+    width: auto;
+    white-space: nowrap;
 }
 
 .badgeHolder {
@@ -33,6 +56,7 @@
 .starStyle {
     color: rgb(251, 176, 59);
     margin-right: 20px;
+    min-width: 18px;
 }
 
 .titleStyle {
@@ -43,4 +67,27 @@
 
 .badgeStyle {
     margin-left: auto;
+    overflow: visible;
+    width: auto;
+    white-space: nowrap;
+}
+
+.cardTitle {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.cardDescription {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.memberList {
+    margin-top: 0;
 }

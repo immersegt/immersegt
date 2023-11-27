@@ -6,12 +6,13 @@ import { UnstyledButton } from '@mantine/core';
 interface ToolButtonProps {
     title: string,
     description: string,
-    image: any
+    image: any,
+    href: string
 }
 
-const ToolButton = ({ title, description, image }: ToolButtonProps) => {
+const ToolButton = ({ title, description, image, href }: ToolButtonProps) => {
     return (
-        <UnstyledButton className="toolButton">
+        <UnstyledButton className="toolButton" component={href===undefined ? "button" : "a"} href={href}>
             <img src={image} className="toolButtonImage" />
             <div className="toolButtonInfo">
                 <h3>{title}</h3>

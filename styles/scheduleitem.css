@@ -34,6 +34,10 @@
     object-fit: contain;
 }
 
-.scheduleItemImage:hover {
-    filter: brightness(1.1);
+.dark:hover {
+    filter: brightness(0.85);
+}
+
+.light:hover {
+    filter: brightness(1.15);
 }

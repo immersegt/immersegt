@@ -11,7 +11,7 @@ const JudgeCard = ({ name, company, image }: judgeCardProps) => {
     return (
         <section className="judgeCard">
             <img src={image} className="judgeCardImage"/>
-            <h2><b>{name}</b></h2>
+            <h2 className="nameColor"><b>{name}</b></h2>
             <p>{company}</p>
         </section>
     )
