@@ -11,3 +11,17 @@ Our platform allows participants to create an account, register for the hackatho
 - Typescript
 - HTML
 - CSS
+
+## How to Use
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
