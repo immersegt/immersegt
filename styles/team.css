@@ -4,12 +4,14 @@
 
 .teamMain {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .teamAside {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .teamBox {
@@ -21,11 +23,11 @@
 }
 
 .teamBox.info {
-
+    width: 700px;
 }
 
 .teamBox.member {
-
+    width: 500px;
 }
 
 .teamBox.links {
@@ -33,11 +35,11 @@
 }
 
 .teamBox.invite {
-
+    width: 500px;
 }
 
 .teamBox.request {
-
+    width: 500px;
 }
 
 .verticalRule3 {
@@ -50,4 +52,36 @@
         visibility: hidden;
         height: 0vh;
     }
+}
+
+.requestHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+.nameHolder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.buttonGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.joinButton {
+    background-color: rgb(26, 27, 30);
+    width: 25%;
+}
+
+.joinButton.selected {
+    background-color: rgb(55, 58, 64);
 }
