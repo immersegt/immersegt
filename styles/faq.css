@@ -1,8 +1,70 @@
 .faqwrapper {
     min-height: rem(650px);
     padding-bottom: 50px;
-    padding-top: 30px;
+    padding-top: 65px;
     text-align: center;
+    display: flex;
+    width: 100%;
+    gap: 8vw;
+    align-items: flex-start;
+    justify-content: center;
+
+    @media only screen and (min-width: 800px) {
+        padding-left: 14vw;
+        padding-right: 14vw;
+    }
+
+    @media only screen and (max-width: 800px) {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.faqInfo {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 800px) {
+        max-width: 35%;
+        text-align: left;
+        align-items: flex-start;
+        border-left: 5px solid #CC5DE8;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+.faqTitle {
+    font-size: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: rgb(230, 230, 230);
+}
+
+.faqSubtitle {
+    color: rgb(130, 130, 130);
+    font-size: 24px;
+}
+
+.questions {
+    flex-grow: 1;
+
+    @media only screen and (min-width: 800px) {
+        max-width: 55%;
+        min-width: 300px;
+    }
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    }
 }
 
 .faqitem {

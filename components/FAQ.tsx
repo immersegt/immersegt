@@ -1,7 +1,11 @@
 import '../styles/index.css';
 import '../styles/faq.css';
 
-import { Container, Accordion, Divider } from '@mantine/core';
+import { Accordion } from '@mantine/core';
+
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const faqQuestions = [
   {
@@ -42,19 +46,26 @@ const faqQuestions = [
 ];
 
 export function FAQ() {
+  useEffect(() => {
+    AOS.init();
+}, []);
   return (
-    <Container size="md" className="faqwrapper">
-      <h2>Frequently Asked Questions</h2>
-
-      <Accordion variant="separated">
-        {faqQuestions.map((val) => (
-          <Accordion.Item className="faqitem" value={val.id}>
-            <Accordion.Control>{val.question}</Accordion.Control>
-            <Accordion.Panel>{val.content}</Accordion.Panel>
-          </Accordion.Item>
-        ))}
-      </Accordion>
-    </Container>
+    <div className="faqwrapper">
+      <div className="faqInfo">
+        <h2 className="faqTitle">FAQ</h2>
+        <p className="faqSubtitle">Still have some questions?<br/>Feel free to <a href="/">get in touch</a> with us.</p>
+      </div>
+      <div className="questions" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
+        <Accordion variant="separated">
+          {faqQuestions.map((val) => (
+            <Accordion.Item className="faqitem" value={val.id}>
+              <Accordion.Control>{val.question}</Accordion.Control>
+              <Accordion.Panel>{val.content}</Accordion.Panel>
+            </Accordion.Item>
+          ))}
+        </Accordion>
+      </div>
+    </div>
   );
 }
 
