@@ -51,13 +51,13 @@ const Sell = () => {
 
     const theme = useMantineTheme();
     const features = mockdata.map((feature) => (
-        <Card key={feature.title} shadow="md" radius="md" className="card" padding="xl" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-delay={feature.delay}>
+        <Card key={feature.title} shadow="md" radius="md" className="sellCard" padding="xl" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true" data-aos-delay={feature.delay}>
             <feature.icon
                 style={{ width: rem(50), height: rem(50) }}
                 stroke={2}
                 color={theme.colors.grape[5]}
             />
-            <Text fz="lg" fw={500} className="cardTitle" mt="md">
+            <Text fz="lg" fw={500} className="sellCardTitle" mt="md">
                 {feature.title}
             </Text>
             <Text fz="sm" c="dimmed" mt="sm">

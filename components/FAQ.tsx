@@ -44,7 +44,6 @@ const faqQuestions = [
 export function FAQ() {
   return (
     <Container size="md" className="faqwrapper">
-      <Divider my="sm" />
       <h2>Frequently Asked Questions</h2>
 
       <Accordion variant="separated">

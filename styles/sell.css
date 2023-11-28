@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.description {
+.sellDescription {
   max-width: rem(600px);
   margin: auto;
 
@@ -24,12 +24,12 @@
   }
 }
 
-.card {
+.sellCard {
   border: rem(1px) solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
   text-align: left;
 }
 
-.cardTitle {
+.sellCardTitle {
   &::after {
     content: '';
     display: block;
