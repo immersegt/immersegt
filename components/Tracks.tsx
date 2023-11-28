@@ -92,7 +92,6 @@ const Tracks = () => {
                     withIndicators
                     onSlideChange={(slide) => {
                         setActive(slide);
-                        console.log(slide);
                     }}
                     plugins={[autoplay.current as any]}
                     onMouseEnter={autoplay.current.stop}
