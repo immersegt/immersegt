@@ -6,9 +6,12 @@ import { Notifications } from '@mantine/notifications';
 import { theme } from "../theme";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import '../styles/index.css'
+import '../styles/index.css';
 
-export const metadata = {
+import { Metadata } from 'next';
+import Redux from './redux';
+
+export const metadata: Metadata = {
   title: "ImmerseGT Event Platform",
   description: "Participate in the 2024 XR Hackathon",
 };
@@ -33,12 +36,14 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body style={bodyStyle}>
-        <MantineProvider theme={theme} forceColorScheme="dark">
-          <Navbar/>
-          <div style={contentStyle}>{children}</div>
-          <Footer/>
-          <Notifications />
-          </MantineProvider>
+          <Redux>
+            <MantineProvider theme={theme} forceColorScheme="dark">
+              <Navbar />
+              <div style={contentStyle}>{children}</div>
+              <Footer />
+              <Notifications />
+            </MantineProvider>
+          </Redux>
       </body>
     </html>
   );

@@ -7,7 +7,16 @@ import { useState } from 'react';
 import { Stepper, Button, Group, TextInput, PasswordInput, Code } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { setName } from 'features/userSlice';
+
 const Register = () => {
+
+    const user = useAppSelector((state) => state.user);
+    const dispatch = useAppDispatch();
+
+    console.log(user);
+
     const [active, setActive] = useState(0);
 
     const form = useForm({

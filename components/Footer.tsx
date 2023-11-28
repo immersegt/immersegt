@@ -3,7 +3,8 @@
 import '../styles/index.css';
 import '../styles/footer.css';
 
-import { Container, Group, Anchor } from '@mantine/core';
+import { Container, Group } from '@mantine/core';
+import Link from 'next/link';
 
 const links = [
   { link: '/', label: 'About' },
@@ -15,14 +16,13 @@ const links = [
 
 const Footer = () => {
   const items = links.map((link) => (
-    <Anchor<'a'>
-      c="dimmed"
+    <Link
       key={link.label}
       href={link.link}
-      size="sm"
+      className="footerLink noLine"
     >
       {link.label}
-    </Anchor>
+    </Link>
   ));
 
   return (

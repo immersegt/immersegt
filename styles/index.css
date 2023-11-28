@@ -62,3 +62,7 @@ p.small {
 .hidden {
   visibility: hidden;
 }
+
+.noLine {
+  text-decoration-line: none;
+}

@@ -33,6 +33,8 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 
+import Link from 'next/link';
+
 const mockdata = [
   {
     icon: IconCode,
@@ -70,39 +72,39 @@ const Navbar = () => {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item) => (
-      <UnstyledButton className="subLink" key={item.title} style={LinkStyle} component="a" href={item.link}>
-        <Group wrap="nowrap" align="flex-start">
-          <ThemeIcon size={34} variant="default" radius="md">
-            <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.grape[5]} />
-          </ThemeIcon>
-          <div>
-            <Text size="sm" fw={500} c="rgb(200, 200, 200)">
-              {item.title}
-            </Text>
-            <Text size="xs" c="dimmed">
-              {item.description}
-            </Text>
-          </div>
-        </Group>
-      </UnstyledButton>
+    <Link href={item.link}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
+      <Group wrap="nowrap" align="flex-start">
+        <ThemeIcon size={34} variant="default" radius="md">
+          <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.grape[5]} />
+        </ThemeIcon>
+        <div>
+          <Text size="sm" fw={500} c="rgb(200, 200, 200)">
+            {item.title}
+          </Text>
+          <Text size="xs" c="dimmed">
+            {item.description}
+          </Text>
+        </div>
+      </Group>
+    </UnstyledButton></Link>
   ));
 
   return (
     <Box>
-      <header className="header">
+      <header id="header" className="header">
         <Group justify="space-between" h="100%">
-          <a className="title" href="/"><b>ImmerseGT</b> Event Platform</a>
+          <Link className="title noLine" href="/"><b>ImmerseGT</b> Event Platform</Link>
 
           <Group h="100%" gap={0} visibleFrom="md">
-            <a href="/" className="link">
+            <Link href="/" className="link">
               Home
-            </a>
-            <a href="/register" className="link">
+            </Link>
+            <Link href="/register" className="link">
               Register
-            </a>
+            </Link>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
-                <a href="/team" className="link">
+                <Link href="/team" className="link">
                   <Center inline>
                     <Box component="span" mr={5}>
                       Team
@@ -112,7 +114,7 @@ const Navbar = () => {
                       color={theme.colors.grape[5]}
                     />
                   </Center>
-                </a>
+                </Link>
               </HoverCard.Target>
 
               <HoverCard.Dropdown style={{ overflow: 'hidden' }} className="dropdown">
@@ -138,14 +140,14 @@ const Navbar = () => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="/schedule" className="link">
+            <Link href="/schedule" className="link">
               Schedule
-            </a>
+            </Link>
           </Group>
 
           <Group visibleFrom="md">
-            <Button variant="default" component="a" href="/account">Log in</Button>
-            <Button color="grape.6" component="a" href="/account">Sign up</Button>
+            <Link href="/account"><Button variant="default">Log in</Button></Link>
+            <Link href="/account"><Button color="grape.6">Sign up</Button></Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="md" />
@@ -164,12 +166,12 @@ const Navbar = () => {
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
-          <a href="/" className="link">
+          <Link href="/" className="link">
             Home
-          </a>
-          <a href="/register" className="link">
+          </Link>
+          <Link href="/register" className="link">
             Register
-          </a>
+          </Link>
           <UnstyledButton className="link" onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
@@ -182,15 +184,15 @@ const Navbar = () => {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="/schedule" className="link">
+          <Link href="/schedule" className="link">
             Schedule
-          </a>
+          </Link>
 
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
-            <Button variant="default" component="a" href="/account">Log in</Button>
-            <Button color="grape.6" component="a" href="/account">Sign up</Button>
+            <Link href="/account"><Button variant="default">Log in</Button></Link>
+            <Link href="/account"><Button color="grape.6">Sign up</Button></Link>
           </Group>
         </ScrollArea>
       </Drawer>

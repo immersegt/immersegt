@@ -8,6 +8,8 @@ import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications'
 import { useState } from "react";
 
+import Link from 'next/link';
+
 import { FaStar } from "react-icons/fa";
 
 interface cardProps {
@@ -122,9 +124,9 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
             </div>
             {joined ? (
               <>
-                <Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle" component="a" href="/team" fullWidth>
+                <Link href="/team" className="noLine"><Button variant="light" color="grape" mt="md" radius="md" className="buttonStyle" fullWidth>
                   EDIT TEAM
-                </Button>
+                </Button></Link>
                 <Button variant="light" color="red" mt="md" radius="md" className="buttonStyle" fullWidth onClick={openLeave}>
                   LEAVE TEAM
                 </Button>

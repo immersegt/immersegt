@@ -24,3 +24,8 @@
     margin-top: var(--mantine-spacing-md);
   }
 }
+
+.footerLink {
+  color: rgb(144, 146, 150);
+  font-size: 14px;
+}

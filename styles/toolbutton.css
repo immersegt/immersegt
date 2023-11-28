@@ -28,4 +28,5 @@
     flex-direction: column;
     gap: 10px;
     max-width: 320px;
+    text-decoration-line: none;
 }
