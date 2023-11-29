@@ -144,8 +144,8 @@ const Judges = () => {
             from scratch and listen to people from all throughout the 404.</p>
             <div data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
             <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}>
-                {JudgeData.map((val) => (
-                    <JudgeCard name={val.name} company={val.company} image={val.image}/>
+                {JudgeData.map((val, ind) => (
+                    <JudgeCard key={ind} name={val.name} company={val.company} image={val.image}/>
                 ))}
             </div>
             </div>

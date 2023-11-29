@@ -71,8 +71,8 @@ const Navbar = () => {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
 
-  const links = mockdata.map((item) => (
-    <Link href={item.link}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
+  const links = mockdata.map((item, ind) => (
+    <Link href={item.link} key={ind}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.grape[5]} />

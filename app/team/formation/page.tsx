@@ -154,7 +154,7 @@ const Formation = () => {
         <span className="formationDisplayTitle"><i>367 Team(s) Found</i></span>
         <div className="formationHolder">
         {teams.map((val) => (
-          <TeamCard name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={()=>{toggleSave(val.id)}} disabled={false} />
+          <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={()=>{toggleSave(val.id)}} disabled={false} />
         ))}
         </div>
         <Toolbar/>

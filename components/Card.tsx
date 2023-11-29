@@ -115,8 +115,8 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
             <p className="small cardDescription">{description}</p>
             <div className="badgeHolder">
               <div className="nameStyle">
-                {members.map((val) => (
-                  <Badge color="gray" variant="light" className="nameBadge">
+                {members.map((val, ind) => (
+                  <Badge key={ind} color="gray" variant="light" className="nameBadge">
                     {val}
                   </Badge>
                 ))}
@@ -155,8 +155,8 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
         <br />
         <h3>Members:</h3>
         <ul className="memberList">
-          {members.map((val) => (
-            <li>{val}</li>
+          {members.map((val, ind) => (
+            <li key={ind}>{val}</li>
           ))}
         </ul>
         <h3>Description:</h3>

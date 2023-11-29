@@ -9,6 +9,16 @@ import Logo from 'public/logo.png';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { setName } from 'features/userSlice';
 
+const listItems = [
+    "Register to participate in ImmerseGT 2024",
+    "Create a team and invite your teammates",
+    "Look for an existing team to join",
+    "Search for and connect with event participants",
+    "Stay up-to-date with the hackathon schedule",
+    "Sign up for workshops and other events",
+    "And more!"
+];
+
 const Account = () => {
 
     const user = useAppSelector((state) => state.user);
@@ -20,24 +30,20 @@ const Account = () => {
 
     return (
         <main className="accountHolder">
-                <section className="infoSection">
-                    <img className="accountImage" src={Logo.src}/>
-                    <h2 className="accountHeader"><b>REGISTER FOR OUR <span className="bright-purple">EVENT PLATFORM</span></b></h2>
-                    <p className="accountSubheader"><i>everything you need to participate in ImmerseGT</i></p>
-                    <ul className="accountList">
-                        <li className="accountListItem">Register to participate in ImmerseGT 2024</li>
-                        <li className="accountListItem">Create a team and invite your teammates</li>
-                        <li className="accountListItem">Look for an existing team to join</li>
-                        <li className="accountListItem">Search for and connect with event participants</li>
-                        <li className="accountListItem">Stay up-to-date with the hackathon schedule</li>
-                        <li className="accountListItem">Sign up for workshops and other events</li>
-                        <li className="accountListItem">And more!</li>
-                    </ul>
-                </section>
-                <div className="verticalRule2"/>
-                <section className="accountSection">
-                    <AuthenticationForm/>
-                </section>
+            <section className="infoSection">
+                <img className="accountImage" src={Logo.src} />
+                <h2 className="accountHeader"><b>REGISTER FOR OUR <span className="bright-purple">EVENT PLATFORM</span></b></h2>
+                <p className="accountSubheader"><i>everything you need to participate in ImmerseGT</i></p>
+                <ul className="accountList">
+                    {listItems.map((val, ind) => (
+                        <li className="accountListItem" key={ind}>{val}</li>
+                    ))}
+                </ul>
+            </section>
+            <div className="verticalRule2" />
+            <section className="accountSection">
+                <AuthenticationForm />
+            </section>
         </main>
     )
 }

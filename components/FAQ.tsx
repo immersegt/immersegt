@@ -58,7 +58,7 @@ export function FAQ() {
       <div className="questions" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
         <Accordion variant="separated">
           {faqQuestions.map((val) => (
-            <Accordion.Item className="faqitem" value={val.id}>
+            <Accordion.Item className="faqitem" value={val.id} key={val.id}>
               <Accordion.Control>{val.question}</Accordion.Control>
               <Accordion.Panel>{val.content}</Accordion.Panel>
             </Accordion.Item>
