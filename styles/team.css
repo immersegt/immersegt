@@ -1,5 +1,6 @@
 .teamPage {
     display: flex;
+    justify-content: center;
 }
 
 .teamMain {
@@ -23,15 +24,48 @@
 }
 
 .teamBox.info {
-    width: 700px;
+    width: 750px;
+}
+
+.infoHeader {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoContainer {
+    background-color: rgb(26, 27, 30);
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid rgb(55, 58, 64);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.infoButtonGroup {
+    display: flex;
+    gap: 15px;
+}
+
+.importantText {
+    color: rgb(230, 230, 230);
+    font-size: 16px;
 }
 
 .teamBox.member {
     width: 500px;
 }
 
-.teamBox.links {
+.teamBox.declaration {
+    width: 750px;
+}
 
+.teamBox.submit {
+    width: 750px;
 }
 
 .teamBox.invite {
@@ -51,7 +85,7 @@
 
 .verticalRule3 {
     border-left: 1px solid rgb(55, 58, 64);
-    height: 100px;
+    height: 1325px;
     margin-left: 2vw;
     margin-right: 2vw;
 
@@ -82,6 +116,10 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.confirmButtonStyle {
+    flex-grow: 1;
 }
 
 .joinButton {
