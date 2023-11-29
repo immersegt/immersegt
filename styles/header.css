@@ -6,6 +6,10 @@
   display: flex;
   overflow: hidden;
   padding-bottom: 4vh;
+  background-color:rgb(9, 9, 11);
+background-image:
+radial-gradient(at 40% 60%, rgb(29, 3, 35) 0px, transparent 50%),
+radial-gradient(at 65% 40%, rgb(35, 0, 20) 0px, transparent 50%);
 }
 
 @keyframes slide-right {
@@ -67,7 +71,7 @@
 .homeDescription {
   font-size: 18px;
   margin-bottom: 20px;
-  color: rgb(230, 230, 230);
+  color: rgb(170, 173, 177);
 }
 
 .homeTitleEmphasis {

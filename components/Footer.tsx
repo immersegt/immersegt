@@ -10,10 +10,10 @@ const data = [
   {
     title: 'Overview',
     links: [
-      { label: 'Sponsors', link: '#sponsors' },
-      { label: 'About', link: '#tracks' },
-      { label: 'Judges', link: '#judges' },
-      { label: 'FAQ', link: '#faq' },
+      { label: 'Sponsors', link: '/#sponsors' },
+      { label: 'About', link: '/#tracks' },
+      { label: 'Judges', link: '/#judges' },
+      { label: 'FAQ', link: '/#faq' },
     ],
   },
   {
@@ -28,10 +28,10 @@ const data = [
   {
     title: 'Resources',
     links: [
-      { label: 'Code of Conduct', link: '#' },
-      { label: 'Devpost Page', link: '#' },
-      { label: 'Discord Community', link: '#' },
-      { label: 'Contact Us', link: '#' },
+      { label: 'Code of Conduct', link: 'https://startup-exchange.notion.site/ImmerseGT-2023-Rules-and-Code-of-Conduct-8b2a39e221174501816180bc5da806b7' },
+      { label: 'Devpost Page', link: 'https://immersegt.devpost.com/' },
+      { label: 'Discord Community', link: 'https://discord.com/' },
+      { label: 'Contact Us', link: 'mailto:hello@immersegt.io' },
     ],
   },
 ];
@@ -43,6 +43,7 @@ const Footer = () => {
         key={index}
         className="footerLink"
         href={link.link}
+        target="_blank" rel="noopener noreferrer"
       >
         {link.label}
       </Link>

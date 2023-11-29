@@ -14,6 +14,7 @@ const HomePage = () => {
   return (
       <main>
         <Header/>
+        <a id="sponsors"/>
         <Sponsors/>
         <a id="tracks"/>
         <Tracks/>
