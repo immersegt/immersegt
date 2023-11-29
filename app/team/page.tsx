@@ -127,6 +127,7 @@ const Team = () => {
             message: 'You are no longer a member of ' + teamData.name,
             color: 'red'
         });
+        setFoundTeam(false);
         closeLeave();
     }
 
