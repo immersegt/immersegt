@@ -66,3 +66,9 @@
     white-space: nowrap;
     width: 100%;
 }
+
+.availableBadge {
+    overflow: visible;
+    width: auto;
+    white-space: nowrap;
+}

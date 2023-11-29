@@ -36,6 +36,13 @@
 
 .teamBox.invite {
     width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .teamBox.request {

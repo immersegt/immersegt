@@ -6,6 +6,8 @@ Our platform allows participants to create an account, register for the hackatho
 ## Technologies Used
 
 - Mantine
+- React Redux
+- Redux Toolkit
 - Next.js
 - React
 - Typescript
@@ -13,6 +15,12 @@ Our platform allows participants to create an account, register for the hackatho
 - CSS
 
 ## How to Use
+
+### Clone project
+
+```bash
+git clone https://github.com/AlexT101/ImmerseGT-Event-Platform
+```
 
 ### Install dependencies
 

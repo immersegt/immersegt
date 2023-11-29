@@ -7,6 +7,7 @@ import { Button, Pagination } from '@mantine/core';
 
 import TeamMember from 'components/TeamMember';
 import BlankMember from 'components/BlankMember';
+import SearchBox from 'components/SearchBox';
 
 import { useState } from 'react';
 
@@ -75,6 +76,23 @@ const Team = () => {
         },
     ]);
 
+    const invites = [
+        {
+            name: "Name Here that is really long and might overflow",
+            available: true
+        },
+        {
+            name: "Another name",
+            available: false
+        },
+        {
+            name: "Yet Another name",
+            available: true
+        },
+    ]
+
+    const [searchFilter, setSearchFilter] = useState(""); //Update later to use useForm
+
     const [joinFilter, setJoinFilter] = useState("all");
 
     function joinActive() {
@@ -103,6 +121,16 @@ const Team = () => {
             <aside className="teamAside">
                 <section className="teamBox invite">
                     <h3>Invite Teammates</h3>
+                    <SearchBox className="searchBox"/>
+                    {invites.length === 0 ? searchFilter === "" ? (
+                        <p><i>Starting typing to see participants</i></p>
+                    ) : (
+                        <p><i>No participants found</i></p>
+                    )
+                     : invites.map((val, ind) => (
+                        <TeamMember key={ind} name={val.name} member={false} displayAvailable={true} available={val.available} />
+                    ))}
+                    
                 </section>
 
                 <section className="teamBox member">

@@ -4,16 +4,14 @@ import 'styles/index.css'
 import 'styles/schedule.css';
 
 import ScheduleItem from 'components/ScheduleItem';
-import Countdown from 'react-countdown';
 import EventCard from 'components/EventCard';
-
-const endDate = new Date(2023, 11, 27, 10);
+import Countdown from 'components/Countdown';
 
 const Schedule = () => {
     return (
         <section>
             Schedule Page
-            <div><Countdown date={endDate} /></div>
+            <Countdown days={5} hours={21} minutes={13} seconds={52} past={false}/>
             <div className="scheduleContainer">
                 <ScheduleItem title="Opening Ceremony" time="5:00PM" description="Join us for an interactive and engaging
                 workshop with industry professionals where we will" save={true} location="KLAUS 1234" />

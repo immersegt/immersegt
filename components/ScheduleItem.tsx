@@ -48,7 +48,7 @@ const ScheduleItem = ({ title, time, location, description, save, longDescriptio
                     </UnstyledButton>
                 </div>
             </div>
-            <Modal opened={opened} onClose={close} title={title} onClick={interested}>
+            <Modal opened={opened} onClose={close} title={title}>
                 <p>Time: {time}</p>
                 <p>Location: {location}</p>
                 {host === undefined ? <></> : (
