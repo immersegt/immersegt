@@ -18,7 +18,9 @@ const HomePage = () => {
         <a id="tracks"/>
         <Tracks/>
         <Sell/>
+        <a id="judges"/>
         <Judges/>
+        <a id="faq"/>
         <FAQ/>
         <Conclusion/>
       </main>

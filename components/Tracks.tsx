@@ -68,7 +68,6 @@ const mockCard = {
     description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
     members: ["John Doe", "Barry Allen", "James Smith", "Savitar", "Henry Allen"],
     joined: false,
-    saved: false
 };
 
 const Tracks = () => {
@@ -77,6 +76,9 @@ const Tracks = () => {
     }, []);
     const [active, setActive] = useState(0);
     const autoplay = useRef(Autoplay({ delay: 4000 }));
+
+    const [mockSave, setMockSave] = useState(false);
+
     return (
         <section className="tracksHeader">
             <section className="trackSection">
@@ -115,7 +117,7 @@ const Tracks = () => {
                         <img src={Illustration1.src} className="illustration" />
                     </div>
                     <div className="mockTeamCard"  data-aos="fade-in" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockCard.saved} disabled={true} />
+                        <Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
                     </div>
                     <div className="illustrationContainer" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration2.src} className="illustration" />
