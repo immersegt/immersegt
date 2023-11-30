@@ -1,0 +1,19 @@
+.redirectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2vh;
+}
+
+.redirectBoxHolder {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 5vh;
+    flex-wrap: wrap;
+}
+
+.redirectMessage {
+    color: rgb(230, 230, 230);
+    margin-bottom: 5px;
+}

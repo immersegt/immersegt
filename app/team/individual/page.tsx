@@ -3,10 +3,12 @@
 import 'styles/index.css';
 import 'styles/individual.css';
 
+import Redirect from 'components/Redirect';
+
 const Individual = () => {
     return (
         <div>
-            Individual Search Page
+            <Redirect/>
         </div>
     )
 }

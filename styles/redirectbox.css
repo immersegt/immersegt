@@ -1,0 +1,93 @@
+.redirectBox {
+    width: 400px;
+    height: 520px;
+    background-color:rgb(9, 9, 11);
+    text-align: left;
+    border-radius: 10px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 10px;
+    position: relative;
+}
+
+.redirectBox::before {
+    content: '';
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, rgb(150, 152, 155) 0%, rgba(50, 52, 55, 0.5) 100%);
+    top: -2px;
+    left: -2px;
+    bottom: -2px;
+    right: -2px;
+    position: absolute;
+    z-index:-1;
+}
+
+.redirectBox.darkened::after {
+    content: 'Completed';
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color:rgba(9, 9, 11, 0.8);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.completedMessage {
+    color: rgb(230, 230, 230);
+}
+
+.redirectTitle {
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    width: 95%;
+}
+
+.redirectSubtitle {
+    font-size: 24px;
+    color: rgb(150, 152, 155);
+}
+
+.redirectDescription {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.redirectButton {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 12px;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 24px;
+}
+
+.redirectButton:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(39, 5, 45);
+}
+
+.redirectBox.left {
+    background-image:
+    radial-gradient(at 70% 60%, rgb(39, 5, 45) 0px, transparent 80%),
+    radial-gradient(at 65% 40%, rgb(45, 0, 30) 0px, transparent 50%);
+}
+
+.redirectBox.center {
+    background-image:
+    radial-gradient(at 50% 60%, rgb(39, 5, 45) 0px, transparent 90%),
+    radial-gradient(at 50% 40%, rgb(45, 0, 30) 0px, transparent 60%);
+}
+
+.redirectBox.right {
+    background-image:
+    radial-gradient(at 30% 60%, rgb(39, 5, 45) 0px, transparent 80%),
+    radial-gradient(at 35% 40%, rgb(45, 0, 30) 0px, transparent 50%);
+}
+
