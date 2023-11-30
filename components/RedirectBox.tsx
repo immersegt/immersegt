@@ -17,7 +17,7 @@ const types = [" left", " center", " right"]
 
 const RedirectBox = ({title, description, buttonText, href, selected, hidden, position}:RedirectBoxProps) => {
     return (
-        <div className={"redirectBox" + types[position] + (hidden ? " darkened" : "")} >
+        <div className={"redirectBox" + types[position]} >
             <p className="redirectSubtitle">STEP {position+1}</p>
             <h3 className="redirectTitle">{title}</h3>
             <p className="redirectDescription">{description}</p>

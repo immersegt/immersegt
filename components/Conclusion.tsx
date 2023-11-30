@@ -14,7 +14,7 @@ const Conclusion = () => {
                     networking with other participants, talking to industry leaders and experts, learning about cutting-edge XR technologies at
                     workshops, and more. Plus, you'll be competing for your share of over $20,000 in prizes and various awards sponsored
                     by top companies from around the globe. </p>
-                <Button variant="filled" color="gray" size="xl" component="a" href="/register">
+                <Button variant="filled" color="gray" size="xl" component="a" href="/account">
                     Register Today&nbsp;<FaLongArrowAltRight />
                 </Button>
             </div>
