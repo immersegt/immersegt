@@ -1,11 +1,13 @@
 .countdown {
-    width: auto;
-    max-width: 500px;
+    max-width: 600px;
+    height: fit-content;
     background-color: rgb(26, 27, 30);
     text-align: left;
     border: 1px solid rgb(54, 58, 64);
     border-radius: 10px;
-    padding: 30px;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,8 +16,9 @@
 
 .countdownContainer {
     display: flex;
-    gap: 40px;
+    gap: 10px 35px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .numGroup {

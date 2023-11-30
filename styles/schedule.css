@@ -1,7 +1,62 @@
+.schedule {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+    @media only screen and (min-width: 1100px) {
+        padding-left: 2vw;
+        padding-right: 2vw;
+        gap: 50px;
+    }
+
+    @media only screen and (max-width: 1100px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.scheduleAside {
+    width: 30%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scheduleMain {
+    width: 60%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.eventContainer {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .scheduleContainer {
-    width: 500px;
-    height: 500px;
-    border: 1px solid rgb(100, 100, 100);
-    margin-top: 30px;
-    margin-bottom: 30px;
+    width: 100%;
+    height: 350px;
+}
+
+.scheduleContainer2 {
+    height: 350px;
+}
+
+.verticalRule5 {
+    border-left: 1px solid rgb(55, 58, 64);
+    height: 750px;
+    margin-left: 0vw;
+    margin-right: 0vw;
+
+    @media only screen and (max-width: 1100px) {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        margin: 0;
+    }
 }
