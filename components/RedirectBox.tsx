@@ -9,15 +9,14 @@ interface RedirectBoxProps {
     buttonText: string,
     href: string,
     selected: boolean,
-    hidden: boolean,
     position: number
 }
 
 const types = [" left", " center", " right"]
 
-const RedirectBox = ({title, description, buttonText, href, selected, hidden, position}:RedirectBoxProps) => {
+const RedirectBox = ({title, description, buttonText, href, selected, position}:RedirectBoxProps) => {
     return (
-        <div className={"redirectBox" + types[position]} >
+        <div className={"redirectBox" + types[position] + (selected ? " selected" : "")} >
             <p className="redirectSubtitle">STEP {position+1}</p>
             <h3 className="redirectTitle">{title}</h3>
             <p className="redirectDescription">{description}</p>

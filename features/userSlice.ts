@@ -5,14 +5,18 @@ interface UserState {
     name: string,
     username: string,
     hashPassword: string,
-    id: string
+    id: string,
+    team_id: string,
+    registered: boolean
 }
 
 const initialState: UserState = {
     name: "",
     username: "",
     hashPassword: "",
-    id: ""
+    id: "",
+    team_id: "",
+    registered: false
 }
 
 export const userSlice = createSlice({
@@ -31,6 +35,12 @@ export const userSlice = createSlice({
         setId: (state, action: PayloadAction<string>) => {
             state.id = action.payload;
         },
+        setTeamId: (state, action: PayloadAction<string>) => {
+            state.team_id = action.payload;
+        },
+        setRegistered: (state, action: PayloadAction<boolean>) => {
+            state.registered = action.payload;
+        },
         logout: (state) => {
             state.name = "";
             state.username = "";
@@ -40,7 +50,7 @@ export const userSlice = createSlice({
     }
 })
 
-export const { setName, setUsername, setHashPassword, setId, logout } = userSlice.actions;
+export const { setName, setUsername, setHashPassword, setId, setTeamId, setRegistered, logout } = userSlice.actions;
 
 export const selectName = (state: RootState) => state.user.name;
 

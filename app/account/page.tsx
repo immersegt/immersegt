@@ -7,7 +7,7 @@ import AuthenticationForm from 'components/AuthenticationForm';
 import Logo from 'public/logo.png';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { setName } from 'features/userSlice';
+import { setUsername } from 'features/userSlice';
 
 const listItems = [
     "Register to participate in ImmerseGT 2024",
@@ -25,7 +25,7 @@ const Account = () => {
     const dispatch = useAppDispatch();
 
     console.log(user);
-    dispatch(setName("updated"));
+    dispatch(setUsername("updated"));
     console.log(user);
 
     return (

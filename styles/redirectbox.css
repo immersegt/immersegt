@@ -27,6 +27,18 @@
     z-index:-1;
 }
 
+.redirectBox.selected::after {
+    content: '';
+    border-radius: 10px;
+    border: 2px solid #CC5DE8;
+    top: -15px;
+    left: -15px;
+    bottom: -15px;
+    right: -15px;
+    position: absolute;
+    z-index:-1;
+}
+
 .completedMessage {
     color: rgb(230, 230, 230);
 }
