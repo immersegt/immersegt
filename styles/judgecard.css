@@ -29,6 +29,8 @@
 .nameColor {
     background: rgb(200,200,200);
     background: linear-gradient(to bottom, #CC5DE8 0%, #845EF7 100%);
+    background-clip: text;
     -webkit-background-clip: text;
+    color: transparent;
     -webkit-text-fill-color: transparent;
 }

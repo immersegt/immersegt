@@ -77,7 +77,9 @@ radial-gradient(at 65% 40%, rgb(45, 0, 30) 0px, transparent 50%);
 .homeTitleEmphasis {
   background: #845EF7;
   background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
+  background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 

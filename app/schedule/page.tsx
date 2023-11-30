@@ -10,6 +10,51 @@ import Countdown from 'components/Countdown';
 const startDate = "2024-04-19T19:00:00";
 const endDate = "2024-04-21T08:00:00";
 
+const hackingSchedule = [
+    {
+        date: "November 10th",
+        events: [
+            {
+                title: "Opening Ceremony",
+                time: "5:00PM",
+            },
+            {
+                title: "Hacking Starts",
+                time: "7:00PM",
+            }
+        ]
+    },
+    {
+        date: "November 12th",
+        events: [
+            {
+                title: "Projects Due",
+                time: "9:00AM",
+            },
+            {
+                title: "Judging",
+                time: "10:00AM",
+            },
+            {
+                title: "Closing Ceremony",
+                time: "12:00PM",
+            }
+        ]
+    },
+];
+
+const eventSchedule = [
+    {
+        date: "November 10th",
+        events: [
+            {
+                title: "UX Workshop",
+                time: "5:00PM",
+            },
+        ]
+    }
+];
+
 const Schedule = () => {
     return (
         <div className="schedule">
@@ -19,19 +64,15 @@ const Schedule = () => {
                 <br />
                 <h3>Hackathon Schedule</h3>
                 <div className="scheduleContainer2">
-                    <p>November 10th</p>
-                    <ScheduleItem title="Opening Ceremony" time="5:00PM" description="Join us for an interactive and engaging
-                workshop with industry professionals where we will" save={true} location="KLAUS 1234" />
-                    <ScheduleItem title="Hacking Starts" time="7:00PM" description="Join us for an interactive and engaging
-                workshop with industry professionals where we will" save={true} location="KLAUS 1234" />
-                    <br />
-                    <p>November 12th</p>
-                    <ScheduleItem title="Projects Due" time="9:00AM" description="Join us for an interactive and engaging
-                workshop with industry professionals where we will" save={true} location="KLAUS 1234" />
-                    <ScheduleItem title="Judging" time="10:00AM" description="Join us for an interactive and engaging
-                workshop with industry professionals where we will" save={true} location="KLAUS 1234" />
-                    <ScheduleItem title="Closing Ceremony" time="12:00PM" description="Join us for an interactive and engaging
-                workshop with industry professionals where we will" save={true} location="KLAUS 1234" />
+                    {hackingSchedule.map((val) => (
+                        <div key={val.date}>
+                            <p>{val.date}</p>
+                            {val.events.map((event) => (
+                                <ScheduleItem title={event.title} time={event.time} description="This is where the description goes" save={true} location="KLAUS 1234" />
+                            ))}
+                            <br />
+                        </div>
+                    ))}
                 </div>
             </aside>
             <div className="verticalRule5" />
@@ -44,9 +85,15 @@ const Schedule = () => {
                 <br />
                 <h3>Event Schedule</h3>
                 <div className="scheduleContainer">
-                    <p>November 10th</p>
-                    <ScheduleItem title="UX Workshop" time="5:00PM" description="Join us for an interactive and engaging
-                workshop with industry professionals where we will" save={true} location="KLAUS 1234" />
+                    {eventSchedule.map((val) => (
+                        <div key={val.date}>
+                            <p>{val.date}</p>
+                            {val.events.map((event) => (
+                                <ScheduleItem title={event.title} time={event.time} description="This is where the description goes" save={true} location="KLAUS 1234" />
+                            ))}
+                            <br />
+                        </div>
+                    ))}
                 </div>
 
             </main>

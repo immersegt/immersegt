@@ -14,7 +14,7 @@ const Header = () => {
                 <p className="homeDescription">Participate in ImmerseGT, an innovative XR hackathon hosted by the Startup Exchange and GTXR, on Georgia Tech's campus. Compete for your share of over $20,000 in prizes as you build XR applications using state-of-the-art headsets.</p>
                 <div className="buttonGroup">
                 <Button className="homeButton" variant="gradient" gradient={{ from: 'violet', to: 'grape', deg: 95 }} size="xl" component="a" href="/account">Get Started&nbsp;<FaLongArrowAltRight /></Button>
-                <Button className="homeButton" variant="outline" color="grape.6" size="xl" component="a" href="#tracks">Learn More</Button>
+                <Button className="homeButton" variant="outline" color="grape.5" size="xl" component="a" href="#tracks">Learn More</Button>
                 </div>
             </div>
             <img src={GogglesImg.src} width="600px" className="homeImage" />

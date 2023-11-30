@@ -8,6 +8,18 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+::selection {
+  background: #CC5DE8;
+  color: rgb(255, 255, 255);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+::-moz-selection {
+  background: #CC5DE8;
+  color: rgb(255, 255, 255);
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
 html {
   scroll-behavior: smooth;
 }

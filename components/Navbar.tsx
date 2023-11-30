@@ -147,7 +147,7 @@ const Navbar = () => {
 
           <Group visibleFrom="md">
             <Link href="/account"><Button variant="default">Log in</Button></Link>
-            <Link href="/account"><Button color="grape.6">Sign up</Button></Link>
+            <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="md" />
@@ -192,7 +192,7 @@ const Navbar = () => {
 
           <Group justify="center" grow pb="xl" px="md">
             <Link href="/account"><Button variant="default">Log in</Button></Link>
-            <Link href="/account"><Button color="grape.6">Sign up</Button></Link>
+            <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
           </Group>
         </ScrollArea>
       </Drawer>
