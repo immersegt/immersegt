@@ -1,6 +1,6 @@
 .redirectBox {
     width: 400px;
-    height: 500px;
+    height: fit-content;
     background-color:rgb(9, 9, 11);
     text-align: left;
     border-radius: 10px;

@@ -139,7 +139,7 @@ const Formation = () => {
         title="Create a New Team"
         description="This could be the beginning of something great. Invite your friends or search for other participants."
         image={Plus.src}
-        href="/create"
+        href="/team/create"
         />
         <ToolButton 
         title="Recommend a Team"

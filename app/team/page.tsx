@@ -3,13 +3,14 @@
 import 'styles/index.css';
 import 'styles/team.css';
 
-import { Button, Pagination, Modal, Group } from '@mantine/core';
+import { Button, Pagination, Modal, Group, Checkbox } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications'
 
 import TeamMember from 'components/TeamMember';
 import BlankMember from 'components/BlankMember';
 import SearchBox from 'components/SearchBox';
+import TeamRedirect from 'components/TeamRedirect';
 
 import { useState } from 'react';
 
@@ -120,6 +121,17 @@ const Team = () => {
         close();
     }
 
+    function confirmTeam() {
+        setDeclared(true);
+        console.log("saved info");
+        notifications.show({
+            title: 'Team Declared',
+            message: 'You have successfully declared your team.',
+            color: 'grape.5'
+        });
+        close();
+    }
+
     function leaveTeam() {
         console.log("left team");
         notifications.show({
@@ -130,6 +142,11 @@ const Team = () => {
         setFoundTeam(false);
         closeLeave();
     }
+
+
+    const [checked1, setChecked1] = useState(false);
+    const [checked2, setChecked2] = useState(false);
+    const [declared, setDeclared] = useState(false);
 
     return foundTeam ? (
         <>
@@ -160,6 +177,26 @@ const Team = () => {
                     </section>
                     <section className="teamBox declaration">
                         <h3>Team Declaration</h3>
+                        {declared ? (
+                            <div className="infoContainer">
+                                <p>You have successfully declared your team and confirmed your participation in ImmerseGT. Please contact the event organizers if you have any further questions regarding teams, team formation, or your eligibility for prizes.</p>
+                            </div>
+                        ) : (
+                            <div className="infoContainer">
+                            <p>You must officially declare your team before midnight on the first day of the hackathon.</p>
+                            <div className="checkboxLine">
+                                <Checkbox color="grape.5" checked={checked1} onChange={(event) => setChecked1(event.currentTarget.checked)} />
+                                <p>I am ready to finalize my team.</p>
+                            </div>
+                            <div className="checkboxLine">
+                                <Checkbox color="grape.5" checked={checked2} onChange={(event) => setChecked2(event.currentTarget.checked)} />
+                                <p>I acknowledge that my team cannot be changed once submitted.</p>
+                            </div>
+                            <Button variant="light" color="grape" radius="md" className="confirmButtonStyle" onClick={confirmTeam} disabled={!checked1 || !checked2}>
+                                DECLARE TEAM
+                            </Button>
+                        </div>
+                        )}
                     </section>
                     <section className="teamBox submit">
                         <h3>Project Submission</h3>
@@ -237,7 +274,7 @@ const Team = () => {
         </>
     ) : (
         <main>
-            You Are Not Currently on a Team
+            <TeamRedirect/>
         </main>
     )
 }

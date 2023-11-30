@@ -130,3 +130,9 @@
 .joinButton.selected {
     background-color: rgb(55, 58, 64);
 }
+
+.checkboxLine {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}

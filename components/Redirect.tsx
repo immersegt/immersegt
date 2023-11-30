@@ -45,7 +45,7 @@ const Redirect = () => {
             <p>We appreciate your enthusiasm, but there are still a few steps you have to complete before you can get started.</p>
             <div className="redirectBoxHolder">
                 {redirectBoxData.map((val) =>
-                    <RedirectBox key={val.id} title={val.title} description={val.description} buttonText={val.buttonText} href={val.href} selected={selected[val.id]} position={val.id} />
+                    <RedirectBox key={val.id} title={val.title} description={val.description} buttonText={val.buttonText} href={val.href} selected={selected[val.id]} position={val.id} option={false}/>
                 )}
             </div>
         </div>
