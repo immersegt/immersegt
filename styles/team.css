@@ -1,18 +1,31 @@
 .teamPage {
     display: flex;
     justify-content: center;
+    padding-top: 30px;
+    @media only screen and (max-width: 1300px) {
+        flex-direction: column;
+    }
 }
 
 .teamMain {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 20px;
+    @media only screen and (min-width: 1300px) {
+        padding-right: 2vw;
+    }
 }
 
 .teamAside {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 20px;
+    @media only screen and (min-width: 1300px) {
+        border-left: 1px solid rgb(55, 58, 64);
+        padding-left: 2vw;
+    }
 }
 
 .teamBox {
@@ -20,7 +33,6 @@
     border: 1px solid rgb(55, 58, 64);
     border-radius: 12px;
     padding: 20px;
-    margin: 20px;
 }
 
 .teamBox.info {
@@ -81,18 +93,6 @@
 
 .teamBox.request {
     width: 500px;
-}
-
-.verticalRule3 {
-    border-left: 1px solid rgb(55, 58, 64);
-    height: 1325px;
-    margin-left: 2vw;
-    margin-right: 2vw;
-
-    @media only screen and (max-width: 1120px) {
-        visibility: hidden;
-        height: 0vh;
-    }
 }
 
 .requestHolder {

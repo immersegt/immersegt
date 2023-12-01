@@ -40,7 +40,6 @@ const Account = () => {
                     ))}
                 </ul>
             </section>
-            <div className="verticalRule2" />
             <section className="accountSection">
                 <AuthenticationForm />
             </section>

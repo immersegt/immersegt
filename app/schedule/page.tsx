@@ -75,7 +75,6 @@ const Schedule = () => {
                     ))}
                 </div>
             </aside>
-            <div className="verticalRule5" />
             <main className="scheduleMain">
                 <h3>Upcoming Events</h3>
                 <div className="eventContainer">

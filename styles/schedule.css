@@ -6,13 +6,12 @@
     @media only screen and (min-width: 1100px) {
         padding-left: 2vw;
         padding-right: 2vw;
-        gap: 50px;
     }
 
     @media only screen and (max-width: 1100px) {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 60px;
     }
 }
 
@@ -22,6 +21,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @media only screen and (min-width: 1100px) {
+        border-right: 1px solid rgb(55, 58, 64);
+        padding-right: 2vw;
+    }
 }
 
 .scheduleMain {
@@ -30,6 +33,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @media only screen and (min-width: 1100px) {
+        padding-left: 2vw;
+    }
 }
 
 .eventContainer {
@@ -45,18 +51,4 @@
 
 .scheduleContainer2 {
     height: 350px;
-}
-
-.verticalRule5 {
-    border-left: 1px solid rgb(55, 58, 64);
-    height: 750px;
-    margin-left: 0vw;
-    margin-right: 0vw;
-
-    @media only screen and (max-width: 1100px) {
-        visibility: hidden;
-        height: 0;
-        width: 0;
-        margin: 0;
-    }
 }

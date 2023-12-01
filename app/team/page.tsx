@@ -204,8 +204,6 @@ const Team = () => {
                     </section>
                 </main>
 
-                <div className="verticalRule3" />
-
                 <aside className="teamAside">
                     <section className="teamBox invite">
                         <h3>Invite Teammates</h3>

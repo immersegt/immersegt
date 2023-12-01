@@ -2,19 +2,21 @@
     display: flex;
     align-items: center;
     text-align: center;
-    gap: 30px;
     justify-content: center;
-    @media only screen and (max-width: 1120px) {
+    padding-top: 8vh;
+        @media only screen and (max-width: 1120px) {
         flex-direction: column;
+        gap: 20px;
+        padding-top: 6vh;
     }
-    padding-top: 30px;
 }
 
 .infoSection {
     @media only screen and (min-width: 1120px) {
-        padding-left: 30px;
-        padding-right: 30px;
+        border-right: 1px solid rgb(55, 58, 64);
+        padding-right: 4vw;
     }
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,12 +26,12 @@
 
 .accountSection {
     @media only screen and (min-width: 1120px) {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 4vw;
     }
+
     display: flex;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
 }
 
 .bright-purple {
@@ -69,16 +71,4 @@
 .form {
     width: 460px;
     text-align: left;
-}
-
-.verticalRule2 {
-    border-left: 1px solid rgb(55, 58, 64);
-    height: 70vh;
-    margin-left: 2vw;
-    margin-right: 2vw;
-
-    @media only screen and (max-width: 1120px) {
-        visibility: hidden;
-        height: 0vh;
-    }
 }

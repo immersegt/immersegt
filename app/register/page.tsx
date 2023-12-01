@@ -72,9 +72,7 @@ const Register = () => {
                     <Stepper.Step label="Second step" description="Personal information" />
                     <Stepper.Step label="Final step" description="Social media" />
                 </Stepper>
-
-                <div className="verticalRule4"/>
-
+                
                 <div className="formQuestions">
                     {active === 0 ? (
                         <div>
