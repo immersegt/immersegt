@@ -179,23 +179,24 @@ const Team = () => {
                         <h3>Team Declaration</h3>
                         {declared ? (
                             <div className="infoContainer">
-                                <p>You have successfully declared your team and confirmed your participation in ImmerseGT. Please contact the event organizers if you have any further questions regarding teams, team formation, or your eligibility for prizes.</p>
+                                <p className="confirmation">You have successfully declared your team.</p>
+                                <p>Thank you for confirming your participation in ImmerseGT. Please contact the event organizers if you have any further questions regarding teams, team formation, or your eligibility for prizes.</p>
                             </div>
                         ) : (
                             <div className="infoContainer">
-                            <p>You must officially declare your team before midnight on the first day of the hackathon.</p>
-                            <div className="checkboxLine">
-                                <Checkbox color="grape.5" checked={checked1} onChange={(event) => setChecked1(event.currentTarget.checked)} />
-                                <p>I am ready to finalize my team.</p>
+                                <p>You must officially declare your team before midnight on the first day of the hackathon.</p>
+                                <div className="checkboxLine">
+                                    <Checkbox color="grape.5" checked={checked1} onChange={(event) => setChecked1(event.currentTarget.checked)} />
+                                    <p>I am ready to finalize my team.</p>
+                                </div>
+                                <div className="checkboxLine">
+                                    <Checkbox color="grape.5" checked={checked2} onChange={(event) => setChecked2(event.currentTarget.checked)} />
+                                    <p>I acknowledge that my team cannot be changed once submitted.</p>
+                                </div>
+                                <Button variant="light" color="grape" radius="md" className="confirmButtonStyle" onClick={confirmTeam} disabled={!checked1 || !checked2}>
+                                    DECLARE TEAM
+                                </Button>
                             </div>
-                            <div className="checkboxLine">
-                                <Checkbox color="grape.5" checked={checked2} onChange={(event) => setChecked2(event.currentTarget.checked)} />
-                                <p>I acknowledge that my team cannot be changed once submitted.</p>
-                            </div>
-                            <Button variant="light" color="grape" radius="md" className="confirmButtonStyle" onClick={confirmTeam} disabled={!checked1 || !checked2}>
-                                DECLARE TEAM
-                            </Button>
-                        </div>
                         )}
                     </section>
                     <section className="teamBox submit">
@@ -234,7 +235,7 @@ const Team = () => {
                     <section className="teamBox request">
                         <h3>Join Requests</h3>
                         <div className="requestHolder">
-                            <Button.Group className="buttonGroup">
+                            <Button.Group className="joinedButtonGroup">
                                 <Button variant="default" className={joinFilter === "active" ? "joinButton selected" : "joinButton"} onClick={joinActive}>ACTIVE</Button>
                                 <Button variant="default" className={joinFilter === "denied" ? "joinButton selected" : "joinButton"} onClick={joinDenied}>DENIED</Button>
                                 <Button variant="default" className={joinFilter === "all" ? "joinButton selected" : "joinButton"} onClick={joinAll}>ALL</Button>
@@ -274,7 +275,7 @@ const Team = () => {
         </>
     ) : (
         <main>
-            <TeamRedirect/>
+            <TeamRedirect />
         </main>
     )
 }

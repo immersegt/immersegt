@@ -111,7 +111,7 @@
     width: 100%;
 }
 
-.buttonGroup {
+.joinedButtonGroup {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,4 +135,8 @@
     display: flex;
     gap: 10px;
     margin-left: 20px;
+}
+
+.confirmation {
+    color: #8CE99A;
 }
