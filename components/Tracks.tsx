@@ -119,7 +119,7 @@ const Tracks = () => {
                     <div className="mockTeamCard"  data-aos="fade-in" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
                     </div>
-                    <div className="illustrationContainer" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
+                    <div className="illustrationContainer disappear" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration2.src} className="illustration" />
                     </div>
                 </div>

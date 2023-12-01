@@ -60,3 +60,13 @@
 .illustrationContainer2 {
     max-width: 1150px;
 }
+
+.disappear {
+    @media only screen and (max-width: 1400px) {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -37,13 +37,13 @@ const data = [
 ];
 
 const Footer = () => {
-  const groups = data.map((group) => {
+  const groups = data.map((group, ind) => {
     const links = group.links.map((link, index) => (
       <Link
         key={index}
         className="footerLink"
         href={link.link}
-        target="_blank" rel="noopener noreferrer"
+        target={ind === 2 ? "_blank" : ""} rel={ind === 2 ? "noopener noreferrer" : ""}
       >
         {link.label}
       </Link>

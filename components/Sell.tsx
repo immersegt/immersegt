@@ -2,18 +2,13 @@ import '../styles/index.css';
 import '../styles/sell.css';
 
 import {
-    Badge,
-    Group,
-    Title,
     Text,
     Card,
     SimpleGrid,
-    Container,
     rem,
     useMantineTheme,
-    Divider
 } from '@mantine/core';
-import { IconGauge, IconUser, IconCookie } from '@tabler/icons-react';
+import { IconMessage, IconTool, IconDeviceDesktopAnalytics } from '@tabler/icons-react';
 
 import { useEffect } from 'react';
 import AOS from 'aos';
@@ -24,21 +19,21 @@ const mockdata = [
         title: 'Networking',
         description:
             "At ImmerseGT, you will be interacting with other college students like yourself — innovators, builders, engineers, coders, entrepreneurs, and more.",
-        icon: IconGauge,
+        icon: IconMessage,
         delay: 0
     },
     {
         title: 'Workshops',
         description:
             "No experience required — even as a beginner, you can get started in the world of XR by attending our many training workshops throughout the weekend.",
-        icon: IconUser,
+        icon: IconTool,
         delay: 100
     },
     {
         title: 'Resources',
         description:
             'All you need is a laptop and an idea. Solo entrants can find teammates at ImmerseGT and we will provide the headsets, tools, and space you need to hack effectively.',
-        icon: IconCookie,
+        icon: IconDeviceDesktopAnalytics,
         delay: 200
     },
 ];

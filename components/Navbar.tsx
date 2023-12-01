@@ -24,12 +24,10 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
-  IconNotification,
-  IconCode,
-  IconBook,
-  IconChartPie3,
-  IconFingerprint,
-  IconCoin,
+  IconBrandDiscord,
+  IconUserPlus,
+  IconUsersGroup,
+  IconUsers,
   IconChevronDown,
 } from '@tabler/icons-react';
 
@@ -37,25 +35,25 @@ import Link from 'next/link';
 
 const mockdata = [
   {
-    icon: IconCode,
+    icon: IconUsers,
     title: 'My Team',
     description: 'Your team\'s hub for inviting and reviewing teammates',
     link: "/team"
   },
   {
-    icon: IconCoin,
+    icon: IconUsersGroup,
     title: 'Join a Team',
     description: 'Search existing teams to find your crew or join up with friends',
     link: "/team/formation"
   },
   {
-    icon: IconBook,
+    icon: IconUserPlus,
     title: 'Search for Members',
     description: 'Look at other participant profiles and invite individuals to your team',
     link: "/team/individual"
   },
   {
-    icon: IconFingerprint,
+    icon: IconBrandDiscord,
     title: 'Network on Discord',
     description: 'Talk to fellow participants on the ImmerseGT Discord',
     link: "https://discord.com/"

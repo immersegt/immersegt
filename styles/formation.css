@@ -50,8 +50,6 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 70px;
-    padding-top: 10px;
-    /*Change later to align top*/
 
     @media only screen and (min-width: 900px) {
         max-height: 700px;
