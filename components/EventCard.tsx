@@ -5,6 +5,7 @@ import { Card, Badge, Button, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 interface EventCardProps {
+  none: boolean,
   title: string,
   time: string,
   location: string,
@@ -14,14 +15,18 @@ interface EventCardProps {
   host: string
 }
 
-const EventCard = ({ title, time, location, description, soon, longDescription, host }: EventCardProps) => {
+const EventCard = ({none, title, time, location, description, soon, longDescription, host }: EventCardProps) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   function interested() {
     console.log("interested");
   }
 
-  return (
+  return none ? (
+    <Card shadow="sm" padding="lg" radius="md" withBorder className="eventCard center">
+      <p>There are no more events planned. Thanks for attending ImmerseGT 2024!</p>
+    </Card>
+  ) : (
     <section>
       <Card shadow="sm" padding="lg" radius="md" withBorder className="eventCard">
         <div className="eventCardHeader">

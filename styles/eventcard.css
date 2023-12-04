@@ -6,6 +6,13 @@
     gap: 6px;
 }
 
+.eventCard.center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
 .eventCardHeader {
     display: flex;
     justify-content: space-between;
