@@ -3,7 +3,7 @@
 import 'styles/index.css';
 import 'styles/team.css';
 
-import { Button, Pagination, Modal, Group, Checkbox } from '@mantine/core';
+import { Button, Pagination, Modal, Group, Checkbox, TextInput, NativeSelect } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications'
 
@@ -11,6 +11,7 @@ import TeamMember from 'components/TeamMember';
 import BlankMember from 'components/BlankMember';
 import SearchBox from 'components/SearchBox';
 import TeamRedirect from 'components/TeamRedirect';
+import classes from 'styles/searchbox.module.css';
 
 import { useState } from 'react';
 
@@ -143,10 +144,23 @@ const Team = () => {
         closeLeave();
     }
 
+    function submitProject() {
+        setSubmitted(true);
+        console.log("submitted project");
+        notifications.show({
+            title: 'Project Submitted',
+            message: 'You have successfully submitted your team\'s project.',
+            color: 'grape.5'
+        });
+        close();
+    }
 
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
+    const [checked3, setChecked3] = useState(false);
+    const [checked4, setChecked4] = useState(false);
     const [declared, setDeclared] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     return foundTeam ? (
         <>
@@ -201,6 +215,61 @@ const Team = () => {
                     </section>
                     <section className="teamBox submit">
                         <h3>Project Submission</h3>
+                        {submitted ? (
+                            <div className="infoContainer">
+                                <p className="confirmation">You have successfully submitted your team's project.</p>
+                                <p>Thank you for participating in ImmerseGT! Your project can no longer be edited. Stay tuned for more information about judging and prizes.</p>
+                            </div>
+                        ) : (
+                            <div className="infoContainer">
+                                <p>You must officially submit your project both on Devpost and through this project submission portal before the end of the hackathon.</p>
+                                <TextInput
+                                    label="Project Title"
+                                    placeholder="Title goes here..."
+                                    classNames={classes}
+                                    withAsterisk
+                                />
+                                <TextInput
+                                    label="Project Description"
+                                    placeholder="Description goes here..."
+                                    classNames={classes}
+                                    withAsterisk
+                                />
+                                <TextInput
+                                    label="Devpost Link"
+                                    placeholder="https://devpost.com/software/..."
+                                    classNames={classes}
+                                    withAsterisk
+                                />
+                                <div className="nativeRow">
+                                    <NativeSelect
+                                        label="Level"
+                                        data={['Beginner', 'Advanced']}
+                                        className="nativeSelectItem"
+                                        classNames={classes}
+                                        withAsterisk
+                                    />
+                                    <NativeSelect
+                                        label="Category"
+                                        data={['Merging Realities', 'On-the-Go Augmentation', 'Virtual Adventures', 'Intelligent Immersion', 'Next-Gen XR Apps', 'Omniverse Odyssey', 'Innovative Assistive Technology', 'Mindful Immersion in XR']}
+                                        className="nativeSelectItem"
+                                        classNames={classes}
+                                        withAsterisk
+                                        />
+                                </div>
+                                <div className="checkboxLine">
+                                    <Checkbox color="grape.5" checked={checked3} onChange={(event) => setChecked3(event.currentTarget.checked)} />
+                                    <p>I am ready to submit our team's project.</p>
+                                </div>
+                                <div className="checkboxLine">
+                                    <Checkbox color="grape.5" checked={checked4} onChange={(event) => setChecked4(event.currentTarget.checked)} />
+                                    <p>I acknowledge that our project cannot be changed once submitted.</p>
+                                </div>
+                                <Button variant="light" color="grape" radius="md" className="confirmButtonStyle" onClick={submitProject} disabled={!checked1 || !checked2 || !checked3 || !checked4}>
+                                    SUBMIT PROJECT
+                                </Button>
+                            </div>
+                        )}
                     </section>
                 </main>
 

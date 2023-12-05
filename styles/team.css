@@ -140,3 +140,14 @@
 .confirmation {
     color: #8CE99A;
 }
+
+.nativeRow {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.nativeSelectItem {
+    width: 50%;
+}
