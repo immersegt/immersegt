@@ -1,0 +1,19 @@
+.forbiddenPage {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+a.return {
+    color: white;
+    text-decoration-line: none;
+    margin-top: 5px;
+}
+
+a.return:hover {
+    color: rgb(150, 152, 155);
+    text-decoration-line: underline;
+}
