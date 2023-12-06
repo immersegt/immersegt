@@ -48,10 +48,14 @@
     align-items: center;
     justify-content: center;
     padding: 4px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .toolbarText {
     color: rgb(230, 230, 230);
+}
+
+.toolCount {
+    width: 70px;
 }

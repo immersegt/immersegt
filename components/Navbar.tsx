@@ -3,6 +3,9 @@
 import '../styles/index.css';
 import '../styles/navbar.css';
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { setUsername } from 'features/userSlice';
+
 import {
   HoverCard,
   Group,
@@ -32,6 +35,8 @@ import {
 } from '@tabler/icons-react';
 
 import Link from 'next/link';
+
+import UserButton from '../components/UserButton';
 
 const mockdata = [
   {
@@ -65,6 +70,7 @@ const LinkStyle = {
 }
 
 const Navbar = () => {
+  const user = useAppSelector((state) => state.user);
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -142,11 +148,17 @@ const Navbar = () => {
               Schedule
             </Link>
           </Group>
+          {user.username === "" ? (
+            <Group visibleFrom="md">
+              <Link href="/account"><Button variant="default">Log in</Button></Link>
+              <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
+            </Group>
+          ) : (
+            <Group visibleFrom="md">
+              <UserButton />
+            </Group>
+          )}
 
-          <Group visibleFrom="md">
-            <Link href="/account"><Button variant="default">Log in</Button></Link>
-            <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
-          </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="md" />
         </Group>
@@ -172,7 +184,7 @@ const Navbar = () => {
           </Link>
           <UnstyledButton className="link" onClick={toggleLinks}>
             <Center inline>
-              <Box component="span" mr={5}>
+              <Box component="span" mr={5} pl={15}>
                 Team
               </Box>
               <IconChevronDown
@@ -188,10 +200,16 @@ const Navbar = () => {
 
           <Divider my="sm" />
 
-          <Group justify="center" grow pb="xl" px="md">
-            <Link href="/account"><Button variant="default">Log in</Button></Link>
-            <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
-          </Group>
+          {user.username === "" ? (
+            <Group visibleFrom="md">
+              <Link href="/account"><Button variant="default">Log in</Button></Link>
+              <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
+            </Group>
+          ) : (
+            <Box ml={15}>
+              <UserButton />
+            </Box>
+          )}
         </ScrollArea>
       </Drawer>
     </Box>

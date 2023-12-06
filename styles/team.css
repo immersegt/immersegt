@@ -151,3 +151,9 @@
 .nativeSelectItem {
     width: 50%;
 }
+
+.modalGap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

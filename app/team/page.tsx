@@ -3,7 +3,7 @@
 import 'styles/index.css';
 import 'styles/team.css';
 
-import { Button, Pagination, Modal, Group, Checkbox, TextInput, NativeSelect } from '@mantine/core';
+import { Button, Pagination, Modal, Group, Checkbox, TextInput, Select, Textarea } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications'
 
@@ -242,20 +242,20 @@ const Team = () => {
                                     withAsterisk
                                 />
                                 <div className="nativeRow">
-                                    <NativeSelect
+                                    <Select
                                         label="Level"
                                         data={['Beginner', 'Advanced']}
                                         className="nativeSelectItem"
                                         classNames={classes}
                                         withAsterisk
                                     />
-                                    <NativeSelect
+                                    <Select
                                         label="Category"
                                         data={['Merging Realities', 'On-the-Go Augmentation', 'Virtual Adventures', 'Intelligent Immersion', 'Next-Gen XR Apps', 'Omniverse Odyssey', 'Innovative Assistive Technology', 'Mindful Immersion in XR']}
                                         className="nativeSelectItem"
                                         classNames={classes}
                                         withAsterisk
-                                        />
+                                    />
                                 </div>
                                 <div className="checkboxLine">
                                     <Checkbox color="grape.5" checked={checked3} onChange={(event) => setChecked3(event.currentTarget.checked)} />
@@ -318,6 +318,21 @@ const Team = () => {
                 </aside>
             </div>
             <Modal opened={opened} onClose={close} title="Edit Team">
+                <div className="modalGap">
+                    <TextInput
+                        label="Name"
+                        placeholder={teamData.name}
+                        classNames={classes}
+                    />
+                    <Textarea
+                        label="Description"
+                        placeholder={teamData.description}
+                        autosize
+                        minRows={4}
+                        maxRows={4}
+                        classNames={classes}
+                    />
+                </div>
                 <Group justify="space-between" className="buttonRowStyle">
                     <Button variant="light" color="grape" mt="md" radius="md" className="confirmButtonStyle" onClick={saveInfo}>
                         SAVE INFO

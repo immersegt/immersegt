@@ -1,9 +1,10 @@
 import '../styles/index.css';
 import '../styles/toolbar.css';
 
-import { Pagination, NativeSelect, UnstyledButton } from '@mantine/core';
+import { Pagination, Select, UnstyledButton } from '@mantine/core';
 import { useState } from 'react';
 import { IconArrowsShuffle } from '@tabler/icons-react';
+import classes from 'styles/searchbox.module.css';
 
 const Toolbar = () => {
     const [activeRequestPage, setRequestPage] = useState(1);
@@ -20,7 +21,7 @@ const Toolbar = () => {
 
             </div>
             <div className="toolbarBox teamCount">
-                <NativeSelect radius="md" data={['10', '25', '50']} />
+                <Select radius="md" data={['10', '25', '50']} defaultValue="10" withCheckIcon={false} allowDeselect={false} classNames={classes} className="toolCount" />
                 <p className="toolbarText">Teams/Page</p>
             </div>
         </div>
