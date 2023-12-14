@@ -38,6 +38,8 @@ import Link from 'next/link';
 
 import UserButton from '../components/UserButton';
 
+import Logo from '../public/ImmerseGTLogo.svg';
+
 const mockdata = [
   {
     icon: IconUsers,
@@ -97,8 +99,10 @@ const Navbar = () => {
     <Box>
       <header id="header" className="header">
         <Group justify="space-between" h="100%">
-          <Link className="title noLine" href="/"><b>ImmerseGT</b> Event Platform</Link>
-
+          <Link className="title noLine" href="/">
+            <img src={Logo.src} width="30px" />
+            <span><b>ImmerseGT</b> Event Platform</span>
+          </Link>
           <Group h="100%" gap={0} visibleFrom="md">
             <Link href="/" className="link">
               Home

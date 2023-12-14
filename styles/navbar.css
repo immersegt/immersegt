@@ -1,6 +1,9 @@
 .title {
   font-size: 18px;
   color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @keyframes slide-down2 {

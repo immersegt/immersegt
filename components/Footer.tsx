@@ -6,6 +6,8 @@ import { Text, Container, ActionIcon, Group, rem } from '@mantine/core';
 import { IconBrandDiscord, IconBrandGithub, IconBrandInstagram } from '@tabler/icons-react';
 import Link from 'next/link';
 
+import Logo from '../public/ImmerseGTLogo.svg';
+
 const data = [
   {
     title: 'Overview',
@@ -60,10 +62,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <Container className="footerInner">
-        <div className="footerLogo">
-        <span className="title"><b>ImmerseGT</b></span>
-          <div className="footerDescription">
-          In-person and virtual XR hackathon hosted by GTXR and Startup Exchange, featuring over $20,000 in prizes
+        <div className="footerHolder">
+          <img src={Logo.src} width="50px" />
+          <div className="footerLogo">
+            <span className="title"><b>ImmerseGT</b></span>
+            <div className="footerDescription">
+              In-person and virtual XR hackathon hosted by GTXR and Startup Exchange, featuring over $20,000 in prizes
+            </div>
           </div>
         </div>
         <div className="footerGroups">{groups}</div>
