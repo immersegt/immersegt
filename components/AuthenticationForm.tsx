@@ -19,6 +19,33 @@ import {
 import { GoogleButton } from '../components/GoogleButton';
 import { TwitterButton } from '../components/TwitterButton';
 
+
+import { createClient } from '@supabase/supabase-js';
+import { notifications } from '@mantine/notifications'
+
+const url: string = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const key: string = process.env.NEXT_PUBLIC_SUPABASE_API_KEY!;
+
+const supabase = createClient(url, key);
+
+async function signUpNewUser(email: string, password: string) {
+  console.log(email, password);
+  const { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      emailRedirectTo: 'https//example.com/welcome'
+    }
+  })
+}
+async function signInWithEmail(email: string, password: string) {
+  console.log(email, password);
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password
+  })
+}
+
 const AuthenticationForm = (props: PaperProps) => {
   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
@@ -35,6 +62,24 @@ const AuthenticationForm = (props: PaperProps) => {
     },
   });
 
+  const submitForm = (values: { email: string, password: string }) => {
+    if (type === 'register') {
+      signUpNewUser(values.email, values.password);
+      notifications.show({
+        title: 'Account Registered',
+        message: 'You have successfully created an ImmerseGT account under the email: ' + values.email,
+        color: 'grape.5'
+      });
+    }else if (type === 'login'){
+      signInWithEmail(values.email, values.password);
+      notifications.show({
+        title: 'Account Logged In',
+        message: 'You have successfully logged in to the email: ' + values.email,
+        color: 'grape.5'
+      });
+    }
+  }
+
   return (
     <Paper radius="md" p="xl" withBorder {...props} className="form">
       <Text size="lg" fw={500}>
@@ -48,7 +93,7 @@ const AuthenticationForm = (props: PaperProps) => {
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-      <form onSubmit={form.onSubmit(() => {})}>
+      <form onSubmit={form.onSubmit((values) => { submitForm(values) })}>
         <Stack>
           {type === 'register' && (
             <TextInput
