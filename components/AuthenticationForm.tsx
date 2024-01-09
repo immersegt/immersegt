@@ -19,9 +19,11 @@ import {
 import { GoogleButton } from '../components/GoogleButton';
 import { TwitterButton } from '../components/TwitterButton';
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { setUsername } from 'features/userSlice';
 
 import { createClient } from '@supabase/supabase-js';
-import { notifications } from '@mantine/notifications'
+import { notifications } from '@mantine/notifications';
 
 const url: string = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const key: string = process.env.NEXT_PUBLIC_SUPABASE_API_KEY!;
@@ -37,16 +39,28 @@ async function signUpNewUser(email: string, password: string) {
       emailRedirectTo: 'https//example.com/welcome'
     }
   })
-}
-async function signInWithEmail(email: string, password: string) {
-  console.log(email, password);
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: email,
-    password: password
-  })
+  console.log(data);
+  console.log(error);
 }
 
 const AuthenticationForm = (props: PaperProps) => {
+
+  const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  async function signInWithEmail(email: string, password: string) {
+    console.log(email, password);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    })
+    console.log(data);
+    if (console.error !== null){
+      dispatch(setUsername(email));
+    }
+    console.log(error);
+  }
+
   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {
