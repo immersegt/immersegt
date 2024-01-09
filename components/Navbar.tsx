@@ -3,9 +3,6 @@
 import '../styles/index.css';
 import '../styles/navbar.css';
 
-import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { setUsername } from 'features/userSlice';
-
 import {
   HoverCard,
   Group,
@@ -71,8 +68,36 @@ const LinkStyle = {
   padding: "0.625rem 1rem"
 }
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { login, logout } from 'features/userSlice';
+
+import { createClient } from '@supabase/supabase-js';
+
+const url: string = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const key: string = process.env.NEXT_PUBLIC_SUPABASE_API_KEY!;
+
+const supabase = createClient(url, key);
+
+import { useEffect, useState } from 'react';
+
 const Navbar = () => {
   const user = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      dispatch(login(session));
+    })
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      dispatch(login(session));
+    })
+
+    return () => subscription.unsubscribe()
+  }, []);
+
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -152,7 +177,7 @@ const Navbar = () => {
               Schedule
             </Link>
           </Group>
-          {user.username === "" ? (
+          {user.session == null ? (
             <Group visibleFrom="md">
               <Link href="/account"><Button variant="default">Log in</Button></Link>
               <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
@@ -204,7 +229,7 @@ const Navbar = () => {
 
           <Divider my="sm" />
 
-          {user.username === "" ? (
+          {user.session == null ? (
             <Group visibleFrom="md">
               <Link href="/account"><Button variant="default">Log in</Button></Link>
               <Link href="/account"><Button color="grape.5">Sign up</Button></Link>

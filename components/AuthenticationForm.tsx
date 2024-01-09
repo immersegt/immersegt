@@ -20,7 +20,7 @@ import { GoogleButton } from '../components/GoogleButton';
 import { TwitterButton } from '../components/TwitterButton';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { setUsername } from 'features/userSlice';
+import { setEmail } from 'features/userSlice';
 
 import { createClient } from '@supabase/supabase-js';
 import { notifications } from '@mantine/notifications';
@@ -55,10 +55,11 @@ const AuthenticationForm = (props: PaperProps) => {
       password: password
     })
     console.log(data);
-    if (console.error !== null){
-      dispatch(setUsername(email));
+    if (console.error !== null) {
+      dispatch(setEmail(email));
+    } else {
+      console.log(error);
     }
-    console.log(error);
   }
 
   const [type, toggle] = useToggle(['login', 'register']);
@@ -84,7 +85,7 @@ const AuthenticationForm = (props: PaperProps) => {
         message: 'You have successfully created an ImmerseGT account under the email: ' + values.email,
         color: 'grape.5'
       });
-    }else if (type === 'login'){
+    } else if (type === 'login') {
       signInWithEmail(values.email, values.password);
       notifications.show({
         title: 'Account Logged In',

@@ -31,38 +31,28 @@ import { Session } from "@supabase/gotrue-js/src/lib/types"
 
 import { notifications } from '@mantine/notifications';
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { login, logout } from 'features/userSlice';
+
 async function signOut() {
     const { error } = await supabase.auth.signOut();
-    console.log(supabase.auth.getSession());
 }
 
 const Account = () => {
 
+    const user = useAppSelector((state) => state.user);
+    const dispatch = useAppDispatch();
+
     function logOut() {
         signOut();
+        dispatch(logout());
         notifications.show({
             title: 'Account Signed Out',
             message: 'You have successfully signed out of your account.',
             color: 'grape.5'
-          });
-
+        });
     }
 
-    const [session, setSession] = useState<Session | null>(null);
-    useEffect(() => {
-        console.log("please");
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setSession(session)
-        })
-
-        const {
-            data: { subscription },
-        } = supabase.auth.onAuthStateChange((_event, session) => {
-            setSession(session)
-        })
-
-        return () => subscription.unsubscribe()
-    }, []);
     return (
         <main className="accountHolder">
             <section className="infoSection">
@@ -76,7 +66,7 @@ const Account = () => {
                 </ul>
             </section>
             <section className="accountSection">
-                {session == null ? (
+                {user.session == null ? (
                     <AuthenticationForm />
                 ) : (
                     <div>

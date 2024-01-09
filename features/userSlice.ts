@@ -1,22 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../app/store';
+import { Session } from "@supabase/gotrue-js/src/lib/types";
 
 interface UserState {
     name: string,
-    username: string,
-    hashPassword: string,
+    email: string,
     id: string,
     team_id: string,
-    registered: boolean
+    registered: boolean,
+    session: Session|null
 }
 
 const initialState: UserState = {
     name: "",
-    username: "",
-    hashPassword: "",
+    email: "",
     id: "",
     team_id: "",
-    registered: false
+    registered: false,
+    session: null
 }
 
 export const userSlice = createSlice({
@@ -26,11 +27,8 @@ export const userSlice = createSlice({
         setName: (state, action: PayloadAction<string>) => {
             state.name = action.payload;
         },
-        setUsername: (state, action: PayloadAction<string>) => {
-            state.username = action.payload;
-        },
-        setHashPassword: (state, action: PayloadAction<string>) => {
-            state.hashPassword = action.payload;
+        setEmail: (state, action: PayloadAction<string>) => {
+            state.email = action.payload;
         },
         setId: (state, action: PayloadAction<string>) => {
             state.id = action.payload;
@@ -41,16 +39,20 @@ export const userSlice = createSlice({
         setRegistered: (state, action: PayloadAction<boolean>) => {
             state.registered = action.payload;
         },
+        login: (state, action: PayloadAction<Session|null>) => {
+            state.session = action.payload;
+        },
         logout: (state) => {
             state.name = "";
-            state.username = "";
-            state.hashPassword = "";
+            state.email = "";
             state.id = "";
+            state.team_id = "";
+            state.registered = false;
         }
     }
 })
 
-export const { setName, setUsername, setHashPassword, setId, setTeamId, setRegistered, logout } = userSlice.actions;
+export const { setName, setEmail, setId, setTeamId, setRegistered, login, logout } = userSlice.actions;
 
 export const selectName = (state: RootState) => state.user.name;
 
