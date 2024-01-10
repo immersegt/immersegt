@@ -22,22 +22,15 @@ import { TwitterButton } from '../components/TwitterButton';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { setEmail } from 'features/userSlice';
 
-import { createClient } from '@supabase/supabase-js';
 import { notifications } from '@mantine/notifications';
 
-const url: string = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const key: string = process.env.NEXT_PUBLIC_SUPABASE_API_KEY!;
-
-const supabase = createClient(url, key);
+import supabase from '../components/Supabase';
 
 async function signUpNewUser(email: string, password: string) {
   console.log(email, password);
   const { data, error } = await supabase.auth.signUp({
     email: email,
     password: password,
-    options: {
-      emailRedirectTo: 'https//example.com/welcome'
-    }
   })
   console.log(data);
   console.log(error);
@@ -81,8 +74,8 @@ const AuthenticationForm = (props: PaperProps) => {
     if (type === 'register') {
       signUpNewUser(values.email, values.password);
       notifications.show({
-        title: 'Account Registered',
-        message: 'You have successfully created an ImmerseGT account under the email: ' + values.email,
+        title: 'Account Created',
+        message: 'Please finish registering your account; email sent to: ' + values.email,
         color: 'grape.5'
       });
     } else if (type === 'login') {
