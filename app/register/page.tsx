@@ -9,8 +9,9 @@ import { useForm } from '@mantine/form';
 
 import classes from 'styles/searchbox.module.css';
 
-import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { setName } from 'features/userSlice';
+import { useAppSelector } from 'app/hooks';
+
+import supabase from 'components/Supabase';
 
 import Link from "next/link";
 
@@ -23,12 +24,28 @@ function scrollToTop() {
 
 const validLevels = ["Undergraduate", "Graduate", "PhD"];
 
+async function updateData(id: string, json: Object, name: string) {
+    const { error } = await supabase
+        .from('users')
+        .update({ info: json })
+        .eq('id', id);
+    if (error == null) {
+        await supabase
+            .from('users')
+            .update({ registered: true, name: name })
+            .eq('id', id);
+    } else {
+        console.log(error);
+    }
+}
+
+const invalid = (val: string | null) => {
+    return val == null || val == "";
+}
+
 const Register = () => {
 
     const user = useAppSelector((state) => state.user);
-    const dispatch = useAppDispatch();
-
-    console.log(user);
 
     const [active, setActive] = useState(0);
 
@@ -38,7 +55,7 @@ const Register = () => {
             lastname: '',
             email: '',
             phone: '',
-            age: '',
+            age: null,
             gender: '',
             ethnicity: '',
             race: '',
@@ -52,17 +69,93 @@ const Register = () => {
             gtxr: false,
             languages: [],
             xrexperience: '',
-            hackathonexperience: '',
+            hackathon: '',
             interests: [],
             teamwork: '',
-            role: '',
+            role: [],
             commitment: '',
             goals: []
         },
 
         validate: (values) => {
-
-
+            if (active === 0) {
+                return {
+                    firstname:
+                        values.firstname.trim().length < 2
+                            ? 'First name must include at least 2 characters'
+                            : null,
+                    lastname:
+                        values.firstname.trim().length < 2
+                            ? 'Last name must include at least 2 characters'
+                            : null,
+                    email: /^\S+@\S+$/.test(values.email) ? null : 'Invalid email',
+                };
+            }
+            if (active === 1) {
+                return {
+                    age:
+                        (invalid(values.age) || values.age == null || values.age <= 0 || values.age > 99) ? 'Invalid age' : null,
+                    gender:
+                        (invalid(values.gender) ? 'Must select a gender' : null),
+                    ethnicity:
+                        (invalid(values.ethnicity) ? 'Must select an ethnicity' : null),
+                    race:
+                        (invalid(values.race) ? 'Must select a race' : null),
+                    shirt:
+                        (invalid(values.shirt) ? 'Must select a shirt size' : null),
+                };
+            }
+            if (active === 2) {
+                if (invalid(values.study)) {
+                    return {
+                        study: 'Must select current level of study'
+                    }
+                } else if (values.study == "Not a Student") {
+                    return {
+                        work:
+                            (invalid(values.work) ? 'Must select employment status' : null)
+                    }
+                } else if (values.study == "High School") {
+                    return {
+                        school:
+                            (invalid(values.school) ? 'Must enter high school' :
+                                values.school.trim().length < 2 ? 'High school must include at least two characters' : null),
+                        graduation:
+                            (invalid(values.graduation) ? 'Must enter expected graduation date' : null),
+                    }
+                } else {
+                    return {
+                        school:
+                            (invalid(values.school) ? 'Must enter university' :
+                                values.school.trim().length < 2 ? 'University must include at least two characters' : null),
+                        major:
+                            (invalid(values.major) ? 'Must enter major' :
+                                values.major.trim().length < 2 ? 'Major must include at least two characters' : null),
+                        graduation:
+                            (invalid(values.graduation) ? 'Must enter expected graduation date' : null),
+                    }
+                }
+            }
+            if (active === 3) {
+                return {
+                    attendance:
+                        (invalid(values.attendance) ? 'Must select attendance type' : null),
+                    xrexperience:
+                        (invalid(values.xrexperience) ? 'Must select XR experience level' : null),
+                    hackathon:
+                        (invalid(values.hackathon) ? 'Must select hackathon experience level' : null),
+                    interests:
+                        (values.interests == null || values.interests.length == 0 ? 'Must select interests' : null),
+                    teamwork:
+                        (invalid(values.teamwork) ? 'Must select teamwork style' : null),
+                    role:
+                        (values.role == null || values.role.length == 0 ? 'Must select role preferences' : null),
+                    commitment:
+                        (invalid(values.commitment) ? 'Must select commitment level' : null),
+                    goals:
+                        (values.goals == null || values.goals.length == 0 ? 'Must select goals' : null),
+                };
+            }
             return {};
         },
     });
@@ -72,9 +165,14 @@ const Register = () => {
             if (form.validate().hasErrors) {
                 return current;
             }
+            scrollToTop();
             return current < 5 ? current + 1 : current;
         });
-        scrollToTop();
+    }
+
+    const register = () => {
+        nextStep();
+        updateData(user.id, form.values, form.getInputProps('firstname').value + " " + form.getInputProps('lastname').value);
     }
 
 
@@ -271,11 +369,11 @@ const Register = () => {
                                     withAsterisk
                                     classNames={classes}
                                 />
-                                <Select
+                                <MultiSelect
                                     mt="md"
                                     label="Interest Areas"
                                     placeholder="Select..."
-                                    data={['Any', 'Augmented Reality', 'Virtual Reality', 'Mixed Reality', 'Not Sure']}
+                                    data={['Augmented Reality', 'Virtual Reality', 'Mixed Reality', 'Not Sure']}
                                     {...form.getInputProps('interests')}
                                     withAsterisk
                                     classNames={classes}
@@ -296,7 +394,7 @@ const Register = () => {
                                     label="Member Role Preferences"
                                     placeholder="Select..."
                                     data={['Project Manager', 'XR Developer', '3D Artist', 'Sound Designer', 'Project Tester', 'Frontend Developer', 'Backend Developer', 'UI/UX Designer', 'Business']}
-                                    {...form.getInputProps('interests')}
+                                    {...form.getInputProps('role')}
                                     withAsterisk
                                     classNames={classes}
                                 />
@@ -345,7 +443,7 @@ const Register = () => {
                             </Button>
                         )}
                         {active < 4 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
-                        {active === 4 && <Button onClick={nextStep} color="grape.5" disabled={!verified}>Register</Button>}
+                        {active === 4 && <Button onClick={register} color="grape.5" disabled={!verified}>Register</Button>}
                     </Group>
                 </div>
 
