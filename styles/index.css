@@ -85,3 +85,7 @@ p.small {
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.noBackground {
+  background: none;
+}
