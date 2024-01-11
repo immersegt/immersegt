@@ -18,6 +18,8 @@ import Link from "next/link";
 
 import Registered from 'components/Registered';
 
+import { notifications } from '@mantine/notifications';
+
 const isBrowser = () => typeof window !== 'undefined';
 
 function scrollToTop() {
@@ -178,6 +180,11 @@ const Register = () => {
         nextStep();
         updateData(user.id, form.values, form.getInputProps('firstname').value + " " + form.getInputProps('lastname').value);
         dispatch(setRegistered(true));
+        notifications.show({
+            title: 'Successfully Registered',
+            message: 'You have successfully registered for ImmerseGT 2024!',
+            color: 'grape.5'
+        });
     }
 
 

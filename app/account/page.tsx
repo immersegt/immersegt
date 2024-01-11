@@ -20,10 +20,6 @@ const listItems = [
 
 import supabase from 'components/Supabase';
 
-import { useEffect, useState } from 'react';
-
-import { Session } from "@supabase/gotrue-js/src/lib/types"
-
 import { notifications } from '@mantine/notifications';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
