@@ -45,9 +45,14 @@ async function updateTeamName(){
     console.log(error);
 }
 
+
 const Test = () => {
 
     const user = useAppSelector((state) => state.user);
+
+    function checkRegistered() {
+        console.log(user.registered);
+    }
 
     return (
         <div className="flexBoxButtons">
@@ -56,6 +61,7 @@ const Test = () => {
             <Button onClick={newTeam}>New Team</Button>
             <Button onClick={updateTeamUpdated}>Update Team (New)</Button>
             <Button onClick={updateTeamName}>Update Team (Old)</Button>
+            <Button onClick={checkRegistered}>Check Registered</Button>
         </div>
     )
 }

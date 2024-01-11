@@ -69,26 +69,43 @@ const LinkStyle = {
 }
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { login, logout } from 'features/userSlice';
+import { login, setRegistered } from 'features/userSlice';
 
 import supabase from '../components/Supabase';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    async function getRegisteredStatus(id: string) {
+      const { data, error } = await supabase
+        .from('users')
+        .select('registered')
+        .eq('id', id);
+      if (data != null) {
+        dispatch(setRegistered(data[0].registered));
+      }
+    }
     supabase.auth.getSession().then(({ data: { session } }) => {
       dispatch(login(session));
+      if (session?.user.id != "") {
+        getRegisteredStatus(session?.user.id || "");
+      }
     })
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       dispatch(login(session));
+      if (session?.user.id != "") {
+        getRegisteredStatus(session?.user.id || "");
+      }
     })
+
+    console.log("Updating Slice...");
 
     return () => subscription.unsubscribe()
   }, []);
