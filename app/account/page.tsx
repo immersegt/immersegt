@@ -25,9 +25,7 @@ import { notifications } from '@mantine/notifications';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { login, logout } from 'features/userSlice';
 
-async function signOut() {
-    const { error } = await supabase.auth.signOut();
-}
+import { signOut } from 'utils/Utils';
 
 const Account = () => {
 

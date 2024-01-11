@@ -69,30 +69,30 @@ const LinkStyle = {
 }
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { login, setRegistered } from 'features/userSlice';
+import { login, setRegistered, setName, setTeamId } from 'features/userSlice';
 
 import supabase from '../components/Supabase';
 
 import { useEffect } from 'react';
+
+import { getUser } from '../utils/Utils';
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    async function getRegisteredStatus(id: string) {
-      const { data, error } = await supabase
-        .from('users')
-        .select('registered')
-        .eq('id', id);
-      if (data != null) {
-        dispatch(setRegistered(data[0].registered));
-      }
+    async function updateUserData(id: string) {
+      getUser(id).then((value) => {
+        dispatch(setRegistered(value.registered));
+        dispatch(setName(value.name));
+        dispatch(setTeamId(value.team_id));
+      });
     }
     supabase.auth.getSession().then(({ data: { session } }) => {
       dispatch(login(session));
       if (session?.user.id != "") {
-        getRegisteredStatus(session?.user.id || "");
+        updateUserData(session?.user.id || "");
       }
     })
 
@@ -101,7 +101,7 @@ const Navbar = () => {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       dispatch(login(session));
       if (session?.user.id != "") {
-        getRegisteredStatus(session?.user.id || "");
+        updateUserData(session?.user.id || "");
       }
     })
 

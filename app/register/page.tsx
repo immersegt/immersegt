@@ -20,6 +20,8 @@ import Registered from 'components/Registered';
 
 import { notifications } from '@mantine/notifications';
 
+import { register, setName } from 'utils/Utils';
+
 const isBrowser = () => typeof window !== 'undefined';
 
 function scrollToTop() {
@@ -28,21 +30,6 @@ function scrollToTop() {
 }
 
 const validLevels = ["Undergraduate", "Graduate", "PhD"];
-
-async function updateData(id: string, json: Object, name: string) {
-    const { error } = await supabase
-        .from('users')
-        .update({ info: json })
-        .eq('id', id);
-    if (error == null) {
-        await supabase
-            .from('users')
-            .update({ registered: true, name: name })
-            .eq('id', id);
-    } else {
-        console.log(error);
-    }
-}
 
 const invalid = (val: string | null) => {
     return val == null || val == "";
@@ -176,9 +163,10 @@ const Register = () => {
         });
     }
 
-    const register = () => {
+    const registerUser = () => {
         nextStep();
-        updateData(user.id, form.values, form.getInputProps('firstname').value + " " + form.getInputProps('lastname').value);
+        register(user.id, form.values);
+        setName(user.id, form.getInputProps('firstname').value + " " + form.getInputProps('lastname').value);
         dispatch(setRegistered(true));
         notifications.show({
             title: 'Successfully Registered',
@@ -460,7 +448,7 @@ const Register = () => {
                                         </Button>
                                     )}
                                     {active < 4 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
-                                    {active === 4 && <Button onClick={register} color="grape.5" disabled={!verified}>Register</Button>}
+                                    {active === 4 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Register</Button>}
                                 </Group>
                             </div>
                         </div>

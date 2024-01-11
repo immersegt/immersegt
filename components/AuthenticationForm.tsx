@@ -26,15 +26,7 @@ import { notifications } from '@mantine/notifications';
 
 import supabase from '../components/Supabase';
 
-async function signUpNewUser(email: string, password: string) {
-  console.log(email, password);
-  const { data, error } = await supabase.auth.signUp({
-    email: email,
-    password: password,
-  })
-  console.log(data);
-  console.log(error);
-}
+import { signUp, signIn } from '../utils/Utils';
 
 const AuthenticationForm = (props: PaperProps) => {
 
@@ -42,17 +34,11 @@ const AuthenticationForm = (props: PaperProps) => {
   const dispatch = useAppDispatch();
 
   async function signInWithEmail(email: string, password: string) {
-    console.log(email, password);
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password
-    })
-    console.log(data);
-    if (console.error !== null) {
-      dispatch(setEmail(email));
-    } else {
-      console.log(error);
-    }
+    signIn(email, password).then((value) => {
+      if (value != null) {
+        dispatch(setEmail(value));
+      }
+    });
   }
 
   const [type, toggle] = useToggle(['login', 'register']);
@@ -72,7 +58,7 @@ const AuthenticationForm = (props: PaperProps) => {
 
   const submitForm = (values: { email: string, password: string }) => {
     if (type === 'register') {
-      signUpNewUser(values.email, values.password);
+      signUp(values.email, values.password);
       notifications.show({
         title: 'Account Created',
         message: 'Please finish registering your account; email sent to: ' + values.email,

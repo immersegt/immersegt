@@ -10,6 +10,8 @@ import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
+import { getUser } from 'utils/Utils';
+
 async function updateFalse(id: string) {
     const { error } = await supabase
         .from('users')
@@ -78,6 +80,7 @@ const Test = () => {
             <Button onClick={updateTeamName}>Update Team (Old)</Button>
             <Button onClick={checkRegistered}>Check Registered</Button>
             <Button onClick={() => { clearData(user.id) }}>Clear Registration</Button>
+            <Button onClick={()=>{console.log(getUser(user.id))}}>Get User Data</Button>
         </div>
     )
 }
