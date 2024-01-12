@@ -15,9 +15,12 @@ import classes from 'styles/searchbox.module.css';
 
 import { useState } from 'react';
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+
 const emptyNames = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
 
 const Team = () => {
+    const team = useAppSelector((state) => state.team);
     const [opened, { open, close }] = useDisclosure(false);
     const [foundTeam, setFoundTeam] = useState(true);
     const [teamData, setTeamData] = useState({
@@ -162,7 +165,7 @@ const Team = () => {
     const [declared, setDeclared] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
-    return foundTeam ? (
+    return team.teamId != null && team.teamId != "" ? (
         <>
             <div className="teamPage">
                 <main className="teamMain">
@@ -181,11 +184,11 @@ const Team = () => {
                         <div className="infoContainer">
                             <div>
                                 <p><i>Name</i></p>
-                                <p className="importantText">{teamData.name}</p>
+                                <p className="importantText">{team.teamName}</p>
                             </div>
                             <div>
                                 <p><i>Description</i></p>
-                                <p className="importantText">{teamData.description}</p>
+                                <p className="importantText">{team.teamDescription}</p>
                             </div>
                         </div>
                     </section>

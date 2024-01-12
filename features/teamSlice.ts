@@ -2,24 +2,39 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../app/store';
 
 interface TeamState {
-    name: string
+    teamId: string,
+    teamName: string,
+    teamDescription: string
 }
 
 const initialState: TeamState = {
-    name: "",
+    teamId: "",
+    teamName: "",
+    teamDescription: ""
 }
 
 export const teamSlice = createSlice({
     name: 'team',
     initialState,
     reducers: {
-        setName: (state, action: PayloadAction<string>) => {
-            state.name = action.payload;
+        setTeamId: (state, action: PayloadAction<string>) => {
+            state.teamId = action.payload;
         },
+        setTeamName: (state, action: PayloadAction<string>) => {
+            state.teamName = action.payload;
+        },
+        setTeamDescription: (state, action: PayloadAction<string>) => {
+            state.teamDescription = action.payload;
+        },
+        clearTeam: (state) => {
+            state.teamId = "";
+            state.teamName = "";
+            state.teamDescription = "";
+        }
     }
 })
 
 
-export const { setName } = teamSlice.actions;
+export const { setTeamId, setTeamName, setTeamDescription, clearTeam } = teamSlice.actions;
 
 export default teamSlice.reducer;

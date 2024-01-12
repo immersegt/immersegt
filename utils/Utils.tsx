@@ -7,7 +7,7 @@ export async function signUp(email: string, password: string) {
     const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
-    })
+    });
 }
 
 //Sign in a user account given email and password
@@ -59,4 +59,28 @@ export async function setName(id: string, name: string) {
         .from('users')
         .update({ name: name })
         .eq('id', id);
+}
+
+//TEAM
+
+//Set user name given an id and name
+export async function setUserTeam(id: string, team_id: string) {
+    const { error } = await supabase
+        .from('users')
+        .update({ team_id: team_id })
+        .eq('id', id);
+}
+
+export async function createTeam(name: string, description: string) {
+    const { data, error } = await supabase
+        .from('teams')
+        .insert({ name: name, description: description });
+}
+
+export async function getTeam(id: string) {
+    const { data, error } = await supabase
+    .from('teams')
+    .select()
+    .contains('members', [id]);
+    return error == null ? data[0] : null;
 }

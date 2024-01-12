@@ -69,24 +69,37 @@ const LinkStyle = {
 }
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { login, setRegistered, setName, setTeamId } from 'features/userSlice';
+import { login, setRegistered, setName, setTeamId as setUserTeamId } from 'features/userSlice';
+import { setTeamId, setTeamName, setTeamDescription, clearTeam } from 'features/teamSlice';
 
 import supabase from '../components/Supabase';
 
 import { useEffect } from 'react';
 
-import { getUser } from '../utils/Utils';
+import { getUser, getTeam } from '../utils/Utils';
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user);
+  const team = useAppSelector((state) => state.team);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     async function updateUserData(id: string) {
       getUser(id).then((value) => {
-        dispatch(setRegistered(value.registered));
-        dispatch(setName(value.name));
-        dispatch(setTeamId(value.team_id));
+        if (value != null) {
+          dispatch(setRegistered(value.registered));
+          dispatch(setName(value.name));
+          dispatch(setUserTeamId(value.team_id));
+        }
+      });
+      getTeam(id).then((value) => {
+        if (value != null) {
+          dispatch(setTeamId(value.id));
+          dispatch(setTeamName(value.name));
+          dispatch(setTeamDescription(value.description));
+        } else {
+          dispatch(clearTeam());
+        }
       });
     }
     supabase.auth.getSession().then(({ data: { session } }) => {

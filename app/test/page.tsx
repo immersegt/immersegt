@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
-import { getUser } from 'utils/Utils';
+import { getUser, getTeam } from 'utils/Utils';
 
 async function updateFalse(id: string) {
     const { error } = await supabase
@@ -27,9 +27,9 @@ async function updateTrue(id: string) {
 }
 
 async function newTeam() {
-    const { error } = await supabase
+    const { data, error } = await supabase
         .from('teams')
-        .insert({ name: "name" });
+        .insert({ name: "This is the Team Name.", description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team." });
 }
 
 async function updateTeamUpdated() {
@@ -64,7 +64,6 @@ async function clearData(id: string) {
 
 
 const Test = () => {
-
     const user = useAppSelector((state) => state.user);
 
     function checkRegistered() {
@@ -81,6 +80,7 @@ const Test = () => {
             <Button onClick={checkRegistered}>Check Registered</Button>
             <Button onClick={() => { clearData(user.id) }}>Clear Registration</Button>
             <Button onClick={()=>{console.log(getUser(user.id))}}>Get User Data</Button>
+            <Button onClick={()=>{console.log(getTeam(user.id))}}>Get Team Data</Button>
         </div>
     )
 }

@@ -4,13 +4,26 @@ import 'styles/index.css';
 import 'styles/register.css';
 
 import { useState } from 'react';
-import { Stepper, Button, Group, TextInput, PasswordInput, Code, Textarea } from '@mantine/core';
+import { Button, Group, TextInput, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import Card from "components/Card";
-import Link from "next/link";
+
+import { createTeam } from 'utils/Utils';
+
+import { notifications } from '@mantine/notifications';
+
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+
+import { useRouter } from 'next/navigation';
+
+import { getTeam, setUserTeam } from 'utils/Utils';
+import { setTeamId, setTeamName, setTeamDescription, clearTeam } from 'features/teamSlice';
+import { setTeamId as setUserTeamId } from 'features/userSlice';
 
 const Create = () => {
-    const [active, setActive] = useState(0);
+    const router = useRouter();
+    const user = useAppSelector((state) => state.user);
+    const dispatch = useAppDispatch();
 
     const form = useForm({
         initialValues: {
@@ -19,32 +32,44 @@ const Create = () => {
         },
 
         validate: (values) => {
-            if (active === 0) {
-                return {
-                    name:
-                        values.name.trim().length < 6
-                            ? 'Team name must include at least 6 characters'
-                            : null,
-                    description:
-                        values.description.trim().length < 6
-                            ? 'Description must include at least 6 characters'
-                            : null,
-                };
-            }
-
-            return {};
+            return {
+                name:
+                    values.name.trim().length < 6
+                        ? 'Team name must include at least 6 characters'
+                        : null,
+                description:
+                    values.description.trim().length < 6
+                        ? 'Description must include at least 6 characters'
+                        : null,
+            };
         },
     });
 
-    const nextStep = () =>
-        setActive((current) => {
-            if (form.validate().hasErrors) {
-                return current;
-            }
-            return current < 3 ? current + 1 : current;
+    const create = () => {
+        createTeam(form.getInputProps('name').value, form.getInputProps('description').value).then(() => {
+            getTeam(user.id).then((value) => {
+                if (value != null) {
+                    setUserTeam(user.id, value.id);
+                    dispatch(setUserTeamId(value.id));
+                    dispatch(setTeamId(value.id));
+                    dispatch(setTeamName(value.name));
+                    dispatch(setTeamDescription(value.description));
+                } else {
+                    dispatch(clearTeam());
+                }
+            });
+        }
+        );
+        form.reset();
+        notifications.show({
+            title: 'Team Created',
+            message: 'You have successfully created a team.',
+            color: 'grape.5'
         });
+        router.push("/team");
 
-    const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+    };
+
 
     const name = "Name"
     const [mockSave, setMockSave] = useState(false);
@@ -58,36 +83,19 @@ const Create = () => {
                     <h3>Team Preview</h3>
                     <p>This is what other participants will see when they are searching for your team.</p>
                     <br />
-                    <Card name={form.getInputProps("name").value || "Team Name"} description={form.getInputProps("description").value || "Team Description"} members={[name]} joined={false} saved={mockSave} disabled={true} toggleSave={() => { setMockSave(!mockSave) }} />
+                    <Card name={form.getInputProps("name").value || "Team Name"} description={form.getInputProps("description").value || "Team Description"} members={[user.name]} joined={false} saved={mockSave} disabled={true} toggleSave={() => { setMockSave(!mockSave) }} />
                 </div>
 
                 <div className="formQuestions">
                     <h3>Questions</h3>
                     <p>Please be descriptive; the more information you provide, the more likely it is for your team will be found!</p>
                     <br />
-                    {active === 0 ? (
-                        <div>
-                            <TextInput label="Team Name" placeholder="Team Name" {...form.getInputProps('name')} />
-                            <Textarea mt="md" label="Team Description" autosize minRows={4} maxRows={4} placeholder="Team Description" {...form.getInputProps('description')} />
-                        </div>
-                    ) : (
-                        <div>
-                            Completed! Form values:
-                            <Code block mt="xl">
-                                {JSON.stringify(form.values, null, 2)}
-                            </Code>
-                        </div>
-                    )}
+                    <div>
+                        <TextInput label="Team Name" placeholder="Team Name" {...form.getInputProps('name')} />
+                        <Textarea mt="md" label="Team Description" autosize minRows={4} maxRows={4} placeholder="Team Description" {...form.getInputProps('description')} />
+                    </div>
                     <Group justify="flex-end" mt="xl">
-                        {active !== 0 && (
-                            <div>
-                                <Button variant="default" onClick={prevStep} mr={16}>
-                                    Back
-                                </Button>
-                                <Link href="/team"><Button color="grape.5">Go to Team Page</Button></Link>
-                            </div>
-                        )}
-                        {active === 0 && <Button onClick={nextStep} color="grape.5">Create</Button>}
+                        <Button onClick={create} color="grape.5">Create</Button>
                     </Group>
                 </div>
 

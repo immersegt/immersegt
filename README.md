@@ -9,6 +9,7 @@ Our platform allows participants to create an account, register for the hackatho
 - React Redux
 - Redux Toolkit
 - Next.js
+- Supabase
 - React
 - Typescript
 - HTML
