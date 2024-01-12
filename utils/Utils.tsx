@@ -27,6 +27,16 @@ export async function signOut() {
 
 //USER FUNCTIONS
 
+export async function searchUsers(query: string) {
+    const { data, error } = await supabase
+        .from('users')
+        .select('id, name, team_id')
+        .like('name', "%" + query.trim() + "%")
+        .eq('registered', true);
+    console.log(data);
+    return data;
+}
+
 //Get all user data for a given id
 export async function getUser(id: string) {
     const { data, error } = await supabase
@@ -61,7 +71,7 @@ export async function setName(id: string, name: string) {
         .eq('id', id);
 }
 
-//TEAM
+//TEAM FUNCTIONS
 
 //Set user name given an id and name
 export async function setUserTeam(id: string, team_id: string) {
@@ -71,16 +81,41 @@ export async function setUserTeam(id: string, team_id: string) {
         .eq('id', id);
 }
 
+//Create a new team given a name and description
+//Associated user id is automatically added in Supabase for security
+
 export async function createTeam(name: string, description: string) {
     const { data, error } = await supabase
         .from('teams')
         .insert({ name: name, description: description });
 }
 
+//Gets team row where id is in the members list
 export async function getTeam(id: string) {
     const { data, error } = await supabase
-    .from('teams')
-    .select()
-    .contains('members', [id]);
+        .from('teams')
+        .select()
+        .contains('members', [id]);
     return error == null ? data[0] : null;
+}
+
+export async function getMembers(members: Array<string>) {
+    const { data, error } = await supabase
+        .from('users')
+        .select('id, name, created_at')
+        .in('id', members);
+    return error == null ? data : null;
+}
+
+//REQUEST FUNCTIONS
+export async function sendUserRequest(id: string, team_id: string, message: string) {
+    const { data, error } = await supabase
+        .from('requests')
+        .insert({ user_id: id, team_id: team_id, message: message, status: "pending", sent_by_user: true });
+}
+
+export async function sendTeamRequest(id: string, team_id: string, team_name: string) {
+    const { data, error } = await supabase
+        .from('requests')
+        .insert({ user_id: id, team_id: team_id, message: ("Team " + team_name + " has invited you to join their team."), status: "pending", sent_by_user: false });
 }

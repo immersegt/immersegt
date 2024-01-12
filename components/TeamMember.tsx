@@ -5,21 +5,30 @@ import { UnstyledButton, Modal, Badge, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications'
 
+import { sendTeamRequest } from 'utils/Utils';
+
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+
 import Info from '../public/info.png';
 
 interface MemberItemProps {
     name: string,
     time: string,
+    userId: string,
     description: string,
     member: boolean,
     displayAvailable: boolean,
     available: boolean
 }
 
-const TeamMember = ({ name, time, description, member, displayAvailable, available }: MemberItemProps) => {
+const TeamMember = ({ name, time, userId, description, member, displayAvailable, available }: MemberItemProps) => {
+    const team = useAppSelector((state) => state.team);
     const [opened, { open, close }] = useDisclosure(false);
 
     function invite () {
+        if (userId != null && userId != ""){
+        sendTeamRequest(userId, team.teamId, team.teamName);
+        }
         console.log("sent invite");
         notifications.show({
           title: 'Invite Sent',

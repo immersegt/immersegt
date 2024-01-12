@@ -12,6 +12,9 @@ import Link from 'next/link';
 
 import { FaStar } from "react-icons/fa";
 
+import { sendUserRequest } from 'utils/Utils';
+import { useAppSelector } from 'app/hooks';
+
 interface cardProps {
   name: string,
   description: string,
@@ -19,10 +22,12 @@ interface cardProps {
   joined: boolean,
   disabled: boolean,
   saved: boolean,
-  toggleSave: any
+  toggleSave: any,
+  team_id: string
 }
 
-const TeamCard = ({ name, description, members, joined, disabled, saved, toggleSave }: cardProps) => {
+const TeamCard = ({ name, description, members, joined, disabled, saved, toggleSave, team_id }: cardProps) => {
+  const user = useAppSelector((state) => state.user);
   const [opened, { open, close }] = useDisclosure(false);
   const [confirmLeave, { open: openLeave, close: closeLeave }] = useDisclosure(false);
 
@@ -39,18 +44,27 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
     setMessage('');
   }
 
-  function submit () {
-    console.log("sent message");
-    notifications.show({
-      title: 'Request Sent',
-      message: 'You have requested to be a member of ' + name,
-      color: 'grape.5'
-    });
-    setEditing(false);
-    setMessage('');
+  function submit() {
+    if (user.team_id != null && user.team_id != "") {
+      notifications.show({
+        title: 'Request Failed',
+        message: 'You are currently listed as a member of a different team. Please leave your current team before sending requests.',
+        color: 'red'
+      });
+    } else {
+      sendUserRequest(user.id, team_id, message);
+      console.log("sent message");
+      notifications.show({
+        title: 'Request Sent',
+        message: 'You have requested to be a member of ' + name,
+        color: 'grape.5'
+      });
+      setEditing(false);
+      setMessage('');
+    }
   }
 
-  function leaveTeam () {
+  function leaveTeam() {
     console.log("left team");
     notifications.show({
       title: 'Left Team',
@@ -60,15 +74,15 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
     closeLeave();
   }
 
-  function save () {
-    if (!saved){
+  function save() {
+    if (!saved) {
       console.log("saved team");
       notifications.show({
         title: 'Team Saved',
-        message: 'You have saved ' + name ,
+        message: 'You have saved ' + name,
         color: 'gray.5'
       });
-    }else{
+    } else {
       console.log("unsaved team");
       notifications.show({
         title: 'Team Unsaved',
@@ -138,7 +152,7 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
                 </Button>
                 <Group justify="space-between" className="buttonRowStyle">
                   <Button variant="light" color="gray" mt="md" radius="md" className="buttonStyle row" disabled={members.length === 6} onClick={save}>
-                    {saved?"UN" : ""}SAVE TEAM
+                    {saved ? "UN" : ""}SAVE TEAM
                   </Button>
                   <Button variant="light" color="gray" mt="md" radius="md" className="buttonStyle row" disabled={members.length === 6} onClick={open}>
                     MORE INFO

@@ -21,6 +21,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team. Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member", "Super long member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member", "Member 4", "Member 5", "Member 6"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 3,
@@ -35,6 +37,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: true,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 4,
@@ -42,6 +45,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 5,
@@ -49,6 +53,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 6,
@@ -56,6 +61,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 7,
@@ -63,6 +69,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 8,
@@ -70,6 +77,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 9,
@@ -77,6 +85,7 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
     },
     {
       id: 10,
@@ -84,42 +93,8 @@ const Formation = () => {
       description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
       members: ["Member 1", "Team Member 2", "Another Member"],
       joined: false,
-    },
-    {
-      id: 11,
-      name: "Team Name 1",
-      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
-      members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false,
-    },
-    {
-      id: 12,
-      name: "Team Name 1",
-      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
-      members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false,
-    },
-    {
-      id: 13,
-      name: "Team Name 1",
-      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
-      members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false,
-    },
-    {
-      id: 14,
-      name: "Team Name 1",
-      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
-      members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false,
-    },
-    {
-      id: 15,
-      name: "Team Name 1",
-      description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
-      members: ["Member 1", "Team Member 2", "Another Member"],
-      joined: false,
-    },
+      team_id: "071167e7-e281-4586-afb4-c132bb3b4ebd"
+    }
   ]);
 
   const toggleSave = (id: number) => {
@@ -152,7 +127,7 @@ const Formation = () => {
         <span className="formationDisplayTitle"><i>367 Team(s) Found</i></span>
         <div className="formationHolder">
         {teams.map((val) => (
-          <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={()=>{toggleSave(val.id)}} disabled={false} />
+          <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={()=>{toggleSave(val.id)}} disabled={false} team_id={val.team_id}/>
         ))}
         </div>
         <Toolbar/>

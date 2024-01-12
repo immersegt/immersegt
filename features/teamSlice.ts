@@ -4,13 +4,15 @@ import type { RootState } from '../app/store';
 interface TeamState {
     teamId: string,
     teamName: string,
-    teamDescription: string
+    teamDescription: string,
+    members: Array<string>
 }
 
 const initialState: TeamState = {
     teamId: "",
     teamName: "",
-    teamDescription: ""
+    teamDescription: "",
+    members: []
 }
 
 export const teamSlice = createSlice({
@@ -26,15 +28,19 @@ export const teamSlice = createSlice({
         setTeamDescription: (state, action: PayloadAction<string>) => {
             state.teamDescription = action.payload;
         },
+        setMembers: (state, action: PayloadAction<Array<string>>) => {
+            state.members = action.payload;
+        },
         clearTeam: (state) => {
             state.teamId = "";
             state.teamName = "";
             state.teamDescription = "";
+            state.members = [];
         }
     }
 })
 
 
-export const { setTeamId, setTeamName, setTeamDescription, clearTeam } = teamSlice.actions;
+export const { setTeamId, setTeamName, setTeamDescription, setMembers, clearTeam } = teamSlice.actions;
 
 export default teamSlice.reducer;

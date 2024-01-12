@@ -17,7 +17,7 @@ import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { useRouter } from 'next/navigation';
 
 import { getTeam, setUserTeam } from 'utils/Utils';
-import { setTeamId, setTeamName, setTeamDescription, clearTeam } from 'features/teamSlice';
+import { setTeamId, setTeamName, setTeamDescription, setMembers, clearTeam } from 'features/teamSlice';
 import { setTeamId as setUserTeamId } from 'features/userSlice';
 
 const Create = () => {
@@ -54,6 +54,7 @@ const Create = () => {
                     dispatch(setTeamId(value.id));
                     dispatch(setTeamName(value.name));
                     dispatch(setTeamDescription(value.description));
+                    dispatch(setMembers(value.members));
                 } else {
                     dispatch(clearTeam());
                 }

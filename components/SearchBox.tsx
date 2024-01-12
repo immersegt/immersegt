@@ -3,11 +3,20 @@ import classes from '../styles/searchbox.module.css';
 import { TextInput, TextInputProps, ActionIcon, useMantineTheme, rem } from '@mantine/core';
 import { IconSearch, IconArrowRight } from '@tabler/icons-react';
 
-const SearchBox = (props: TextInputProps) => {
+import { useState } from 'react';
+
+interface SearchBoxProps {
+    val: string,
+    setVal: Function,
+    className: string
+}
+
+const SearchBox = ({ className, val, setVal }: SearchBoxProps) => {
     const theme = useMantineTheme();
 
     return (
         <TextInput
+            className={className}
             classNames={classes}
             radius="xl"
             size="md"
@@ -19,7 +28,8 @@ const SearchBox = (props: TextInputProps) => {
                     <IconArrowRight style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
                 </ActionIcon>
             }
-            {...props}
+            value={val}
+            onChange={(event) => setVal(event.currentTarget.value)}
         />
     );
 }

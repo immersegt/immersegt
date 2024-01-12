@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
-import { getUser, getTeam } from 'utils/Utils';
+import { getUser, getTeam, searchUsers, getMembers } from 'utils/Utils';
 
 async function updateFalse(id: string) {
     const { error } = await supabase
@@ -65,6 +65,7 @@ async function clearData(id: string) {
 
 const Test = () => {
     const user = useAppSelector((state) => state.user);
+    const team = useAppSelector((state) => state.team);
 
     function checkRegistered() {
         console.log(user.registered);
@@ -81,6 +82,8 @@ const Test = () => {
             <Button onClick={() => { clearData(user.id) }}>Clear Registration</Button>
             <Button onClick={()=>{console.log(getUser(user.id))}}>Get User Data</Button>
             <Button onClick={()=>{console.log(getTeam(user.id))}}>Get Team Data</Button>
+            <Button onClick={()=>{searchUsers("Alex")}}>Search Users: Alex</Button>
+            <Button onClick={()=>{getMembers(team.members)}}>Get Team Members</Button>
         </div>
     )
 }

@@ -13,7 +13,8 @@ import SearchBox from 'components/SearchBox';
 import TeamRedirect from 'components/TeamRedirect';
 import classes from 'styles/searchbox.module.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { searchUsers } from 'utils/Utils';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
@@ -84,22 +85,13 @@ const Team = () => {
         },
     ]);
 
-    const invites = [
-        {
-            name: "Name Here that is really long and might overflow",
-            available: true
-        },
-        {
-            name: "Another name",
-            available: false
-        },
-        {
-            name: "Yet Another name",
-            available: true
-        },
-    ]
+    interface inviteProps {
+        id: string,
+        name: string,
+        available: boolean
+    }
 
-    const [searchFilter, setSearchFilter] = useState(""); //Update later to use useForm
+    const [invites, setInvites] = useState<Array<inviteProps>>([]);
 
     const [joinFilter, setJoinFilter] = useState("all");
 
@@ -164,6 +156,26 @@ const Team = () => {
     const [checked4, setChecked4] = useState(false);
     const [declared, setDeclared] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+
+    const [searchVal, setSearchVal] = useState("");
+
+    useEffect(() => {
+        if (searchVal != null && searchVal.trim() != "") {
+            searchUsers(searchVal).then((value) => {
+                if (value != null) {
+                    setInvites(value?.map((val) => {
+                        return {
+                            id: val.id,
+                            name: val.name,
+                            available: (val.team_id == null || val.team_id == "")
+                        };
+                    }));
+                }
+            });
+        } else {
+            setInvites([]);
+        }
+    }, [searchVal])
 
     return team.teamId != null && team.teamId != "" ? (
         <>
@@ -279,14 +291,14 @@ const Team = () => {
                 <aside className="teamAside">
                     <section className="teamBox invite">
                         <h3>Invite Teammates</h3>
-                        <SearchBox className="searchBox" />
-                        {invites.length === 0 ? searchFilter === "" ? (
+                        <SearchBox className="searchBox" val={searchVal} setVal={setSearchVal} />
+                        {searchVal === "" ? (
                             <p><i>Starting typing to see participants</i></p>
-                        ) : (
+                        ) : invites.length === 0 ? (
                             <p><i>No participants found</i></p>
                         )
                             : invites.map((val, ind) => (
-                                <TeamMember key={ind} name={val.name} member={false} displayAvailable={true} available={val.available} />
+                                <TeamMember key={ind} name={val.name} member={false} displayAvailable={true} available={val.available} userId={val.id}/>
                             ))}
 
                     </section>
