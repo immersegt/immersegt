@@ -90,6 +90,23 @@ export async function createTeam(name: string, description: string) {
         .insert({ name: name, description: description });
 }
 
+//Edit team values
+export async function editTeam(id: string, name: string, description: string) {
+    const nameFound = (name != null && name.trim() != "");
+    const descFound = (description != null && description.trim() != "");
+    const updated =
+        nameFound && descFound ? { name: name, description: description }
+            : nameFound ? { name: name }
+                : descFound ? { description: description } : {};
+
+    if (nameFound || descFound) {
+        const { data, error } = await supabase
+            .from('teams')
+            .update(updated)
+            .eq('id', id);
+    }
+}
+
 //Gets team row where id is in the members list
 export async function getTeam(id: string) {
     const { data, error } = await supabase
@@ -99,12 +116,21 @@ export async function getTeam(id: string) {
     return error == null ? data[0] : null;
 }
 
+//Get all members data given the array of UUIDs
 export async function getMembers(members: Array<string>) {
     const { data, error } = await supabase
         .from('users')
         .select('id, name, created_at')
         .in('id', members);
     return error == null ? data : null;
+}
+
+//Finalize a team
+export async function declareTeam(id: string, status: boolean) {
+    const { error } = await supabase
+        .from('teams')
+        .update({ declared: status })
+        .eq('id', id);
 }
 
 //REQUEST FUNCTIONS

@@ -5,14 +5,16 @@ interface TeamState {
     teamId: string,
     teamName: string,
     teamDescription: string,
-    members: Array<string>
+    members: Array<string>,
+    declared: boolean
 }
 
 const initialState: TeamState = {
     teamId: "",
     teamName: "",
     teamDescription: "",
-    members: []
+    members: [],
+    declared: false
 }
 
 export const teamSlice = createSlice({
@@ -31,6 +33,9 @@ export const teamSlice = createSlice({
         setMembers: (state, action: PayloadAction<Array<string>>) => {
             state.members = action.payload;
         },
+        setDeclared: (state, action: PayloadAction<boolean>) => {
+            state.declared = action.payload;
+        },
         clearTeam: (state) => {
             state.teamId = "";
             state.teamName = "";
@@ -41,6 +46,6 @@ export const teamSlice = createSlice({
 })
 
 
-export const { setTeamId, setTeamName, setTeamDescription, setMembers, clearTeam } = teamSlice.actions;
+export const { setTeamId, setTeamName, setTeamDescription, setMembers, setDeclared, clearTeam } = teamSlice.actions;
 
 export default teamSlice.reducer;

@@ -70,7 +70,7 @@ const LinkStyle = {
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { login, setRegistered, setName, setTeamId as setUserTeamId } from 'features/userSlice';
-import { setTeamId, setTeamName, setTeamDescription, setMembers, clearTeam } from 'features/teamSlice';
+import { setTeamId, setTeamName, setTeamDescription, setMembers, setDeclared, clearTeam } from 'features/teamSlice';
 
 import supabase from '../components/Supabase';
 
@@ -98,6 +98,7 @@ const Navbar = () => {
           dispatch(setTeamName(value.name));
           dispatch(setTeamDescription(value.description));
           dispatch(setMembers(value.members));
+          dispatch(setDeclared(value.declared));
         } else {
           dispatch(clearTeam());
         }

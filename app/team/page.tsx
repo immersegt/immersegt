@@ -14,7 +14,9 @@ import TeamRedirect from 'components/TeamRedirect';
 import classes from 'styles/searchbox.module.css';
 
 import { useState, useEffect } from 'react';
-import { searchUsers } from 'utils/Utils';
+import { searchUsers, declareTeam, editTeam } from 'utils/Utils';
+import { setDeclared } from 'features/teamSlice';
+import { setTeamName, setTeamDescription } from 'features/teamSlice';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
@@ -22,6 +24,7 @@ const emptyNames = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
 
 const Team = () => {
     const team = useAppSelector((state) => state.team);
+    const dispatch = useAppDispatch();
     const [opened, { open, close }] = useDisclosure(false);
     const [foundTeam, setFoundTeam] = useState(true);
     const [teamData, setTeamData] = useState({
@@ -107,7 +110,15 @@ const Team = () => {
 
     const [confirmLeave, { open: openLeave, close: closeLeave }] = useDisclosure(false);
 
+    const [newName, setNewName] = useState("");
+    const [newDesc, setNewDesc] = useState("");
+
     function saveInfo() {
+        editTeam(team.teamId, newName, newDesc);
+        dispatch(setTeamName(newName));
+        dispatch(setTeamDescription(newDesc));
+        setNewName("");
+        setNewDesc("");
         console.log("saved info");
         notifications.show({
             title: 'Saved Info',
@@ -118,7 +129,8 @@ const Team = () => {
     }
 
     function confirmTeam() {
-        setDeclared(true);
+        dispatch(setDeclared(true));
+        declareTeam(team.teamId, true);
         console.log("saved info");
         notifications.show({
             title: 'Team Declared',
@@ -154,7 +166,6 @@ const Team = () => {
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
-    const [declared, setDeclared] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
     const [searchVal, setSearchVal] = useState("");
@@ -175,7 +186,7 @@ const Team = () => {
         } else {
             setInvites([]);
         }
-    }, [searchVal])
+    }, [searchVal]);
 
     return team.teamId != null && team.teamId != "" ? (
         <>
@@ -206,7 +217,7 @@ const Team = () => {
                     </section>
                     <section className="teamBox declaration">
                         <h3>Team Declaration</h3>
-                        {declared ? (
+                        {team.declared ? (
                             <div className="infoContainer">
                                 <p className="confirmation">You have successfully declared your team.</p>
                                 <p>Thank you for confirming your participation in ImmerseGT. Please contact the event organizers if you have any further questions regarding teams, team formation, or your eligibility for prizes.</p>
@@ -298,7 +309,7 @@ const Team = () => {
                             <p><i>No participants found</i></p>
                         )
                             : invites.map((val, ind) => (
-                                <TeamMember key={ind} name={val.name} member={false} displayAvailable={true} available={val.available} userId={val.id}/>
+                                <TeamMember key={ind} name={val.name} member={false} displayAvailable={true} available={val.available} userId={val.id} />
                             ))}
 
                     </section>
@@ -338,6 +349,8 @@ const Team = () => {
                         label="Name"
                         placeholder={teamData.name}
                         classNames={classes}
+                        value={newName}
+                        onChange={(event) => setNewName(event.currentTarget.value)}
                     />
                     <Textarea
                         label="Description"
@@ -346,6 +359,8 @@ const Team = () => {
                         minRows={4}
                         maxRows={4}
                         classNames={classes}
+                        value={newDesc}
+                        onChange={(event) => setNewDesc(event.currentTarget.value)}
                     />
                 </div>
                 <Group justify="space-between" className="buttonRowStyle">
