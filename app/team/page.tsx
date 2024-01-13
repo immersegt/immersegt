@@ -14,19 +14,19 @@ import TeamRedirect from 'components/TeamRedirect';
 import classes from 'styles/searchbox.module.css';
 
 import { useState, useEffect } from 'react';
-import { searchUsers, declareTeam, editTeam } from 'utils/Utils';
+import { searchUsers, declareTeam, editTeam, leaveTeam } from 'utils/Utils';
 import { setDeclared } from 'features/teamSlice';
-import { setTeamName, setTeamDescription } from 'features/teamSlice';
-
+import { setTeamName, setTeamDescription, clearTeam } from 'features/teamSlice';
+import { setTeamId } from 'features/userSlice';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
 const emptyNames = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
 
 const Team = () => {
+    const user = useAppSelector((state) => state.user);
     const team = useAppSelector((state) => state.team);
     const dispatch = useAppDispatch();
     const [opened, { open, close }] = useDisclosure(false);
-    const [foundTeam, setFoundTeam] = useState(true);
     const [teamData, setTeamData] = useState({
         id: 1,
         name: "Your Team Name Would Go Here",
@@ -140,14 +140,17 @@ const Team = () => {
         close();
     }
 
-    function leaveTeam() {
+    function leave() {
+        const temp = team.teamName;
+        leaveTeam(user.id, team.teamId);
+        dispatch(clearTeam());
+        dispatch(setTeamId(""));
         console.log("left team");
         notifications.show({
             title: 'Left Team',
-            message: 'You are no longer a member of ' + teamData.name,
+            message: 'You are no longer a member of ' + temp,
             color: 'red'
         });
-        setFoundTeam(false);
         closeLeave();
     }
 
@@ -347,14 +350,14 @@ const Team = () => {
                 <div className="modalGap">
                     <TextInput
                         label="Name"
-                        placeholder={teamData.name}
+                        placeholder={team.teamName}
                         classNames={classes}
                         value={newName}
                         onChange={(event) => setNewName(event.currentTarget.value)}
                     />
                     <Textarea
                         label="Description"
-                        placeholder={teamData.description}
+                        placeholder={team.teamDescription}
                         autosize
                         minRows={4}
                         maxRows={4}
@@ -373,10 +376,10 @@ const Team = () => {
                 </Group>
             </Modal>
             <Modal opened={confirmLeave} onClose={closeLeave} title="Leave Team">
-                <h3>Are you sure you want to leave {teamData.name}?</h3>
+                <h3>Are you sure you want to leave {team.teamName}?</h3>
                 <p>This cannot be undone.</p>
                 <Group justify="space-between" className="buttonRowStyle">
-                    <Button variant="light" color="red" mt="md" radius="md" className="confirmButtonStyle" onClick={leaveTeam}>
+                    <Button variant="light" color="red" mt="md" radius="md" className="confirmButtonStyle" onClick={leave}>
                         LEAVE TEAM
                     </Button>
                     <Button variant="light" color="gray" mt="md" radius="md" className="confirmButtonStyle" onClick={closeLeave}>

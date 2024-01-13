@@ -133,6 +133,33 @@ export async function declareTeam(id: string, status: boolean) {
         .eq('id', id);
 }
 
+export async function leaveTeam(id: string, team_id: string) {
+    const { data } = await supabase
+        .from('teams')
+        .select('members')
+        .eq('id', team_id);
+    if (data != null) {
+        const newMembers = data[0].members.filter((val: string) => {
+            return val != id;
+        });
+        if (newMembers.length == 0) {
+            await supabase
+                .from('teams')
+                .delete()
+                .eq('id', team_id);
+        } else {
+            await supabase
+                .from('teams')
+                .update({ members: newMembers })
+                .eq('id', team_id);
+        }
+        await supabase
+            .from('users')
+            .update({ team_id: null })
+            .eq('id', id);
+    }
+}
+
 //REQUEST FUNCTIONS
 export async function sendUserRequest(id: string, team_id: string, message: string) {
     const { data, error } = await supabase
