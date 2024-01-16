@@ -216,3 +216,36 @@ export async function deleteRequest(id: string, team_id: string){
     .eq('id', id)
     .eq('team_id', team_id);
 }
+
+//EVENT FUNCTIONS
+
+//Get all events
+export async function getEvents(){
+    const { data, error } = await supabase
+    .from('events')
+    .select();
+    return data;
+}
+
+//Delete an event given the id
+export async function deleteEvent(id: string){
+    const { error } = await supabase
+    .from('events')
+    .delete()
+    .eq('id', id);
+}
+
+//Add an event given info
+export async function addEvent(name: string, description: string, location: string, workshop: boolean) {
+    const { error } = await supabase
+    .from('events')
+    .insert({name: name, description: description, location: location, workshop: workshop});
+}
+
+//Update an event given updated info
+export async function updateEvent(id: string, description: string){
+    const { error } = await supabase
+    .from('events')
+    .update({description: description})
+    .eq('id', id);
+}

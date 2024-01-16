@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from '../features/userSlice';
 import teamReducer from '../features/teamSlice';
+import teamListReducer from '../features/teamListSlice';
+import eventReducer from '../features/eventSlice';
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    team: teamReducer
+    team: teamReducer,
+    teamList: teamListReducer,
+    events: eventReducer
   },
 })
 
