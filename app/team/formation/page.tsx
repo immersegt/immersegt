@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Button, UnstyledButton } from '@mantine/core';
 import "@fontsource/open-sans";
 import TeamCard from 'components/Card';
 import 'styles/index.css'
@@ -12,7 +11,11 @@ import ToolButton from 'components/ToolButton';
 import Filter from 'components/Filter';
 import Toolbar from 'components/Toolbar';
 
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+
 const Formation = () => {
+  const user = useAppSelector((state) => state.user);
+
   const [saved, setSaved] = useState([]);
   const [teams, setTeams] = useState([
     {
@@ -115,11 +118,14 @@ const Formation = () => {
         description="This could be the beginning of something great. Invite your friends or search for other participants."
         image={Plus.src}
         href="/team/create"
+        disabled={user.team_id != null && user.team_id != ""}
         />
         <ToolButton 
         title="Recommend a Team"
         description="Search for teams that match your applicant profile and are currently looking for members."
-        image={Idea.src}/>
+        image={Idea.src}
+        disabled={false}
+        href={""}/>
         <Filter/>
       </aside>
 

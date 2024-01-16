@@ -8,12 +8,13 @@ interface ToolButtonProps {
     title: string,
     description: string,
     image: any,
-    href: string
+    href: string,
+    disabled: boolean
 }
 
-const ToolButton = ({ title, description, image, href }: ToolButtonProps) => {
-    return href === undefined ? (
-        <UnstyledButton className="toolButton">
+const ToolButton = ({ title, description, image, href, disabled }: ToolButtonProps) => {
+    return (href === undefined || href === "") ? (
+        <UnstyledButton className={"toolButton" + (!disabled ? " working" : " disabled")} disabled={disabled}>
             <img src={image} className="toolButtonImage" />
             <div className="toolButtonInfo">
                 <h3>{title}</h3>
@@ -21,7 +22,7 @@ const ToolButton = ({ title, description, image, href }: ToolButtonProps) => {
             </div>
         </UnstyledButton>
     ) : (
-        <Link href={href} className="noLine"><UnstyledButton className="toolButton">
+        <Link href={href} className="noLine"><UnstyledButton className={"toolButton" + (!disabled ? " working" : " disabled")} disabled={disabled}>
             <img src={image} className="toolButtonImage" />
             <div className="toolButtonInfo">
                 <h3>{title}</h3>

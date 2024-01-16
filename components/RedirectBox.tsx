@@ -21,7 +21,7 @@ const RedirectBox = ({title, description, buttonText, href, selected, position, 
             <p className="redirectSubtitle">{option ? "OPTION" : "STEP"} {position+1}</p>
             <h3 className="redirectTitle">{title}</h3>
             <p className="redirectDescription">{description}</p>
-            <UnstyledButton className="redirectButton" component="a" href={href}>{buttonText}</UnstyledButton>
+            <UnstyledButton className="redirectButton2" component="a" href={href}>{buttonText}</UnstyledButton>
         </div>
     )
 }

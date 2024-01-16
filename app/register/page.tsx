@@ -12,8 +12,6 @@ import classes from 'styles/searchbox.module.css';
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { setRegistered } from 'features/userSlice';
 
-import supabase from 'components/Supabase';
-
 import Link from "next/link";
 
 import Registered from 'components/Registered';

@@ -84,10 +84,27 @@ export async function setUserTeam(id: string, team_id: string) {
 //Create a new team given a name and description
 //Associated user id is automatically added in Supabase for security
 
-export async function createTeam(name: string, description: string) {
+async function createTeamLogic(name: string, description: string) {
     const { data, error } = await supabase
         .from('teams')
         .insert({ name: name, description: description });
+}
+
+//Checks for existing team before allowing user to register team
+
+export async function createTeam(id: string, name: string, description: string) {
+    if (name == "" || name == null || description == "" || description == null) {
+        return false;
+    }
+    await getTeam(id).then((value) => {
+        if (value == null) {
+            createTeamLogic(name, description);
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return true;
 }
 
 //Edit team values
