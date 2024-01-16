@@ -72,7 +72,7 @@ import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { login, setRegistered, setName, setTeamId as setUserTeamId } from 'features/userSlice';
 import { setTeamId, setTeamName, setTeamDescription, setMembers, setDeclared, clearTeam } from 'features/teamSlice';
 
-import supabase from '../components/Supabase';
+import supabase from '../utils/Supabase';
 
 import { useEffect } from 'react';
 

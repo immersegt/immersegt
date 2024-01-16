@@ -52,7 +52,7 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
         color: 'red'
       });
     } else {
-      sendUserRequest(user.id, team_id, message);
+      sendUserRequest(user.id, team_id, user.name, name, message);
       console.log("sent message");
       notifications.show({
         title: 'Request Sent',

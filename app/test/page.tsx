@@ -4,7 +4,7 @@ import 'styles/index.css';
 
 import { Button } from '@mantine/core';
 
-import supabase from 'components/Supabase';
+import supabase from 'utils/Supabase';
 
 import { useEffect } from 'react';
 

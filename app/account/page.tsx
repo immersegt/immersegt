@@ -18,7 +18,7 @@ const listItems = [
     "And more!"
 ];
 
-import supabase from 'components/Supabase';
+import supabase from 'utils/Supabase';
 
 import { notifications } from '@mantine/notifications';
 

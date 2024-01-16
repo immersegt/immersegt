@@ -24,7 +24,7 @@ import { setEmail } from 'features/userSlice';
 
 import { notifications } from '@mantine/notifications';
 
-import supabase from '../components/Supabase';
+import supabase from '../utils/Supabase';
 
 import { signUp, signIn } from '../utils/Utils';
 

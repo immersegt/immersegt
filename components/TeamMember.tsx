@@ -27,7 +27,7 @@ const TeamMember = ({ name, time, userId, description, member, displayAvailable,
 
     function invite () {
         if (userId != null && userId != ""){
-        sendTeamRequest(userId, team.teamId, team.teamName);
+        sendTeamRequest(userId, team.teamId, name, team.teamName);
         }
         console.log("sent invite");
         notifications.show({

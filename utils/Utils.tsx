@@ -1,4 +1,4 @@
-import supabase from '../components/Supabase';
+import supabase from './Supabase';
 
 //AUTH FUNCTIONS
 
@@ -83,7 +83,6 @@ export async function setUserTeam(id: string, team_id: string) {
 
 //Create a new team given a name and description
 //Associated user id is automatically added in Supabase for security
-
 async function createTeamLogic(name: string, description: string) {
     const { data, error } = await supabase
         .from('teams')
@@ -91,7 +90,6 @@ async function createTeamLogic(name: string, description: string) {
 }
 
 //Checks for existing team before allowing user to register team
-
 export async function createTeam(id: string, name: string, description: string) {
     if (name == "" || name == null || description == "" || description == null) {
         return false;
@@ -150,6 +148,7 @@ export async function declareTeam(id: string, status: boolean) {
         .eq('id', id);
 }
 
+//Leave a team
 export async function leaveTeam(id: string, team_id: string) {
     const { data } = await supabase
         .from('teams')
@@ -178,14 +177,42 @@ export async function leaveTeam(id: string, team_id: string) {
 }
 
 //REQUEST FUNCTIONS
-export async function sendUserRequest(id: string, team_id: string, message: string) {
+
+export async function getUserRequests(id: string){
     const { data, error } = await supabase
-        .from('requests')
-        .insert({ user_id: id, team_id: team_id, message: message, status: "pending", sent_by_user: true });
+    .from('requests')
+    .select()
+    .eq('id', id);
+    return data;
 }
 
-export async function sendTeamRequest(id: string, team_id: string, team_name: string) {
+export async function getTeamRequests(team_id: string){
+    const { data, error } = await supabase 
+    .from('requests')
+    .select()
+    .eq('team_id', team_id);
+    return data;
+}
+
+//Send a request from a user
+export async function sendUserRequest(id: string, team_id: string, user_name: string, team_name: string, message: string) {
     const { data, error } = await supabase
         .from('requests')
-        .insert({ user_id: id, team_id: team_id, message: ("Team " + team_name + " has invited you to join their team."), status: "pending", sent_by_user: false });
+        .insert({ user_id: id, team_id: team_id, user_name: user_name, team_name: team_name, message: message, status: "pending", sent_by_user: true });
+}
+
+//Send a request from a team
+export async function sendTeamRequest(id: string, team_id: string, user_name: string, team_name: string) {
+    const { data, error } = await supabase
+        .from('requests')
+        .insert({ user_id: id, team_id: team_id, user_name: user_name, team_name: team_name, message: ("Team " + team_name + " has invited you to join their team."), status: "pending", sent_by_user: false });
+}
+
+//Delete a request given a user id and team id
+export async function deleteRequest(id: string, team_id: string){
+    const { error } = await supabase
+    .from('requests')
+    .delete()
+    .eq('id', id)
+    .eq('team_id', team_id);
 }
