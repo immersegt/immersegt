@@ -147,7 +147,7 @@ const Formation = () => {
               ))
             ) : (
               teamList.teams.map((val) => (
-                <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={() => { toggleSave(val.id) }} disabled={false} team_id={val.team_id} />
+                <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.id==user.team_id} saved={saved.includes(val.id)} toggleSave={() => { toggleSave(val.id) }} disabled={false} team_id={val.team_id} />
               ))
             )}
 

@@ -14,6 +14,11 @@ import Redux from './redux';
 export const metadata: Metadata = {
   title: "ImmerseGT Event Platform",
   description: "Participate in the 2024 XR Hackathon",
+  openGraph: {
+    title: "ImmerseGT Event Platform",
+    description: "Participate in the 2024 XR Hackathon",
+    type: "website",
+  }
 };
 
 const bodyStyle = {
@@ -34,16 +39,24 @@ export default function RootLayout({ children }: { children: any }) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
+        <meta name="twitter:image" content="<generated>" />
+        <meta name="twitter:image:type" content="<generated>" />
+        <meta name="twitter:image:width" content="<generated>" />
+        <meta name="twitter:image:height" content="<generated>" />
       </head>
       <body style={bodyStyle}>
-          <Redux>
-            <MantineProvider theme={theme} forceColorScheme="dark">
-              <Navbar />
-              <div style={contentStyle}>{children}</div>
-              <Footer />
-              <Notifications />
-            </MantineProvider>
-          </Redux>
+        <Redux>
+          <MantineProvider theme={theme} forceColorScheme="dark">
+            <Navbar />
+            <div style={contentStyle}>{children}</div>
+            <Footer />
+            <Notifications />
+          </MantineProvider>
+        </Redux>
       </body>
     </html>
   );

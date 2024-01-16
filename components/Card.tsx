@@ -13,7 +13,10 @@ import Link from 'next/link';
 import { FaStar } from "react-icons/fa";
 
 import { sendUserRequest } from 'utils/Utils';
-import { useAppSelector } from 'app/hooks';
+import { useAppSelector, useAppDispatch } from 'app/hooks';
+import { clearTeam } from 'features/teamSlice';
+import { leaveTeam } from 'utils/Utils';
+import { setTeamId } from 'features/userSlice';
 
 interface cardProps {
   name: string,
@@ -28,6 +31,8 @@ interface cardProps {
 
 const TeamCard = ({ name, description, members, joined, disabled, saved, toggleSave, team_id }: cardProps) => {
   const user = useAppSelector((state) => state.user);
+  const team = useAppSelector((state) => state.team);
+  const dispatch = useAppDispatch();
   const teamList = useAppSelector((state) => state.teamList);
   const [opened, { open, close }] = useDisclosure(false);
   const [confirmLeave, { open: openLeave, close: closeLeave }] = useDisclosure(false);
@@ -65,11 +70,15 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
     }
   }
 
-  function leaveTeam() {
+  function leave() {
+    const temp = team.teamName;
+    leaveTeam(user.id, team.teamId);
+    dispatch(clearTeam());
+    dispatch(setTeamId(""));
     console.log("left team");
     notifications.show({
       title: 'Left Team',
-      message: 'You are no longer a member of ' + name,
+      message: 'You are no longer a member of ' + temp,
       color: 'red'
     });
     closeLeave();
@@ -94,16 +103,16 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
     toggleSave();
   }
 
-  function getName(id: string){
+  function getName(id: string) {
     const matches = teamList.users.filter(
       (val) => {
-        if (val != null && val.id != null){
+        if (val != null && val.id != null) {
           return val.id == id;
         }
         return false;
       }
     )
-    if (matches.length == 1){
+    if (matches.length == 1) {
       return matches[0].name;
     }
     return id;
@@ -195,7 +204,7 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
         <h3>Are you sure you want to leave {name}?</h3>
         <p>This cannot be undone.</p>
         <Group justify="space-between" className="buttonRowStyle">
-          <Button variant="light" color="red" mt="md" radius="md" className="buttonStyle" onClick={leaveTeam}>
+          <Button variant="light" color="red" mt="md" radius="md" className="buttonStyle" onClick={leave}>
             LEAVE TEAM
           </Button>
           <Button variant="light" color="gray" mt="md" radius="md" className="buttonStyle" disabled={members.length === 6} onClick={closeLeave}>
