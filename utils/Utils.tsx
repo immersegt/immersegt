@@ -73,6 +73,22 @@ export async function setName(id: string, name: string) {
 
 //TEAM FUNCTIONS
 
+//Get all users
+export async function getUsers(){
+    const { data, error } = await supabase
+    .from('users')
+    .select('id, name');
+    return data;
+}
+
+//Get all teams
+export async function getTeams(){
+    const { data, error } = await supabase
+    .from('teams')
+    .select('id, name, description, members, declared');
+    return data;
+}
+
 //Set user name given an id and name
 export async function setUserTeam(id: string, team_id: string) {
     const { error } = await supabase

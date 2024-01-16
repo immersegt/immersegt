@@ -28,6 +28,7 @@ interface cardProps {
 
 const TeamCard = ({ name, description, members, joined, disabled, saved, toggleSave, team_id }: cardProps) => {
   const user = useAppSelector((state) => state.user);
+  const teamList = useAppSelector((state) => state.teamList);
   const [opened, { open, close }] = useDisclosure(false);
   const [confirmLeave, { open: openLeave, close: closeLeave }] = useDisclosure(false);
 
@@ -91,7 +92,21 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
       });
     }
     toggleSave();
+  }
 
+  function getName(id: string){
+    const matches = teamList.users.filter(
+      (val) => {
+        if (val != null && val.id != null){
+          return val.id == id;
+        }
+        return false;
+      }
+    )
+    if (matches.length == 1){
+      return matches[0].name;
+    }
+    return id;
   }
 
   return (
@@ -131,7 +146,7 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
               <div className="nameStyle">
                 {members.map((val, ind) => (
                   <Badge key={ind} color="gray" variant="light" className="nameBadge">
-                    {val}
+                    {getName(val)}
                   </Badge>
                 ))}
               </div>
@@ -170,7 +185,7 @@ const TeamCard = ({ name, description, members, joined, disabled, saved, toggleS
         <h3>Members:</h3>
         <ul className="memberList">
           {members.map((val, ind) => (
-            <li key={ind}>{val}</li>
+            <li key={ind}>{getName(val)}</li>
           ))}
         </ul>
         <h3>Description:</h3>

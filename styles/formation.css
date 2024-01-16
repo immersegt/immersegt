@@ -50,10 +50,11 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 70px;
+    min-width: 600px;
 
     @media only screen and (min-width: 900px) {
         max-height: 700px;
-        overflow-y: scroll;
+        overflow-y: auto;
         -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     }

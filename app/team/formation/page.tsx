@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "@fontsource/open-sans";
 import TeamCard from 'components/Card';
 import 'styles/index.css'
@@ -13,10 +13,18 @@ import Toolbar from 'components/Toolbar';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 
+const sampleData = false;
+
 const Formation = () => {
   const user = useAppSelector((state) => state.user);
+  const teamList = useAppSelector((state) => state.teamList);
 
-  const [saved, setSaved] = useState([]);
+  const [saved, setSaved] = useState(JSON.parse(localStorage.getItem("saved")) || []);
+
+  useEffect(() => {
+    localStorage.setItem('saved', JSON.stringify(saved));
+  }, [saved]);
+
   const [teams, setTeams] = useState([
     {
       id: 1,
@@ -101,10 +109,10 @@ const Formation = () => {
   ]);
 
   const toggleSave = (id: number) => {
-    if (saved.includes(id)){
+    if (saved.includes(id)) {
       const updated = saved.filter(val => val != id);
       setSaved(updated);
-    }else{
+    } else {
       const updated = [...saved, id];
       setSaved(updated);
     }
@@ -113,30 +121,39 @@ const Formation = () => {
   return (
     <div className="formationContainer">
       <aside className="formationTools">
-        <ToolButton 
-        title="Create a New Team"
-        description="This could be the beginning of something great. Invite your friends or search for other participants."
-        image={Plus.src}
-        href="/team/create"
-        disabled={user.team_id != null && user.team_id != ""}
+        <ToolButton
+          title="Create a New Team"
+          description="This could be the beginning of something great. Invite your friends or search for other participants."
+          image={Plus.src}
+          href="/team/create"
+          disabled={user.team_id != null && user.team_id != ""}
         />
-        <ToolButton 
-        title="Recommend a Team"
-        description="Search for teams that match your applicant profile and are currently looking for members."
-        image={Idea.src}
-        disabled={false}
-        href={""}/>
-        <Filter/>
+        <ToolButton
+          title="Recommend a Team"
+          description="Search for teams that match your applicant profile and are currently looking for members."
+          image={Idea.src}
+          disabled={false}
+          href={""} />
+        <Filter />
       </aside>
 
       <main className="formationDisplay">
-        <span className="formationDisplayTitle"><i>367 Team(s) Found</i></span>
+        <span className="formationDisplayTitle"><i>{sampleData ? teams.length : teamList.teams.length} Team(s) Found</i></span>
         <div className="formationHolder">
-        {teams.map((val) => (
-          <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={()=>{toggleSave(val.id)}} disabled={false} team_id={val.team_id}/>
-        ))}
+          {sampleData ?
+            (
+              teams.map((val) => (
+                <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={() => { toggleSave(val.id) }} disabled={false} team_id={val.team_id} />
+              ))
+            ) : (
+              teamList.teams.map((val) => (
+                <TeamCard key={val.id} name={val.name} description={val.description} members={val.members} joined={val.joined} saved={saved.includes(val.id)} toggleSave={() => { toggleSave(val.id) }} disabled={false} team_id={val.team_id} />
+              ))
+            )}
+
+
         </div>
-        <Toolbar/>
+        <Toolbar />
       </main>
     </div>
   )
