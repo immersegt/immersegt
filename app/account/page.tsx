@@ -9,7 +9,7 @@ import Logo from 'public/logo.png';
 import { Button } from '@mantine/core';
 
 const listItems = [
-    "Register to participate in ImmerseGT 2024",
+    "Apply to participate in ImmerseGT 2024",
     "Create a team and invite your teammates",
     "Look for an existing team to join",
     "Search for and connect with event participants",

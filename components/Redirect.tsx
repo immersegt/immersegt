@@ -10,16 +10,16 @@ const redirectBoxData = [
     {
         id: 0,
         title: "Create an Account",
-        description: "Before you can officially register for the hackathon, you must create an account on the ImmerseGT Event Platform. Your information will be kept private and is only collected for the purposes of the hackathon.",
+        description: "Before you can officially apply for the hackathon, you must create an account on the ImmerseGT Event Platform. Your information will be kept private and is only collected for the purposes of the hackathon.",
         buttonText: "Sign Up",
         href: "/account",
     },
     {
         id: 1,
-        title: "Register for ImmerseGT",
-        description: "Once you have an account, you can register to participate in ImmerseGT 2024. You will answer several questions about yourself that will let us collect information about hackathon participants and even match you with a team.",
-        buttonText: "Register",
-        href: "/register",
+        title: "Apply for ImmerseGT",
+        description: "Once you have an account, you can apply to participate in ImmerseGT 2024. You will answer several questions about yourself that will let us collect information about hackathon participants and even match you with a team.",
+        buttonText: "Apply",
+        href: "/apply",
     },
     {
         id: 2,

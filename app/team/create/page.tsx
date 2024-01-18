@@ -1,7 +1,7 @@
 'use client';
 
 import 'styles/index.css';
-import 'styles/register.css';
+import 'styles/apply.css';
 
 import { useState } from 'react';
 import { Button, Group, TextInput, Textarea } from '@mantine/core';

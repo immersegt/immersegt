@@ -1,7 +1,7 @@
 'use client';
 
 import 'styles/index.css';
-import 'styles/register.css';
+import 'styles/apply.css';
 
 import { useState } from 'react';
 import { Stepper, Button, Group, TextInput, Code, Radio, Checkbox, Fieldset, NumberInput, Select, MultiSelect } from '@mantine/core';
@@ -168,7 +168,7 @@ const Register = () => {
         dispatch(setRegistered(true));
         notifications.show({
             title: 'Successfully Registered',
-            message: 'You have successfully registered for ImmerseGT 2024!',
+            message: 'You have successfully applied for ImmerseGT 2024!',
             color: 'grape.5'
         });
     }
@@ -200,7 +200,7 @@ const Register = () => {
             ) :
                 (
                     <>
-                        <p>Please fill out the following questions to register for the hackathon.</p>
+                        <p>Please fill out the following questions to apply for the hackathon.</p>
                         <div className="formBox">
                             <Stepper active={active} orientation="vertical" className="formStepper" color="grape.5">
                                 <Stepper.Step label="Contact Information" />
@@ -423,14 +423,14 @@ const Register = () => {
                                     </div>
                                 ) : active === 4 ? (
                                     <div>
-                                        <p>Your data will not be provided to the ImmerseGT organizers until you click register. Please double check your
+                                        <p>Your data will not be provided to the ImmerseGT organizers until you click apply. Please double check your
                                             responses on the previous pages before you submit as you will not be able to change your answers.
                                         </p>
-                                        <Checkbox mt="md" color="grape.5" label="I am ready to register for ImmerseGT 2024." checked={verified} onChange={(event) => setVerified(event.currentTarget.checked)} />
+                                        <Checkbox mt="md" color="grape.5" label="I am ready to apply for ImmerseGT 2024." checked={verified} onChange={(event) => setVerified(event.currentTarget.checked)} />
                                     </div>
                                 ) : (
                                     <div>
-                                        <p>Thank you for registering for ImmerseGT 2024! We will be in touch with further updates as we get closer to the hackathon start date.
+                                        <p>Thank you for applying for ImmerseGT 2024! We will be in touch with further updates as we get closer to the hackathon start date.
                                             In the meantime, feel free to <Link href="https://discord.com">join our Discord</Link> to network with other participants.</p>
                                         <br />
                                         Form Values:
@@ -446,7 +446,7 @@ const Register = () => {
                                         </Button>
                                     )}
                                     {active < 4 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
-                                    {active === 4 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Register</Button>}
+                                    {active === 4 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Apply</Button>}
                                 </Group>
                             </div>
                         </div>

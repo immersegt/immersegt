@@ -22,7 +22,7 @@ const data = [
     title: 'Pages',
     links: [
       { label: 'Home', link: '/' },
-      { label: 'Register', link: '/register' },
+      { label: 'Apply', link: '/apply' },
       { label: 'Team', link: '/team' },
       { label: 'Schedule', link: '/schedule' },
     ],

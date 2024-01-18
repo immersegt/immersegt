@@ -16,8 +16,6 @@ import {
   Anchor,
   Stack,
 } from '@mantine/core';
-import { GoogleButton } from '../components/GoogleButton';
-import { TwitterButton } from '../components/TwitterButton';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { setEmail } from 'features/userSlice';
@@ -41,7 +39,7 @@ const AuthenticationForm = (props: PaperProps) => {
     });
   }
 
-  const [type, toggle] = useToggle(['login', 'register']);
+  const [type, toggle] = useToggle(['register', 'login']);
   const form = useForm({
     initialValues: {
       email: '',
@@ -77,15 +75,10 @@ const AuthenticationForm = (props: PaperProps) => {
   return (
     <Paper radius="md" p="xl" withBorder {...props} className="form">
       <Text size="lg" fw={500}>
-        Welcome to ImmerseGT, {type} with
+        Welcome to ImmerseGT!
       </Text>
 
-      <Group grow mb="md" mt="md">
-        <GoogleButton radius="xl">Google</GoogleButton>
-        <TwitterButton radius="xl">Twitter</TwitterButton>
-      </Group>
-
-      <Divider label="Or continue with email" labelPosition="center" my="lg" />
+      <Divider label={type + " with email"} labelPosition="center" my="lg" />
 
       <form onSubmit={form.onSubmit((values) => { submitForm(values) })}>
         <Stack>
@@ -102,7 +95,7 @@ const AuthenticationForm = (props: PaperProps) => {
           <TextInput
             required
             label="Email"
-            placeholder="hello@mantine.dev"
+            placeholder="name@gatech.edu"
             value={form.values.email}
             onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
             error={form.errors.email && 'Invalid email'}

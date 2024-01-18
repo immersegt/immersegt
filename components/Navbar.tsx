@@ -171,8 +171,8 @@ const Navbar = () => {
             <Link href="/" className="link">
               Home
             </Link>
-            <Link href="/register" className="link">
-              Register
+            <Link href="/apply" className="link">
+              Apply
             </Link>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
@@ -207,7 +207,7 @@ const Navbar = () => {
                         Make sure to fill out your applicant information so we can help you find a team.
                       </Text>
                     </div>
-                    <Button variant="default" component="a" href="/register">Register</Button>
+                    <Button variant="default" component="a" href="/apply">Apply</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
@@ -247,8 +247,8 @@ const Navbar = () => {
           <Link href="/" className="link">
             Home
           </Link>
-          <Link href="/register" className="link">
-            Register
+          <Link href="/apply" className="link">
+            Apply
           </Link>
           <UnstyledButton className="link" onClick={toggleLinks}>
             <Center inline>
