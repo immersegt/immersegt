@@ -19,6 +19,7 @@ import Registered from 'components/Registered';
 import { notifications } from '@mantine/notifications';
 
 import { register, setName } from 'utils/Utils';
+import AuthenticationForm from 'components/AuthenticationForm';
 
 const isBrowser = () => typeof window !== 'undefined';
 
@@ -37,6 +38,19 @@ const Register = () => {
 
     const user = useAppSelector((state) => state.user);
     const dispatch = useAppDispatch();
+
+    if (user.session == null) {
+        // Redirect to sign in form if not logged in
+        return (
+            <main className="formContainer">
+                <h2>Apply</h2>
+                <p>Please sign up first to apply for ImmerseGT 2024.</p>
+                <div className="formBox">
+                    <AuthenticationForm />
+                </div>
+            </main>
+        );
+    }
 
     const [active, setActive] = useState(0);
 
@@ -164,6 +178,7 @@ const Register = () => {
     const registerUser = () => {
         nextStep();
         register(user.id, form.values);
+        console.log(form.values)
         setName(user.id, form.getInputProps('firstname').value + " " + form.getInputProps('lastname').value);
         dispatch(setRegistered(true));
         notifications.show({
