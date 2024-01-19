@@ -26,6 +26,47 @@ import Markus from '../public/markus.png';
 import Chloe from '../public/chloe.png';
 import Will from '../public/will.png';
 
+const showEmpty = false;
+
+const EmptyData = [
+    {
+        id: 0,
+        name: "",
+        company: "",
+        image: null
+    },
+    {
+        id: 1,
+        name: "",
+        company: "",
+        image: null
+    },
+    {
+        id: 2,
+        name: "",
+        company: "",
+        image: null
+    },
+    {
+        id: 3,
+        name: "",
+        company: "",
+        image: null
+    },
+    {
+        id: 4,
+        name: "",
+        company: "",
+        image: null
+    },
+    {
+        id: 5,
+        name: "",
+        company: "",
+        image: null
+    },
+]
+
 const JudgeData = [
     {
         id: 1,
@@ -144,7 +185,7 @@ const Judges = () => {
             from scratch and listen to people from all throughout the 404.</p>
             <div data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
             <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}>
-                {JudgeData.map((val, ind) => (
+                {(showEmpty ? EmptyData : JudgeData).map((val, ind) => (
                     <JudgeCard key={ind} name={val.name} company={val.company} image={val.image}/>
                 ))}
             </div>

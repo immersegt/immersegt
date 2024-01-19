@@ -83,7 +83,7 @@ const Tracks = () => {
         <section className="tracksHeader">
             <section className="trackSection">
                 <h2 className="purple">1. Choose Your Track</h2>
-                <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes.</p>
+                <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes. <i>*Tracks subject to change</i></p>
                 <Carousel
                     classNames={classes}
                     slideSize="100%"
