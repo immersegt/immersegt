@@ -1,3 +1,4 @@
+import { AuthError, OAuthResponse } from '@supabase/supabase-js';
 import supabase from './Supabase';
 
 //AUTH FUNCTIONS
@@ -22,6 +23,17 @@ export async function signIn(email: string, password: string) {
 //Sign out a user account
 export async function signOut() {
     const { error } = await supabase.auth.signOut();
+}
+
+//Sign in with Google
+export async function signInWithGoogle(): Promise<OAuthResponse['data'] | AuthError> {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+            scopes: 'email profile openid'
+        }
+    });
+    return error == null ? data : error;
 }
 
 

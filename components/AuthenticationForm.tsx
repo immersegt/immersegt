@@ -24,7 +24,9 @@ import { notifications } from '@mantine/notifications';
 
 import supabase from '../utils/Supabase';
 
-import { signUp, signIn } from '../utils/Utils';
+import { signUp, signIn, signInWithGoogle } from '../utils/Utils';
+import { GoogleButton } from './GoogleButton';
+import { isAuthError } from '@supabase/supabase-js';
 
 const AuthenticationForm = (props: PaperProps) => {
 
@@ -72,13 +74,41 @@ const AuthenticationForm = (props: PaperProps) => {
     }
   }
 
+  const handleGoogleSignIn = async () => {
+    const data = await signInWithGoogle();
+    if (isAuthError(data)) {
+      notifications.show({
+        title: 'Error',
+        message: data.message,
+        color: 'red',
+      });
+    }
+    console.log(data);
+    console.log(user)
+    if (user) {
+      dispatch(setEmail(user.email));
+      notifications.show({
+        title: 'Account Logged In',
+        message: 'You have successfully logged in with Google: ' + user.email,
+        color: 'grape.5'
+      });
+    }
+  }
+
+  // Get "sign in" or "sign up" text depending on selected type 
+  const googleButtonText = type === 'login' ? 'Sign in with Google' : 'Sign up with Google'
+
   return (
     <Paper radius="md" p="xl" withBorder {...props} className="form">
       <Text size="lg" fw={500}>
         Welcome to ImmerseGT!
       </Text>
 
-      <Divider label={type + " with email"} labelPosition="center" my="lg" />
+      <Group grow mb="md" mt="md">
+        <GoogleButton onClick={handleGoogleSignIn} radius="xl" >{googleButtonText}</GoogleButton>
+      </Group>
+
+      <Divider label={`or ${type} with email`} labelPosition="center" my="lg" />
 
       <form onSubmit={form.onSubmit((values) => { submitForm(values) })}>
         <Stack>
