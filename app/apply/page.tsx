@@ -39,19 +39,6 @@ const Register = () => {
     const user = useAppSelector((state) => state.user);
     const dispatch = useAppDispatch();
 
-    if (user.session == null) {
-        // Redirect to sign in form if not logged in
-        return (
-            <main className="formContainer">
-                <h2>Apply</h2>
-                <p>Please sign up first to apply for ImmerseGT 2024.</p>
-                <div className="formBox">
-                    <AuthenticationForm />
-                </div>
-            </main>
-        );
-    }
-
     const [active, setActive] = useState(0);
 
     const form = useForm({
@@ -207,9 +194,17 @@ const Register = () => {
         }
     }
 
-    return (
+    return user.session == null ? (
         <main className="formContainer">
-            <h2>Welcome to ImmerseGT!</h2>
+            <h2>ImmerseGT Application</h2>
+            <p>Please sign up first to apply for ImmerseGT 2024.</p>
+            <div className="formBox">
+                <AuthenticationForm />
+            </div>
+        </main>
+    ) : (
+        <main className="formContainer">
+            <h2>ImmerseGT Application</h2>
             {user.registered ? (
                 <Registered />
             ) :
