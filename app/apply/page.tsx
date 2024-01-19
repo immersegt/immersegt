@@ -66,7 +66,13 @@ const Register = () => {
             teamwork: '',
             role: [],
             commitment: '',
-            goals: []
+            goals: [],
+            resume: '',
+            website: '',
+            github: '',
+            linkedin: '',
+            answer1: '',
+            answer2: ''
         },
 
         validate: (values) => {
@@ -148,6 +154,11 @@ const Register = () => {
                         (values.goals == null || values.goals.length == 0 ? 'Must select goals' : null),
                 };
             }
+            if (active === 4){
+                return {
+
+                }
+            }
             return {};
         },
     });
@@ -158,7 +169,7 @@ const Register = () => {
                 return current;
             }
             scrollToTop();
-            return current < 5 ? current + 1 : current;
+            return current < 6 ? current + 1 : current;
         });
     }
 
@@ -217,6 +228,7 @@ const Register = () => {
                                 <Stepper.Step label="Basic Information" />
                                 <Stepper.Step label="Relevant Education" />
                                 <Stepper.Step label="Profile Questions" />
+                                <Stepper.Step label="Additional Info" />
                                 <Stepper.Step label="Final Check" />
                             </Stepper>
 
@@ -432,6 +444,16 @@ const Register = () => {
                                         </Fieldset>
                                     </div>
                                 ) : active === 4 ? (
+                                    <div>
+                                        <p>These additional questions are optional but could be used for application decisions depending on how many applications we receive.</p>
+                                        <TextInput mt="md" label="Resume" placeholder="Resume" {...form.getInputProps('resume')} classNames={classes} />
+                                        <TextInput mt="md" label="Website" placeholder="Website" {...form.getInputProps('website')} classNames={classes} />
+                                        <TextInput mt="md" label="Github" placeholder="https://github.com/..." {...form.getInputProps('github')} classNames={classes} />
+                                        <TextInput mt="md" label="Linkedin" placeholder="https://www.linkedin.com/in/..." {...form.getInputProps('linkedin')} classNames={classes} />
+                                        <TextInput mt="md" label="Describe your experience with coding and/or XR." placeholder="Answer here..." {...form.getInputProps('answer1')} classNames={classes} />
+                                        <TextInput mt="md" label="Why do you want to participate in ImmerseGT?" placeholder="Answer here..." {...form.getInputProps('answer2')} classNames={classes} />
+                                    </div>
+                                ) : active === 5 ? (
                                     <div>
                                         <p>Your data will not be provided to the ImmerseGT organizers until you click apply. Please double check your
                                             responses on the previous pages before you submit as you will not be able to change your answers.
