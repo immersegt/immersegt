@@ -6,7 +6,6 @@ Our platform allows participants to create an account, apply for the hackathon, 
 ## Technologies Used
 
 - Mantine
-- Supabase
 - React Redux
 - Redux Toolkit
 - AOS
