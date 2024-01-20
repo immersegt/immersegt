@@ -132,7 +132,6 @@ const Navbar = () => {
       }
     })
 
-    console.log("Updating Slice...");
 
     return () => subscription.unsubscribe()
   }, []);
