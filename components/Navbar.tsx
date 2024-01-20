@@ -140,7 +140,7 @@ const Navbar = () => {
     <Box>
       <header id="header" className="header">
         <Group justify="space-between" h="100%">
-          <Link className="title noLine" href="/">
+          <Link className="title noLine headerSideItem" href="/">
             <img src={Logo.src} width="30px" />
             <span><b>ImmerseGT</b> Event Platform</span>
           </Link>
@@ -194,12 +194,12 @@ const Navbar = () => {
             </Link>
           </Group>
           {user.session == null ? (
-            <Group visibleFrom="md">
+            <Group visibleFrom="md" justify="flex-end" className="headerSideItem">
               <Link href="/account"><Button variant="default">Log in</Button></Link>
               <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
             </Group>
           ) : (
-            <Group visibleFrom="md">
+            <Group visibleFrom="md" justify="flex-end" className="headerSideItem">
               <UserButton />
             </Group>
           )}
