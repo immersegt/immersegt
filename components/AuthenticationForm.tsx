@@ -83,15 +83,8 @@ const AuthenticationForm = (props: PaperProps) => {
         color: 'red',
       });
     }
-    console.log(data);
-    console.log(user)
     if (user) {
       dispatch(setEmail(user.email));
-      notifications.show({
-        title: 'Account Logged In',
-        message: 'You have successfully logged in with Google: ' + user.email,
-        color: 'grape.5'
-      });
     }
   }
 
