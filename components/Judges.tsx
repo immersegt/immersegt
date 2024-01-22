@@ -1,7 +1,7 @@
 import '../styles/index.css';
 import '../styles/judges.css';
 
-import {Button} from '@mantine/core';
+import {Button, Container} from '@mantine/core';
 import {useState} from 'react';
 import JudgeCard from '../components/JudgeCard';
 
@@ -59,10 +59,11 @@ const Judges = () => {
     }
 
     return (
-        <section className="judgesBanner">
+        <Container size="xl" className="judgesBanner">
             <h2>Meet Our Judges</h2>
             <p className="judgeOverview">Practice your idea pitch in front of a variety of industry experts and innovators in the ImmerseGT
-            judging round. Attend multiple event workshops to further learn from and network with experts as you gain hands-on experience in building XR technologies 
+            judging round.</p>
+            <p className="judgeOverview">Attend multiple event workshops to further learn from and network with experts as you gain hands-on experience in building XR technologies 
             from scratch and listen to people from all throughout the 404.</p>
             <div data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
             <div className={"judgesHolder " + (minimize ? "minimized" : "expanded")}>
@@ -73,8 +74,8 @@ const Judges = () => {
             </div>
             <Button color="#CC5DE8" size="md" radius="md" onClick={toggleMinimize}>
                 {minimize ? "EXPAND LIST" : "COLLAPSE LIST"}
-              </Button>
-        </section>
+            </Button>
+        </Container>
     )
 }
 export default Judges;

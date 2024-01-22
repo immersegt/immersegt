@@ -1,11 +1,10 @@
 .faqwrapper {
-    min-height: rem(650px);
     padding-bottom: 50px;
     padding-top: 65px;
     text-align: center;
     display: flex;
     width: 100%;
-    gap: 8vw;
+    gap: 2rem;
     align-items: flex-start;
     justify-content: center;
 
@@ -56,7 +55,7 @@
 
 .questions {
     flex-grow: 1;
-
+    overflow-x: hidden; /* Found fix for responsive https://github.com/michalsnik/aos/issues/788 */
     @media only screen and (min-width: 800px) {
         max-width: 55%;
         min-width: 300px;

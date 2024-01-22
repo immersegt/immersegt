@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    gap: 1rem;
     padding-bottom: 50px;
     padding-top: 70px;
 }
@@ -14,10 +15,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-bottom: 40px;
-    margin-left: 15vw;
-    margin-right: 15vw;
 }
 
 .minimized {
@@ -33,9 +32,9 @@
 }
 
 .judgeOverview {
-    padding-bottom: 40px;
     font-size: 18px;
     color: rgb(150, 152, 155);
-    margin-left: 15vw;
-    margin-right: 15vw;
+    text-align: center;
+    text-wrap: pretty;
+    max-width: 70ch;
 }

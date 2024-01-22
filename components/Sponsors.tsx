@@ -13,6 +13,7 @@ import Inspirit from '../public/inspirit.png';
 import Futurus from '../public/futurus.png';
 import Dimension from '../public/3dimension.png';
 import Zenvr from '../public/zenvr.png';
+import { Container, Text } from '@mantine/core';
 
 const list = [Google, Meta, Accenture, Essenvia, Nvidia, Immersed, Teleportal, Mark3, Inspirit, Futurus, Dimension, Zenvr]
 const dwidth = 140;
@@ -20,15 +21,15 @@ const widths = [1, 1, 1, 1, 0.85, 1, 0.7, 1, 1, 1, 1, 1]
 
 const Sponsors = () => {
     return (
-        <section className="sponsorsContainer">
-            <div className="sponsorsHeader">
-                <h2>Meet Our Sponsors</h2>
+        <section className="sponsorsContainer"  >
+            <Container size="xl" className="sponsorsHeader">
+                <Text component="h2" size="xl">Meet Our Sponsors</Text>
                 <div className="sponsorsList">
                     {list.map((val, index) => (
                         <img src={val.src} width={(dwidth * widths[index]) + "px"} key={index} />
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

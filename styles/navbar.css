@@ -57,10 +57,6 @@
   }
 }
 
-.headerSideItem {
-  width: 260px;
-}
-
 .subLink {
   width: 100%;
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
@@ -94,4 +90,10 @@
   padding: var(--mantine-spacing-md) calc(var(--mantine-spacing-md) * 2);
   padding-bottom: var(--mantine-spacing-xl);
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+}
+
+@media (min-width: 768px) {
+  .headerSideItem {
+    width: 260px;
+  }
 }

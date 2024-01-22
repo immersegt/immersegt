@@ -12,7 +12,7 @@ interface judgeCardProps {
 const JudgeCard = ({ name, company, image }: judgeCardProps) => {
     return name == "" ? (
         <section className="judgeCard">
-            <Skeleton height={175} circle />
+            <Skeleton width={175} height={175} circle />
             <h2 className="nameColor"><b><i>Coming Soon</i></b></h2>
             <Skeleton height={12} mt={6} radius="xl" width="45%" />
         </section>

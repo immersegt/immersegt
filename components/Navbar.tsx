@@ -142,7 +142,7 @@ const Navbar = () => {
         <Group justify="space-between" h="100%">
           <Link className="title noLine headerSideItem" href="/">
             <img src={Logo.src} width="30px" />
-            <span><b>ImmerseGT</b> Event Platform</span>
+            <span><b>ImmerseGT</b></span>
           </Link>
           <Group h="100%" gap={0} visibleFrom="md">
             <Link href="/" className="link">
