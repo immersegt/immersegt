@@ -6,21 +6,15 @@
     width: 100%;
     gap: 2rem;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
 
     overflow-x: hidden;
-
-    @media only screen and (min-width: 800px) {
-        padding-left: 14vw;
-        padding-right: 14vw;
-    }
-
     @media only screen and (max-width: 800px) {
-        padding-left: 5vw;
-        padding-right: 5vw;
         flex-direction: column;
         align-items: center;
     }
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .faqInfo {
@@ -63,6 +57,9 @@
         min-width: 300px;
     }
 
+    padding-left: 1rem;
+    padding-right: 1rem;
+
     @media only screen and (max-width: 800px) {
         width: 100%;
     }
@@ -73,4 +70,11 @@
     margin-bottom: var(--mantine-spacing-lg);
     border: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
     text-align: left;
+    line-height: 1.5;
+}
+
+.accordionParagraph {
+    max-width: 70ch;
+    line-height: 1.5;
+    text-wrap: pretty;
 }

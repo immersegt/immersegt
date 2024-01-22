@@ -1,7 +1,7 @@
 import '../styles/index.css';
 import '../styles/faq.css';
 
-import { Accordion } from '@mantine/core';
+import { Accordion, Container } from '@mantine/core';
 
 import { useEffect } from 'react';
 import AOS from 'aos';
@@ -50,7 +50,7 @@ export function FAQ() {
     AOS.init();
 }, []);
   return (
-    <div className="faqwrapper">
+    <Container size="xl" className="faqwrapper">
       <div className="faqInfo">
         <h2 className="faqTitle">FAQ</h2>
         <p className="faqSubtitle">Still have some questions?<br/>Feel free to <a href="/">get in touch</a> with us.</p>
@@ -60,12 +60,14 @@ export function FAQ() {
           {faqQuestions.map((val) => (
             <Accordion.Item className="faqitem" value={val.id} key={val.id}>
               <Accordion.Control>{val.question}</Accordion.Control>
-              <Accordion.Panel>{val.content}</Accordion.Panel>
+              <Accordion.Panel>
+                <p className="accordionParagraph">{val.content}</p>
+              </Accordion.Panel>
             </Accordion.Item>
           ))}
         </Accordion>
       </div>
-    </div>
+    </Container>
   );
 }
 
