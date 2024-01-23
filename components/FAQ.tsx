@@ -10,55 +10,85 @@ import 'aos/dist/aos.css';
 const faqQuestions = [
   {
     id: "1",
-    question: "When is ImmerseGT?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "What is ImmerseGT?",
+    content: "ImmerseGT is a hackathon event happening from [date] to [date], focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
   },
   {
     id: "2",
-    question: "Will ImmerseGT be fully in-person?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "Who is eligible to participate in ImmerseGT?",
+    content: "The event is free and open to everyone, from college students to graduates and professionals in the workforce, regardless of coding or XR experience. Teams can consist of up to six members."
   },
   {
     id: "3",
-    question: "What tracks can we expect?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "What are the competition categories at ImmerseGT?",
+    content: "There are 8 diverse categories for participants to choose from. Further details about these categories will be released soon. For now, you can view last year’s tracks above."
   },
   {
     id: "4",
-    question: "What's the cost?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "Where will ImmerseGT take place?",
+    content: "The hackathon is accessible both in person at the Instructional Center at Georgia Tech and virtually."
   },
   {
     id: "5",
-    question: "Who can attend?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "How do I participate in ImmerseGT?",
+    content: "Applications can be submitted through our event platform.  All interested individuals or teams are welcome to apply. If you are a solo hacker looking for a team, you can use our event platform to create or join a team."
   },
   {
     id: "6",
-    question: "How do I apply?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "What resources will be provided during ImmerseGT?",
+    content: "Participants will have access to VR headsets lent by ImmerseGT, along with other resources such as software, mentorship, and workshops."
   },
   {
     id: "7",
-    question: "How do I form a team?",
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus urna vel condimentum varius. Aenean condimentum id ante id pellentesque. Maecenas dignissim felis non felis lobortis, quis pellentesque mi gravida. Integer efficitur accumsan tincidunt. Fusce sit amet lobortis nisi. Quisque malesuada felis non magna imperdiet, at finibus elit ornare.'
+    question: "How will judging and prizes work at ImmerseGT?",
+    content: "Projects will be evaluated by industry professionals through a short elevator pitch format. Prizes for each category will be announced shortly."
+  },
+  {
+    id: "8",
+    question: "What is the schedule for the ImmerseGT hackathon?",
+    content: "The detailed event schedule will be released shortly under the Schedule tab on our event platform."
+  },
+  {
+    id: "9",
+    question: "What should participants bring to the hackathon?",
+    content: "In-person participants should bring essentials like laptops and chargers. Virtual participants need a reliable internet connection and a computer. VR headsets will be provided by ImmerseGT."
+  },
+  {
+    id: "10",
+    question: "When do applications close for ImmerseGT?",
+    content: "Applications for ImmerseGT will close on [date]. We encourage interested participants to apply well before this deadline to ensure their participation in this exciting event."
+  },
+  {
+    id: "11",
+    question: "Who is running the ImmerseGT event?",
+    content: "ImmerseGT is a collaborative effort organized jointly by the GTXR club and StartupExchange, both student clubs at Georgia Tech. GTXR club is dedicated to bringing together students passionate about Extended Reality (XR) technologies, providing a platform for networking and building innovative projects. StartupExchange focuses on equipping students with industry-level skills through various events and hackathons, creating a bridge between academic learning and professional expertise."
+  },
+  {
+    id: "12",
+    question: "Who can I contact for more information about ImmerseGT?",
+    content: "For further inquiries or assistance, please contact hello@immersegt.io."
+  },
+  {
+    id: "13",
+    question: "Want to sponsor ImmerseGT?",
+    content: "We are always eager to collaborate with sponsors interested in supporting and benefiting students and professionals in the XR space. Sponsoring ImmerseGT is an excellent opportunity to engage with a passionate and innovative community. Potential sponsors are invited to contact us at hello@immersegt.io to discuss sponsorship opportunities and how they can contribute to the success of this event."
   },
 ];
 
 export function FAQ() {
   useEffect(() => {
     AOS.init();
-}, []);
+  }, []);
   return (
     <div className="faqwrapper">
       <div className="faqInfo">
         <h2 className="faqTitle">FAQ</h2>
-        <p className="faqSubtitle">Still have some questions?<br/>Feel free to <a href="/">get in touch</a> with us.</p>
+        <p className="faqSubtitle">Still have some questions?<br />Feel free to <a href="mailto:hello@immersegt.io">get in touch</a> with us.</p>
       </div>
-      <div className="questions" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
+      <div className="questions">
         <Accordion variant="separated">
           {faqQuestions.map((val) => (
-            <Accordion.Item className="faqitem" value={val.id} key={val.id}>
+            <Accordion.Item className="faqitem" value={val.id} key={val.id} data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
               <Accordion.Control>{val.question}</Accordion.Control>
               <Accordion.Panel>{val.content}</Accordion.Panel>
             </Accordion.Item>
