@@ -113,9 +113,13 @@ const AuthenticationForm = (props: PaperProps) => {
         Welcome to ImmerseGT!
       </Text>
 
-      <Group grow mb="md" mt="md">
-        <GoogleButton onClick={handleGoogleSignIn} radius="xl" >{googleButtonText}</GoogleButton>
-        <DiscordButton onClick={handleDiscordSignIn} radius="xl" >{discordButtonText}</DiscordButton>
+      <Group grow mb="md" mt="md" className="signInButtonsGroup" >
+        <GoogleButton onClick={handleGoogleSignIn} radius="xl" classNames={{
+          root: "signInButton"
+        }}>{googleButtonText}</GoogleButton>
+        <DiscordButton onClick={handleDiscordSignIn} radius="xl" classNames={{
+          root: "signInButton"
+        }}>{discordButtonText}</DiscordButton>
       </Group>
 
       <Divider label={`or ${type} with email`} labelPosition="center" my="lg" />
