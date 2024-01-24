@@ -36,6 +36,12 @@ export async function signInWithGoogle(): Promise<OAuthResponse['data'] | AuthEr
     return error == null ? data : error;
 }
 
+export async function signInWithDiscord(): Promise<OAuthResponse['data'] | AuthError> {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'discord',
+    });
+    return error == null ? data : error;
+}
 
 //USER FUNCTIONS
 

@@ -24,9 +24,10 @@ import { notifications } from '@mantine/notifications';
 
 import supabase from '../utils/Supabase';
 
-import { signUp, signIn, signInWithGoogle } from '../utils/Utils';
+import { signUp, signIn, signInWithGoogle, signInWithDiscord } from '../utils/Utils';
 import { GoogleButton } from './GoogleButton';
 import { isAuthError } from '@supabase/supabase-js';
+import { DiscordButton } from './DiscordButton';
 
 const AuthenticationForm = (props: PaperProps) => {
 
@@ -88,8 +89,23 @@ const AuthenticationForm = (props: PaperProps) => {
     }
   }
 
+  const handleDiscordSignIn = async () => {
+    const data = await signInWithDiscord();
+    if (isAuthError(data)) {
+      notifications.show({
+        title: 'Error',
+        message: data.message,
+        color: 'red'
+      })
+    }
+    if (user) {
+      dispatch(setEmail(user.email));
+    }
+  }
+
   // Get "sign in" or "sign up" text depending on selected type 
   const googleButtonText = type === 'login' ? 'Sign in with Google' : 'Sign up with Google'
+  const discordButtonText = type === 'login' ? 'Sign in with Discord' : 'Sign up with Discord'
 
   return (
     <Paper radius="md" p="xl" withBorder {...props} className="form">
@@ -99,6 +115,7 @@ const AuthenticationForm = (props: PaperProps) => {
 
       <Group grow mb="md" mt="md">
         <GoogleButton onClick={handleGoogleSignIn} radius="xl" >{googleButtonText}</GoogleButton>
+        <DiscordButton onClick={handleDiscordSignIn} radius="xl" >{discordButtonText}</DiscordButton>
       </Group>
 
       <Divider label={`or ${type} with email`} labelPosition="center" my="lg" />
