@@ -1,6 +1,6 @@
 .trackCard {
-    width: 400px;
-    height: 210px;
+    width: 250px;
+    min-height: 210px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -9,6 +9,7 @@
     border-radius: 20px;
     padding: 30px;
     text-align: left;
+    text-wrap: pretty;
     transition: 0.5s;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -19,4 +20,10 @@
 .trackCard.active {
     background-color: rgb(39, 0, 47);
     scale: 110%;
+}
+
+@media only screen and (min-width: 768px) {
+    .trackCard {
+        width: 400px;
+    }
 }

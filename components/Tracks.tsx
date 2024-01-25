@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Container } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 const trackList = [
     {
@@ -80,6 +81,8 @@ const Tracks = () => {
 
     const [mockSave, setMockSave] = useState(false);
 
+    const matches = useMediaQuery("(min-width: 768px)");
+
     return (
         <section className="tracksHeader">
             <section className="trackSection">
@@ -90,7 +93,7 @@ const Tracks = () => {
                 <Carousel
                     classNames={classes}
                     slideSize="100%"
-                    height={260}
+                    height={matches ? 260 : 400}
                     slideGap="md"
                     controlsOffset="lg"
                     loop
