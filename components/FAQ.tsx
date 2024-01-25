@@ -11,7 +11,7 @@ const faqQuestions = [
   {
     id: "1",
     question: "What is ImmerseGT?",
-    content: "ImmerseGT is a hackathon event happening later this Spring, focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
+    content: "ImmerseGT is a hackathon event happening later April 5th-7th at Georgia Tech, focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
   },
   {
     id: "2",
