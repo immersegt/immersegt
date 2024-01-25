@@ -117,7 +117,7 @@ const Navbar = () => {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item, ind) => (
-    <Link href={item.link} key={ind}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
+    <Link href={item.link} onClick={closeDrawer} key={ind}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.grape[5]} />
@@ -219,17 +219,17 @@ const Navbar = () => {
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
-          <Link href="/" className="link">
+          <Link href="/" className="link" onClick={closeDrawer}>
             Home
           </Link>
-          <Link href="/apply" className="link">
+          <Link href="/apply" className="link" onClick={closeDrawer}>
             Apply
           </Link>
-          <UnstyledButton className="link" onClick={toggleLinks}>
+          <UnstyledButton className="link" pl={15} pr={5} onClick={toggleLinks}>
             <Center inline>
-              <Box component="span" mr={5} pl={15}>
+              <span>
                 Team
-              </Box>
+              </span>
               <IconChevronDown
                 style={{ width: rem(16), height: rem(16) }}
                 color={theme.colors.blue[6]}
@@ -237,7 +237,7 @@ const Navbar = () => {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <Link href="/schedule" className="link">
+          <Link href="/schedule" className="link" onClick={closeDrawer}>
             Schedule
           </Link>
 
