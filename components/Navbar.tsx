@@ -70,14 +70,12 @@ const LinkStyle = {
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { login, setRegistered, setName, setTeamId as setUserTeamId } from 'features/userSlice';
-import { setTeamId, setTeamName, setTeamDescription, setMembers, setDeclared, clearTeam } from 'features/teamSlice';
-import { loadTeams, loadUsers } from 'features/teamListSlice';
 
 import supabase from '../utils/Supabase';
 
 import { useEffect } from 'react';
 
-import { getUser, getTeam, getUsers, getTeams } from '../utils/Utils';
+import { getUser } from '../utils/Utils';
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user);
