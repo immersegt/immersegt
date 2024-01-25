@@ -11,7 +11,7 @@ const faqQuestions = [
   {
     id: "1",
     question: "What is ImmerseGT?",
-    content: "ImmerseGT is a hackathon event happening from [date] to [date], focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
+    content: "ImmerseGT is a hackathon event happening later this Spring, focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
   },
   {
     id: "2",
@@ -21,12 +21,12 @@ const faqQuestions = [
   {
     id: "3",
     question: "What are the competition categories at ImmerseGT?",
-    content: "There are 8 diverse categories for participants to choose from. Further details about these categories will be released soon. For now, you can view last year’s tracks above."
+    content: "There are multiple diverse categories for participants to choose from. Further details about these categories will be released soon. For now, you can view last year’s tracks on our landing page."
   },
   {
     id: "4",
     question: "Where will ImmerseGT take place?",
-    content: "The hackathon is accessible both in person at the Instructional Center at Georgia Tech and virtually."
+    content: "The hackathon is accessible both in person at Georgia Tech and virtually."
   },
   {
     id: "5",
@@ -55,21 +55,16 @@ const faqQuestions = [
   },
   {
     id: "10",
-    question: "When do applications close for ImmerseGT?",
-    content: "Applications for ImmerseGT will close on [date]. We encourage interested participants to apply well before this deadline to ensure their participation in this exciting event."
-  },
-  {
-    id: "11",
     question: "Who is running the ImmerseGT event?",
     content: "ImmerseGT is a collaborative effort organized jointly by the GTXR club and StartupExchange, both student clubs at Georgia Tech. GTXR club is dedicated to bringing together students passionate about Extended Reality (XR) technologies, providing a platform for networking and building innovative projects. StartupExchange focuses on equipping students with industry-level skills through various events and hackathons, creating a bridge between academic learning and professional expertise."
   },
   {
-    id: "12",
+    id: "11",
     question: "Who can I contact for more information about ImmerseGT?",
     content: "For further inquiries or assistance, please contact hello@immersegt.io."
   },
   {
-    id: "13",
+    id: "12",
     question: "Want to sponsor ImmerseGT?",
     content: "We are always eager to collaborate with sponsors interested in supporting and benefiting students and professionals in the XR space. Sponsoring ImmerseGT is an excellent opportunity to engage with a passionate and innovative community. Potential sponsors are invited to contact us at hello@immersegt.io to discuss sponsorship opportunities and how they can contribute to the success of this event."
   },

@@ -17,7 +17,7 @@ import { Container, Text } from '@mantine/core';
 
 import ComingSoon from '../public/ComingSoon.png';
 
-const showEmpty = false;
+const showEmpty = true;
 
 const list = [Google, Meta, Accenture, Essenvia, Nvidia, Immersed, Teleportal, Mark3, Inspirit, Futurus, Dimension, Zenvr]
 const dwidth = 140;

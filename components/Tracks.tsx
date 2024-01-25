@@ -85,7 +85,7 @@ const Tracks = () => {
             <section className="trackSection">
                 <h2 className="purple">1. Choose Your Track</h2>
                 <div className="centeredText">
-                    <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes. <br/><i>*Tracks subject to change</i></p>
+                    <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes. <br/><i>*Tracks listed below are last year's categories and subject to change.</i></p>
                 </div>
                 <Carousel
                     classNames={classes}
@@ -122,7 +122,7 @@ const Tracks = () => {
                         <img src={Illustration1.src} className="illustration" />
                     </div>
                     <div className="mockTeamCard"  data-aos="fade-in" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
+                        <Card team_id={""} name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
                     </div>
                     <div className="illustrationContainer disappear" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration2.src} className="illustration" />

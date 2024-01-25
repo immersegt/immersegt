@@ -11,7 +11,11 @@ import '../styles/index.css';
 import { Metadata } from 'next';
 import Redux from './redux';
 
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://immersegt.vercel.app/'),
   title: "ImmerseGT Event Platform",
   description: "Participate in the 2024 XR Hackathon",
   openGraph: {
@@ -47,6 +51,8 @@ export default function RootLayout({ children }: { children: any }) {
             <div style={contentStyle}>{children}</div>
             <Footer />
             <Notifications />
+            <Analytics />
+            <SpeedInsights />
           </MantineProvider>
         </Redux>
       </body>
