@@ -66,6 +66,17 @@
   color: #CC5DE8;
 }
 
+.homeSubtitle2 {
+  font-size: 19px;
+  color: #FFFFFF;
+}
+
+.locationInfoHolder {
+  display: flex;
+  gap: 20px;
+  padding: 1.5rem 0 0 0;
+}
+
 .homeTitle {
   margin-top: 0;
   margin-bottom: 0;
@@ -76,7 +87,7 @@
 
 .homeDescription {
   font-size: 18px;
-  padding: 1rem 1rem 1rem 0;
+  padding: 0rem 1rem 1.5rem 0;
   color: rgb(170, 173, 177);
   text-wrap: pretty;
   max-width: 70ch;
