@@ -91,6 +91,28 @@ const Navbar = () => {
           dispatch(setUserTeamId(value.team_id));
         }
       });
+      getTeam(id).then((value) => {
+        if (value != null) {
+          dispatch(setTeamId(value.id));
+          dispatch(setTeamName(value.name));
+          dispatch(setTeamDescription(value.description));
+          dispatch(setMembers(value.members));
+          dispatch(setDeclared(value.declared));
+        } else {
+          dispatch(clearTeam());
+        }
+      });
+      getUsers().then((value) => {
+        if (value != null){
+          dispatch(loadUsers(value));
+        }
+      });
+      getTeams().then((value) => {
+        if (value != null){
+          dispatch(loadTeams(value));
+        }
+      });
+
     }
     supabase.auth.getSession().then(({ data: { session } }) => {
       dispatch(login(session));
