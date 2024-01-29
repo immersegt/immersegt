@@ -13,10 +13,11 @@ import Inspirit from '../public/inspirit.png';
 import Futurus from '../public/futurus.png';
 import Dimension from '../public/3dimension.png';
 import Zenvr from '../public/zenvr.png';
+import { Container, Text } from '@mantine/core';
 
 import ComingSoon from '../public/ComingSoon.png';
 
-const showEmpty = false;
+const showEmpty = true;
 
 const list = [Google, Meta, Accenture, Essenvia, Nvidia, Immersed, Teleportal, Mark3, Inspirit, Futurus, Dimension, Zenvr]
 const dwidth = 140;
@@ -24,9 +25,9 @@ const widths = [1, 1, 1, 1, 0.85, 1, 0.7, 1, 1, 1, 1, 1]
 
 const Sponsors = () => {
     return (
-        <section className="sponsorsContainer">
-            <div className="sponsorsHeader">
-                <h2>Meet Our Sponsors</h2>
+        <section className="sponsorsContainer"  >
+            <Container size="xl" className="sponsorsHeader">
+                <Text component="h2" size="xl">Meet Our Sponsors</Text>
                 <div className="sponsorsList">
                     {showEmpty ? (
                         <img src={ComingSoon.src} width={(dwidth * 1.5) + "px"} key={1} />
@@ -37,7 +38,7 @@ const Sponsors = () => {
                     )}
 
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

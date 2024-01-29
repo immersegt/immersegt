@@ -1,11 +1,11 @@
 .cardStyle {
-    width: 400px;
+    max-width: 250px;
     background-color: rgb(26, 27, 30);
     text-align: left;
     border: 1px solid rgb(54, 58, 64);
     border-radius: 10px;
     padding: 20px;
-    transition: 0.2s;
+    transition: all linear 0.2s;
 }
 
 .cardStyle.gold {
@@ -18,6 +18,7 @@
 
 .buttonStyle {
     flex-grow: 1;
+    font-size: 10px;
 }
 
 .buttonStyle.row {
@@ -29,9 +30,9 @@
     border-top: 1px solid rgb(54, 58, 64);
     border-bottom: 1px solid rgb(54, 58, 64);
     margin-top: 10px;
+    padding: 10px;
     margin-left: -20px;
     margin-right: -20px;
-    padding: 10px;
     display: flex;
     gap: 10px;
     overflow-x: scroll;
@@ -45,8 +46,8 @@
 
 .nameBadge {
     overflow: visible;
-    width: auto;
     white-space: nowrap;
+    font-size: 10px;
 }
 
 .badgeHolder {
@@ -82,6 +83,7 @@
 .cardDescription {
     overflow: hidden;
     text-overflow: ellipsis;
+    text-wrap: pretty;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     line-clamp: 3;
@@ -90,4 +92,26 @@
 
 .memberList {
     margin-top: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .nameBadge {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 350px) {
+    .cardStyle {
+        max-width: 300px;
+    }
+}
+
+@media only screen and (min-width: 426px) {
+    .cardStyle {
+        max-width: 400px;
+    }
+
+    .buttonStyle {
+        font-size: 14px;
+    }
 }

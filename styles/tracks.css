@@ -12,39 +12,36 @@
     padding-bottom: 60px;
 }
 
+.centeredText {
+    display: flex;
+    justify-content: center;
+}
+
 .tracksDescription {
     padding-bottom: 40px;
+    padding-right: 1rem;
+    padding-left: 1rem;
     font-size: 18px;
+    max-width: 70ch;
+    text-align: center;
     color: rgb(39, 0, 47);
-    margin-left: 14vw;
-    margin-right: 14vw;
 }
-
-.tracksHolder {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding-left: 8vw;
-    padding-right: 8vw;
-}
-
+    
 .teamHolder {
     display: flex;
     flex-wrap: wrap;
-    gap: 5vw;
+    gap: 4rem;
     justify-content: center;
-    padding-left: 8vw;
-    padding-right: 8vw;
     padding-bottom: 10px;
 }
 
 .mockTeamCard {
-    transition: 0.5s;
+    transition: transform 0.2s ease-out !important; /* Overwrite AOS transition animation */
+    transform: scale(1);
 }
 
 .mockTeamCard:hover {
-    scale: 105%;
+    transform: scale(1.05) !important; /* Overwrite AOS transition animation */
 }
 
 .illustration {
@@ -53,20 +50,21 @@
     object-fit: contain;
 }
 
-.illustrationContainer {
-    width: 300px;
-}
-
 .illustrationContainer2 {
     max-width: 1150px;
 }
 
 .disappear {
     @media only screen and (max-width: 1400px) {
-        visibility: hidden;
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .illustrationContainer {
+        width: 300px;
+    }
+    .illustrationContainer2 {
+        max-width: 1150px;
     }
 }

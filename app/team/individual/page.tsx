@@ -1,16 +1,12 @@
 'use client';
 
-import 'styles/index.css';
-import 'styles/individual.css';
+import ComingSoon from 'components/ComingSoon';
 
-import Redirect from 'components/Redirect';
+import 'styles/index.css'
+import 'styles/comingsoon.css';
 
 const Individual = () => {
-    return (
-        <div>
-            <Redirect/>
-        </div>
-    )
+    return <ComingSoon/>
 }
 
 export default Individual;

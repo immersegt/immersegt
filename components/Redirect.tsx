@@ -33,9 +33,9 @@ const redirectBoxData = [
 const Redirect = () => {
     const user = useAppSelector((state) => state.user);
 
-    const selected1 = user.username === "";
+    const selected1 = user.id === "";
     const selected2 = !selected1 && !user.registered;
-    const selected3 = !selected2 && user.team === "";
+    const selected3 = !selected2 && user.team_id === "";
 
     const selected = [selected1, selected2, selected3];
 

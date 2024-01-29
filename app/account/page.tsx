@@ -18,12 +18,10 @@ const listItems = [
     "And more!"
 ];
 
-import supabase from 'utils/Supabase';
-
 import { notifications } from '@mantine/notifications';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { login, logout } from 'features/userSlice';
+import { logout } from 'features/userSlice';
 
 import { signOut } from 'utils/Utils';
 

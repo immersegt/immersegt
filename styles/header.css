@@ -1,15 +1,21 @@
 .homeHeader {
   width: 100%;
-  height: 94vh;
   align-items: center;
   text-align: center;
   display: flex;
-  overflow: hidden;
+  flex-direction: column;
+  
   padding-bottom: 4vh;
+}
+
+.homeHeaderContainer {
+  width: 100%;
   background-color: rgb(9, 9, 11);
   background-image:
     radial-gradient(at 40% 60%, rgb(39, 5, 45) 0px, transparent 60%),
     radial-gradient(at 65% 40%, rgb(45, 0, 30) 0px, transparent 60%);
+  padding-bottom: 4vh;
+  padding-top: 4vh;
 }
 
 @keyframes slide-right {
@@ -49,55 +55,62 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 15vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
   gap: 20px;
   animation: 0.7s ease 0s 1 slide-right;
-
 }
 
 .homeSubtitle {
-  font-size: 28px;
+  font-size: 24px;
   color: #CC5DE8;
 }
 
+.homeSubtitle2 {
+  font-size: 19px;
+  color: #FFFFFF;
+}
+
+.locationInfoHolder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 1.5rem 0 0 0;
+}
+
 .homeTitle {
-  font-size: 64px;
-  line-height: 76px;
   margin-top: 0;
   margin-bottom: 0;
   font-weight: normal;
+  font-size: 32px;
+  line-height: 1.3;
 }
 
 .homeDescription {
   font-size: 18px;
-  margin-bottom: 20px;
+  padding: 0rem 1rem 1.5rem 0;
   color: rgb(170, 173, 177);
+  text-wrap: pretty;
+  max-width: 70ch;
 }
 
-/**
 .homeTitleEmphasis {
-  background: #845EF7;
-  background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-*/
-
-.homeTitleEmphasis {
-  font-size: 72px;
   font-weight: bold;
   color: white;
   text-shadow:
     0 0 5px #fff,
     0 0 21px #CC5DE8,
     0 0 42px #CC5DE8;
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -0.05rem;
 }
 
 .homeImage {
-  margin-right: 10vw;
   animation: breathing 10s ease 1.1s infinite normal, 1.1s ease 0s 1 slide-left;
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 @keyframes breathing {
@@ -118,17 +131,20 @@
 }
 
 .buttonGroup {
+  width: 100%;
   display: flex;
-  gap: 16px;
+  gap: 1.2rem;
 }
 
 .redirectButton {
   border: 1px solid rgb(255, 255, 255);
-  padding: 12px;
-  padding-left: 32px;
-  padding-right: 32px;
-  border-radius: 24px;
-  font-size: 18px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
 }
 
 .redirectButton.main {
@@ -139,4 +155,52 @@
 .redirectButton:hover {
   background: linear-gradient(#CC5DE8, #845EF7);
   color: white;
+}
+
+@media (min-width: 768px) {
+  .homeImage {
+    display: block;
+    width: 300px;
+    height: auto; 
+  }
+  .homeHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 94vh;
+  }
+
+  .homeTitle {
+    font-size: 64px;
+    line-height: 76px;
+  }
+
+  .homeTitleEmphasis {
+    font-size: 72px;
+  }
+  
+  .redirectButton {
+    padding: 12px 32px 12px 32px;
+    border-radius: 24px;
+    font-size: 18px;
+  }
+
+  .buttonGroup {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .homeImage {
+    width: 400px;
+    height: auto;
+  }
+
+}
+
+@media (min-width: 1440px) {
+  .homeImage {
+    width: 640px;
+    height: auto;
+  }
 }

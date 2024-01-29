@@ -477,8 +477,8 @@ const Register = () => {
                                             Back
                                         </Button>
                                     )}
-                                    {active < 4 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
-                                    {active === 4 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Apply</Button>}
+                                    {active < 5 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
+                                    {active === 5 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Apply</Button>}
                                 </Group>
                             </div>
                         </div>

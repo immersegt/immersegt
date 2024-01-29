@@ -19,6 +19,8 @@ import { Divider } from '@mantine/core';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Container } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 const trackList = [
     {
@@ -79,15 +81,19 @@ const Tracks = () => {
 
     const [mockSave, setMockSave] = useState(false);
 
+    const matches = useMediaQuery("(min-width: 768px)");
+
     return (
         <section className="tracksHeader">
             <section className="trackSection">
                 <h2 className="purple">1. Choose Your Track</h2>
-                <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes. <i>*Tracks subject to change</i></p>
+                <div className="centeredText">
+                    <p className="tracksDescription">From Web3 to Sports and Fitness, Our eight categories span a variety of industries. Choose your top three tracks upon registration, letting you play to your strengths or try something new as you compete for track-specific prizes. <br/><i>*Tracks listed below are last year's categories and subject to change.</i></p>
+                </div>
                 <Carousel
                     classNames={classes}
                     slideSize="100%"
-                    height={260}
+                    height={matches ? 260 : 400}
                     slideGap="md"
                     controlsOffset="lg"
                     loop
@@ -109,28 +115,32 @@ const Tracks = () => {
 
             <Divider color="rgb(39, 0, 47)" />
 
-            <section className="trackSection">
+            <Container size="xl" className="trackSection">
                 <h2 className="purple">2. Find Your Team</h2>
-                <p className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</p>
+                <div className="centeredText">
+                    <p className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</p>
+                </div>
                 <div className="teamHolder">
                     <div className="illustrationContainer" data-aos="fade-right" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration1.src} className="illustration" />
                     </div>
                     <div className="mockTeamCard"  data-aos="fade-in" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <Card name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
+                        <Card team_id={""} name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
                     </div>
                     <div className="illustrationContainer disappear" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration2.src} className="illustration" />
                     </div>
                 </div>
 
-            </section>
+            </Container>
 
             <Divider color="rgb(39, 0, 47)" />
 
             <section className="trackSection">
                 <h2 className="purple">3. Build Your Product</h2>
-                <p className="tracksDescription">We provide the headsets, you provide the code. Once you have chosen a track and team, work over the course of 36 hours to plan an idea, build a prototype, and come up with a presentation to show to the judges. </p>
+                <div className="centeredText">
+                    <p className="tracksDescription">We provide the headsets, you provide the code. Once you have chosen a track and team, work over the course of 36 hours to plan an idea, build a prototype, and come up with a presentation to show to the judges. </p>
+                </div>
                 <div className="teamHolder">
                     <div className="illustrationContainer2" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration3.src} className="illustration" />

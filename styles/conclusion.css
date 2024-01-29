@@ -4,36 +4,51 @@
 
 .ConclusionBanner {
     background: #845EF7;
-    background: linear-gradient(to right, #845EF7 0%, #CC5DE8 65%);
+    background: linear-gradient(to right, #6f4fcf 0%, #a94dc0 65%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    gap: 2rem;
     padding-top: 70px;
     padding-bottom: 70px;
-    padding-left: 10vw;
-    padding-right: 10vw;
     border-radius: 50px;
-    margin-left: 10vw;
-    margin-right: 10vw;
 }
 
 .ConclusionTitle {
-    font-size: 40px;
+    font-size: 30px;
     color: rgb(255, 255, 255);
     margin-top: 0;
     margin-bottom: 0;
 }
 
 .ConclusionSubtitle {
-    font-size: 28px;
+    font-size: 22px;
     color: rgb(230, 230, 230);
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+    text-wrap: balance;
 }
 
 .ConclusionText {
     font-size: 18px;
     color: rgb(230, 230, 230);
-    margin-bottom: 30px;
+    text-wrap: balance;
+    line-height: 1.5;
+    padding-bottom: 1rem;
+    max-width: 70ch;
+}
+
+@media only screen and (min-width: 768px) {
+    .ConclusionTitle {
+        font-size: 48px;
+    }
+
+    .ConclusionSubtitle {
+        font-size: 24px;
+    }
+
+    .ConclusionText {
+        font-size: 20px;
+    }
 }

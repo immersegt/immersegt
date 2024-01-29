@@ -70,14 +70,12 @@ const LinkStyle = {
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { login, setRegistered, setName, setTeamId as setUserTeamId } from 'features/userSlice';
-import { setTeamId, setTeamName, setTeamDescription, setMembers, setDeclared, clearTeam } from 'features/teamSlice';
-import { loadTeams, loadUsers } from 'features/teamListSlice';
 
 import supabase from '../utils/Supabase';
 
 import { useEffect } from 'react';
 
-import { getUser, getTeam, getUsers, getTeams } from '../utils/Utils';
+import { getUser } from '../utils/Utils';
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.user);
@@ -93,28 +91,6 @@ const Navbar = () => {
           dispatch(setUserTeamId(value.team_id));
         }
       });
-      getTeam(id).then((value) => {
-        if (value != null) {
-          dispatch(setTeamId(value.id));
-          dispatch(setTeamName(value.name));
-          dispatch(setTeamDescription(value.description));
-          dispatch(setMembers(value.members));
-          dispatch(setDeclared(value.declared));
-        } else {
-          dispatch(clearTeam());
-        }
-      });
-      getUsers().then((value) => {
-        if (value != null){
-          dispatch(loadUsers(value));
-        }
-      });
-      getTeams().then((value) => {
-        if (value != null){
-          dispatch(loadTeams(value));
-        }
-      });
-
     }
     supabase.auth.getSession().then(({ data: { session } }) => {
       dispatch(login(session));
@@ -141,7 +117,7 @@ const Navbar = () => {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item, ind) => (
-    <Link href={item.link} key={ind}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
+    <Link href={item.link} onClick={closeDrawer} key={ind}><UnstyledButton className="subLink" key={item.title} style={LinkStyle}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.grape[5]} />
@@ -162,9 +138,9 @@ const Navbar = () => {
     <Box>
       <header id="header" className="header">
         <Group justify="space-between" h="100%">
-          <Link className="title noLine" href="/">
+          <Link className="title noLine headerSideItem" href="/">
             <img src={Logo.src} width="30px" />
-            <span><b>ImmerseGT</b> Event Platform</span>
+            <span><b>ImmerseGT</b></span>
           </Link>
           <Group h="100%" gap={0} visibleFrom="md">
             <Link href="/" className="link">
@@ -216,12 +192,12 @@ const Navbar = () => {
             </Link>
           </Group>
           {user.session == null ? (
-            <Group visibleFrom="md">
+            <Group visibleFrom="md" justify="flex-end" className="headerSideItem">
               <Link href="/account"><Button variant="default">Log in</Button></Link>
               <Link href="/account"><Button color="grape.5">Sign up</Button></Link>
             </Group>
           ) : (
-            <Group visibleFrom="md">
+            <Group visibleFrom="md" justify="flex-end" className="headerSideItem">
               <UserButton />
             </Group>
           )}
@@ -243,17 +219,17 @@ const Navbar = () => {
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
-          <Link href="/" className="link">
+          <Link href="/" className="link" onClick={closeDrawer}>
             Home
           </Link>
-          <Link href="/apply" className="link">
+          <Link href="/apply" className="link" onClick={closeDrawer}>
             Apply
           </Link>
-          <UnstyledButton className="link" onClick={toggleLinks}>
+          <UnstyledButton className="link" pl={15} pr={5} onClick={toggleLinks}>
             <Center inline>
-              <Box component="span" mr={5} pl={15}>
+              <span>
                 Team
-              </Box>
+              </span>
               <IconChevronDown
                 style={{ width: rem(16), height: rem(16) }}
                 color={theme.colors.blue[6]}
@@ -261,7 +237,7 @@ const Navbar = () => {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <Link href="/schedule" className="link">
+          <Link href="/schedule" className="link" onClick={closeDrawer}>
             Schedule
           </Link>
 
