@@ -114,9 +114,9 @@ const AuthenticationForm = (props: PaperProps) => {
       </Text>
 
       <Group grow mb="md" mt="md" className="signInButtonsGroup" >
-        <GoogleButton onClick={handleGoogleSignIn} radius="xl" classNames={{
+        {/* <GoogleButton onClick={handleGoogleSignIn} radius="xl" classNames={{
           root: "signInButton"
-        }}>{googleButtonText}</GoogleButton>
+        }}>{googleButtonText}</GoogleButton> */}
         <DiscordButton onClick={handleDiscordSignIn} radius="xl" classNames={{
           root: "signInButton"
         }}>{discordButtonText}</DiscordButton>
