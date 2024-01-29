@@ -13,11 +13,10 @@ interface ScheduleItemProps {
     location: string,
     description: string,
     save: boolean,
-    longDescription: string,
     host: string
 }
 
-const ScheduleItem = ({ title, time, location, description, save, longDescription, host }: ScheduleItemProps) => {
+const ScheduleItem = ({ title, time, location, description, save, host }: ScheduleItemProps) => {
     const [opened, { open, close }] = useDisclosure(false);
 
     function interested() {
@@ -55,7 +54,7 @@ const ScheduleItem = ({ title, time, location, description, save, longDescriptio
                     <p>Host: {host}</p>
                 )}
                 <br />
-                <p>{longDescription === undefined ? description : longDescription}</p>
+                <p>{description}</p>
             </Modal>
         </>
     )

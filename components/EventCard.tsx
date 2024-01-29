@@ -11,11 +11,10 @@ interface EventCardProps {
   location: string,
   description: string,
   soon: boolean,
-  longDescription: string,
   host: string
 }
 
-const EventCard = ({none, title, time, location, description, soon, longDescription, host }: EventCardProps) => {
+const EventCard = ({none, title, time, location, description, soon, host }: EventCardProps) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   function interested() {
@@ -51,7 +50,7 @@ const EventCard = ({none, title, time, location, description, soon, longDescript
           <p>Host: {host}</p>
         )}
         <br />
-        <p>{longDescription === undefined ? description : longDescription}</p>
+        <p>{description}</p>
       </Modal>
     </section>
   )

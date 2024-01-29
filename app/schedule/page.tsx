@@ -68,7 +68,7 @@ const Schedule = () => {
                         <div key={val.date}>
                             <p>{val.date}</p>
                             {val.events.map((event) => (
-                                <ScheduleItem title={event.title} time={event.time} description="This is where the description goes" save={true} location="KLAUS 1234" />
+                                <ScheduleItem title={event.title} time={event.time} description="This is where the description goes" save={true} location="KLAUS 1234" host=""/>
                             ))}
                             <br />
                         </div>
@@ -78,8 +78,8 @@ const Schedule = () => {
             <main className="scheduleMain">
                 <h3>Upcoming Events</h3>
                 <div className="eventContainer">
-                    <EventCard title="UX Workshop" time="5:00PM" location="KLAUS 1234" description="Join us for an interactive and engaging workshop with industry professionals as we learn to design UI. This workshop will be hosted by GTXR and is targeted to beginners and experts alike." soon={true} />
-                    <EventCard title="UX Workshop" time="5:00PM" location="KLAUS 1234" description="Join us for an interactive and engaging workshop with industry professionals as we learn to design UI. This workshop will be hosted by GTXR and is targeted to beginners and experts alike." soon={true} />
+                    <EventCard title="UX Workshop" time="5:00PM" location="KLAUS 1234" description="Join us for an interactive and engaging workshop with industry professionals as we learn to design UI. This workshop will be hosted by GTXR and is targeted to beginners and experts alike." soon={true} host="" none={false}/>
+                    <EventCard title="UX Workshop" time="5:00PM" location="KLAUS 1234" description="Join us for an interactive and engaging workshop with industry professionals as we learn to design UI. This workshop will be hosted by GTXR and is targeted to beginners and experts alike." soon={true} host="" none={false}/>
                 </div>
                 <br />
                 <h3>Event Schedule</h3>
@@ -88,7 +88,7 @@ const Schedule = () => {
                         <div key={val.date}>
                             <p>{val.date}</p>
                             {val.events.map((event) => (
-                                <ScheduleItem title={event.title} time={event.time} description="This is where the description goes" save={true} location="KLAUS 1234" />
+                                <ScheduleItem title={event.title} time={event.time} description="This is where the description goes" save={true} location="KLAUS 1234" host="" />
                             ))}
                             <br />
                         </div>
