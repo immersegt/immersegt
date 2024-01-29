@@ -235,10 +235,10 @@ const Register = () => {
                             <div className="formQuestions">
                                 {active === 0 ? (
                                     <div>
-                                        <TextInput label="First Name" placeholder="First Name" {...form.getInputProps('firstname')} withAsterisk classNames={classes} />
-                                        <TextInput mt="md" label="Last Name" placeholder="Last Name" {...form.getInputProps('lastname')} withAsterisk classNames={classes} />
-                                        <TextInput mt="md" label="School Email" placeholder="name@gatech.edu" {...form.getInputProps('email')} withAsterisk classNames={classes} />
-                                        <TextInput mt="md" label="Phone Number" placeholder="(123) 456-7890" {...form.getInputProps('phone')} classNames={classes} />
+                                        <TextInput label="First Name" size="md" placeholder="First Name" {...form.getInputProps('firstname')} withAsterisk classNames={classes} />
+                                        <TextInput mt="md" size="md" label="Last Name" placeholder="Last Name" {...form.getInputProps('lastname')} withAsterisk classNames={classes} />
+                                        <TextInput mt="md" size="md" label="School Email" placeholder="name@gatech.edu" {...form.getInputProps('email')} withAsterisk classNames={classes} />
+                                        <TextInput mt="md" size="md" label="Phone Number" placeholder="(123) 456-7890" {...form.getInputProps('phone')} classNames={classes} />
                                     </div>
 
 
@@ -251,6 +251,7 @@ const Register = () => {
                                             clampBehavior="strict"
                                             min={0}
                                             max={100}
+                                            size="md"
                                             {...form.getInputProps('age')}
                                             withAsterisk
                                             classNames={classes}
@@ -463,7 +464,7 @@ const Register = () => {
                                 ) : (
                                     <div>
                                         <p>Thank you for applying for ImmerseGT 2024! We will be in touch with further updates as we get closer to the hackathon start date.
-                                            In the meantime, feel free to <Link href="https://discord.com">join our Discord</Link> to network with other participants.</p>
+                                            In the meantime, feel free to <Link href="https://discord.gg/bwnbCMDzxK">join our Discord</Link> to network with other participants.</p>
                                         <br />
                                         Form Values:
                                         <Code block mt="xl">

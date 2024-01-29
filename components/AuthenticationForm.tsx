@@ -130,6 +130,7 @@ const AuthenticationForm = (props: PaperProps) => {
             <TextInput
               label="Name"
               placeholder="Your name"
+              size="md"
               value={form.values.name}
               onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
               radius="md"
@@ -139,6 +140,7 @@ const AuthenticationForm = (props: PaperProps) => {
           <TextInput
             required
             label="Email"
+            size="md"
             placeholder="name@gatech.edu"
             value={form.values.email}
             onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
@@ -150,6 +152,7 @@ const AuthenticationForm = (props: PaperProps) => {
             required
             label="Password"
             placeholder="Your password"
+            size="md"
             value={form.values.password}
             onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
             error={form.errors.password && 'Password should include at least 6 characters'}

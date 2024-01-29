@@ -60,7 +60,7 @@ const mockdata = [
     icon: IconBrandDiscord,
     title: 'Network on Discord',
     description: 'Talk to fellow participants on the ImmerseGT Discord',
-    link: "https://discord.com/"
+    link: "https://discord.gg/bwnbCMDzxK"
   },
 ];
 
