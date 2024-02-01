@@ -61,12 +61,12 @@ const faqQuestions = [
   {
     id: "11",
     question: "Who can I contact for more information about ImmerseGT?",
-    content: "For further inquiries or assistance, please contact hello@immersegt.io."
+    content: "For further inquiries or assistance, please contact immersegt@gmail.com."
   },
   {
     id: "12",
     question: "Want to sponsor ImmerseGT?",
-    content: "We are always eager to collaborate with sponsors interested in supporting and benefiting students and professionals in the XR space. Sponsoring ImmerseGT is an excellent opportunity to engage with a passionate and innovative community. Potential sponsors are invited to contact us at hello@immersegt.io to discuss sponsorship opportunities and how they can contribute to the success of this event."
+    content: "We are always eager to collaborate with sponsors interested in supporting and benefiting students and professionals in the XR space. Sponsoring ImmerseGT is an excellent opportunity to engage with a passionate and innovative community. Potential sponsors are invited to contact us at immersegt@gmail.com to discuss sponsorship opportunities and how they can contribute to the success of this event."
   },
 ];
 
@@ -78,7 +78,7 @@ export function FAQ() {
     <Container size="xl" className="faqwrapper">
       <div className="faqInfo">
         <h2 className="faqTitle">FAQ</h2>
-        <p className="faqSubtitle">Still have some questions?<br />Feel free to <a href="mailto:hello@immersegt.io">get in touch</a> with us.</p>
+        <p className="faqSubtitle">Still have some questions?<br />Feel free to <a href="mailto:immersegt@gmail.com">get in touch</a> with us.</p>
       </div>
       <div className="questions">
         <Accordion variant="separated">

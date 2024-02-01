@@ -30,10 +30,11 @@ const data = [
   {
     title: 'Resources',
     links: [
-      { label: 'Code of Conduct', link: 'https://startup-exchange.notion.site/ImmerseGT-2023-Rules-and-Code-of-Conduct-8b2a39e221174501816180bc5da806b7' },
+      { label: 'Code of Conduct', link: '/rules' },
+      { label: 'Privacy policy', link: '/privacy-policy' },
       { label: 'Devpost Page', link: 'https://immersegt.devpost.com/' },
       { label: 'Discord Community', link: 'https://discord.gg/bwnbCMDzxK' },
-      { label: 'Contact Us', link: 'mailto:hello@immersegt.io' },
+      { label: 'Contact Us', link: 'mailto:immersegt@gmail.com' },
     ],
   },
 ];
