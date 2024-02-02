@@ -48,6 +48,8 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .illustrationContainer2 {
@@ -66,5 +68,26 @@
     }
     .illustrationContainer2 {
         max-width: 1150px;
+    }
+}
+
+.illustration.mobile {
+    max-width: 500px;
+}
+
+@media only screen and (max-width: 900px) {
+    .illustration.laptop {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        padding: 0;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .illustration.mobile {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        padding: 0;
     }
 }
