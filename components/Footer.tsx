@@ -76,7 +76,7 @@ const Footer = () => {
       </Container>
       <Container className="footerAfter">
         <Text c="dimmed" size="sm">
-          © 2023 ImmerseGT. All rights reserved.
+          © 2024 ImmerseGT. All rights reserved.
         </Text>
 
         <Group gap={0} className="footerSocial" justify="flex-end" wrap="nowrap">

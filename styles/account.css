@@ -96,4 +96,8 @@
     .signInButtonsGroup {
         flex-direction: row;
     }
+    
+    .form {
+        width: 480px;
+    }
 }
