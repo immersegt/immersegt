@@ -30,10 +30,11 @@ const data = [
   {
     title: 'Resources',
     links: [
-      { label: 'Code of Conduct', link: 'https://startup-exchange.notion.site/ImmerseGT-2023-Rules-and-Code-of-Conduct-8b2a39e221174501816180bc5da806b7' },
+      { label: 'Code of Conduct', link: '/rules' },
+      { label: 'Privacy policy', link: '/privacy-policy' },
       { label: 'Devpost Page', link: 'https://immersegt.devpost.com/' },
-      { label: 'Discord Community', link: 'https://discord.com/' },
-      { label: 'Contact Us', link: 'mailto:hello@immersegt.io' },
+      { label: 'Discord Community', link: 'https://discord.gg/bwnbCMDzxK' },
+      { label: 'Contact Us', link: 'mailto:immersegt@gmail.com' },
     ],
   },
 ];
@@ -75,11 +76,11 @@ const Footer = () => {
       </Container>
       <Container className="footerAfter">
         <Text c="dimmed" size="sm">
-          © 2023 ImmerseGT. All rights reserved.
+          © 2024 ImmerseGT. All rights reserved.
         </Text>
 
         <Group gap={0} className="footerSocial" justify="flex-end" wrap="nowrap">
-          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://discord.com/" target="_blank" rel="noopener noreferrer">
+          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://discord.gg/bwnbCMDzxK" target="_blank" rel="noopener noreferrer">
             <IconBrandDiscord style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
           </ActionIcon>
           <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://github.com/AlexT101/ImmerseGT" target="_blank" rel="noopener noreferrer">
