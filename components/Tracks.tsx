@@ -14,6 +14,7 @@ import Card from "../components/Card";
 import Illustration1 from '../public/Illustration1.png';
 import Illustration2 from '../public/Illustration2.png';
 import Illustration3 from '../public/Illustration3.png';
+import Illustration4 from '../public/Illustration4.png';
 import { Divider } from '@mantine/core';
 
 import { useEffect } from 'react';
@@ -143,7 +144,8 @@ const Tracks = () => {
                 </div>
                 <div className="teamHolder">
                     <div className="illustrationContainer2" data-aos="fade-up" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <img src={Illustration3.src} className="illustration" />
+                        <img src={Illustration3.src} className="illustration laptop" />
+                        <img src={Illustration4.src} className="illustration mobile" />
                     </div>
                 </div>
             </section>
