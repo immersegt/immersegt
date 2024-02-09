@@ -42,17 +42,17 @@ const trackList = [
     {
         id: 4,
         title: "Intelligent Immersion",
-        description: "Sponsored by Fusen World. Merge the worlds of XR and AI to curate an application that reimagines intelligent VR, AR, or MR applications, assets, and use cases."
+        description: "Merge the worlds of XR and AI to curate an application that reimagines intelligent VR, AR, or MR applications, assets, and use cases."
     },
     {
         id: 5,
         title: "Next-Gen XR Apps",
-        description: "Sponsored by Georgia Tech CREATE-X. Develop an XR (Extended Reality) application that solves an industry or consumer problem."
+        description: "Develop an XR (Extended Reality) application that solves an industry or consumer problem."
     },
     {
         id: 6,
         title: "Omniverse Odyssey",
-        description: "Sponsored by NVIDIA. Develop novel XR (Extended Reality) applications, assets, and use cases at the intersection of physical reality and the virtual universe."
+        description: "Develop novel XR (Extended Reality) applications, assets, and use cases at the intersection of physical reality and the virtual universe."
     },
     {
         id: 7,
@@ -62,7 +62,7 @@ const trackList = [
     {
         id: 8,
         title: "Mindful Immersion in XR",
-        description: "Sponsored by ZenVR. Develop novel XR (Extended Reality) applications, assets, and use cases that promote well-being, quality mental health, and a healthy lifestyle."
+        description: "Develop novel XR (Extended Reality) applications, assets, and use cases that promote well-being, quality mental health, and a healthy lifestyle."
     },
 ];
 
