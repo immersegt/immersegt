@@ -9,6 +9,7 @@ export async function signUp(email: string, password: string) {
         email: email,
         password: password,
     });
+    return error == null;
 }
 
 //Sign in a user account given email and password
