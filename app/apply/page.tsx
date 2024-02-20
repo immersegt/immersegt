@@ -85,7 +85,8 @@ const Register = () => {
             level: '',
             otherLevel: '',
             field: '',
-            otherField: ''
+            otherField: '',
+            country: ''
         },
 
         validate: (values) => {
@@ -112,6 +113,8 @@ const Register = () => {
                         (invalid(values.ethnicity) ? 'Must select an ethnicity' : null),
                     race:
                         (invalid(values.race) ? 'Must select a race' : null),
+                    country:
+                        (invalid(values.country) ? 'Must select a country' : null),
                     shirt:
                         (invalid(values.shirt) ? 'Must select a shirt size' : null),
                 };
@@ -179,7 +182,7 @@ const Register = () => {
                         (values.pronouns == "" ? "Must select pronouns" : values.pronouns == "Other" && values.otherPronoun == "" ? "Must enter pronouns" : null),
                     orientation:
                         (values.orientation == "" ? "Must select orientation" : null),
-                    level: 
+                    level:
                         (values.level == "" ? "Must select level of education" : null),
                     field:
                         (values.field == "" ? "Must select field of study" : null),
@@ -310,6 +313,8 @@ const Register = () => {
                                             withAsterisk
                                             classNames={classes}
                                         />
+                                        <TextInput mt="md" label="Country of Residence" placeholder="Country" {...form.getInputProps('country')} withAsterisk classNames={classes} />
+
                                         <Select
                                             mt="md"
                                             label="T-Shirt Size"
