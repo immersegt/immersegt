@@ -48,25 +48,24 @@ const Create = () => {
     });
 
     async function updateTeam() {
-        await getTeam(user.id).then((value) => {
-            if (value != null) {
-                setUserTeam(user.id, value.id);
-                dispatch(setUserTeamId(value.id));
-                dispatch(setTeamId(value.id));
-                dispatch(setTeamName(value.name));
-                dispatch(setTeamDescription(value.description));
-                dispatch(setMembers(value.members));
-                dispatch(setDeclared(value.declared));
-            } else {
-                dispatch(clearTeam());
-            }
-        });
+        const value = await getTeam(user.id)
+        if (value != null) {
+            setUserTeam(user.id, value.id);
+            dispatch(setUserTeamId(value.id));
+            dispatch(setTeamId(value.id));
+            dispatch(setTeamName(value.name));
+            dispatch(setTeamDescription(value.description));
+            dispatch(setMembers(value.members));
+            dispatch(setDeclared(value.declared));
+        } else {
+            dispatch(clearTeam());
+        }
     }
 
     async function create() {
-        await createTeam(user.id, form.getInputProps('name').value, form.getInputProps('description').value).then((val) => {
+        await createTeam(user.id, form.getInputProps('name').value, form.getInputProps('description').value).then(async (val) => {
             if (val) {
-                updateTeam();
+                await updateTeam();
                 notifications.show({
                     title: 'Team Created',
                     message: 'You have successfully created a team.',
@@ -86,7 +85,6 @@ const Create = () => {
     };
 
 
-    const name = "Name"
     const [mockSave, setMockSave] = useState(false);
 
     return (
