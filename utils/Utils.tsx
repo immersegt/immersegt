@@ -162,6 +162,8 @@ export async function getTeam(id: string) {
         .from('teams')
         .select()
         .contains('members', [id]);
+
+    console.log(data);
     return error == null ? data[0] : null;
 }
 

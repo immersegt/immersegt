@@ -25,6 +25,8 @@ const emptyNames = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
 const Team = () => {
     const user = useAppSelector((state) => state.user);
     const team = useAppSelector((state) => state.team);
+
+    console.log(user);
     const dispatch = useAppDispatch();
     const [opened, { open, close }] = useDisclosure(false);
     const [teamData, setTeamData] = useState({
@@ -190,6 +192,8 @@ const Team = () => {
             setInvites([]);
         }
     }, [searchVal]);
+
+    console.log("Team id in team page:", team.teamId);
 
     return team.teamId != null && team.teamId != "" ? (
         <>
