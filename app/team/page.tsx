@@ -14,7 +14,7 @@ import TeamRedirect from 'components/TeamRedirect';
 import classes from 'styles/searchbox.module.css';
 
 import { useState, useEffect } from 'react';
-import { searchUsers, declareTeam, editTeam, leaveTeam } from 'utils/Utils';
+import { searchUsers, declareTeam, editTeam, leaveTeam, getUser } from 'utils/Utils';
 import { setDeclared } from 'features/teamSlice';
 import { setTeamName, setTeamDescription, clearTeam } from 'features/teamSlice';
 import { setTeamId } from 'features/userSlice';
@@ -26,29 +26,49 @@ const Team = () => {
     const user = useAppSelector((state) => state.user);
     const team = useAppSelector((state) => state.team);
 
-    console.log(user);
     const dispatch = useAppDispatch();
     const [opened, { open, close }] = useDisclosure(false);
     const [teamData, setTeamData] = useState({
-        id: 1,
+        id: "1",
         name: "Your Team Name Would Go Here",
         description: "Looking for dedicated team members who are experienced in front end and back end development for our hackathon team.",
         members: [
             {
-                id: 2,
+                id: "2",
                 name: "Alex",
                 date: new Date(2023, 11, 22),
                 time: "5:00PM"
             },
             {
-                id: 3,
+                id: "3",
                 name: "Member",
                 date: new Date(2023, 11, 21),
                 time: "6:00PM"
             },
-
         ]
     });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const members = await Promise.all(team.members.map(async (userId) => {
+                const member = await getUser(userId);
+                return {
+                    id: userId,
+                    name: member.name,
+                    date: new Date(2023, 11, 22),
+                    time: "5:00PM"
+                };
+            }))
+            setTeamData({
+                    id: team.teamId,
+                    name: team.teamName,
+                    description: team.teamDescription,
+                    members: members
+                }
+            );
+        }
+        fetchData()
+    }, [teamData, setTeamData]);
 
     const [activeRequestPage, setRequestPage] = useState(1);
     const [teamRequests, setTeamRequests] = useState([
