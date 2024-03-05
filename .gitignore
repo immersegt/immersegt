@@ -1,3 +1,5 @@
+.github/workflows/update-types.yml
+
 # Logs
 logs
 *.log

@@ -227,7 +227,7 @@ export async function getTeamRequests(team_id: string){
     .from('requests')
     .select()
     .eq('team_id', team_id);
-    return data;
+    return data ?? [];
 }
 
 //Send a request from a user
