@@ -17,7 +17,6 @@ const RulesPage = () => {
                 <li>a description of the project (around 100 words)</li>
                 <li>a demo video<ol>
                     <li>30-60 sec for in-person participants</li>
-                    <li>1-2 min for virtual participants including a full walkthrough of their product</li>
                 </ol>
                 </li>
                 <li>a link to their GitHub with MIT License</li>

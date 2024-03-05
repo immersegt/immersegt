@@ -1,6 +1,5 @@
 'use client';
 
-import '../styles/index.css';
 import '../styles/tracks.css';
 
 import TrackCard from '../components/TrackCard';

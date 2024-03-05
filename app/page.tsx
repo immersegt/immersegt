@@ -1,7 +1,5 @@
 'use client';
 
-import '../styles/index.css'
-
 import Header from '../components/Header';
 import Sponsors from '../components/Sponsors';
 import Tracks from '../components/Tracks';

@@ -1,6 +1,5 @@
 'use client';
 
-import 'styles/index.css';
 import 'styles/account.css';
 
 import AuthenticationForm from 'components/AuthenticationForm';

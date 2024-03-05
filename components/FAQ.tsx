@@ -1,4 +1,3 @@
-import '../styles/index.css';
 import '../styles/faq.css';
 
 import { Accordion, Container } from '@mantine/core';
@@ -11,7 +10,7 @@ const faqQuestions = [
   {
     id: "1",
     question: "What is ImmerseGT?",
-    content: "ImmerseGT is a hackathon event happening later April 5th-7th at Georgia Tech, focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
+    content: "ImmerseGT is a hackathon event happening April 5th-7th at Georgia Tech, focused on creating innovative applications in Extended Reality (XR), Virtual Reality (VR), or Mixed Reality (MR)."
   },
   {
     id: "2",
@@ -26,7 +25,7 @@ const faqQuestions = [
   {
     id: "4",
     question: "Where will ImmerseGT take place?",
-    content: "The hackathon is accessible both in person at Georgia Tech and virtually."
+    content: "The hackathon is accessible in person at Georgia Tech's main campus."
   },
   {
     id: "5",
@@ -51,7 +50,7 @@ const faqQuestions = [
   {
     id: "9",
     question: "What should participants bring to the hackathon?",
-    content: "In-person participants should bring essentials like laptops and chargers. Virtual participants need a reliable internet connection and a computer. VR headsets will be provided by ImmerseGT."
+    content: "Participants should bring essentials like laptops and chargers. VR headsets will be provided by ImmerseGT."
   },
   {
     id: "10",

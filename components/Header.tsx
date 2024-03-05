@@ -1,4 +1,3 @@
-import '../styles/index.css';
 import '../styles/header.css';
 
 import GogglesImg from '../public/Dalle.png';

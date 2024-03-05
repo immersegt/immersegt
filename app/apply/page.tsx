@@ -1,6 +1,5 @@
 'use client';
 
-import 'styles/index.css';
 import 'styles/apply.css';
 
 import { useState } from 'react';
@@ -57,7 +56,6 @@ const Register = () => {
             school: '',
             major: '',
             graduation: '',
-            attendance: '',
             gtxr: false,
             languages: [],
             xrexperience: '',
@@ -152,8 +150,6 @@ const Register = () => {
             }
             if (active === 3) {
                 return {
-                    attendance:
-                        (invalid(values.attendance) ? 'Must select attendance type' : null),
                     xrexperience:
                         (invalid(values.xrexperience) ? 'Must select XR experience level' : null),
                     hackathon:
@@ -385,17 +381,6 @@ const Register = () => {
                                 ) : active === 3 ? (
                                     <div>
                                         <Fieldset legend="Attendance" className="noBackground">
-                                            <Radio.Group
-                                                name="attendance"
-                                                label="How do you plan on attending ImmerseGT?"
-                                                {...form.getInputProps('attendance')}
-                                                withAsterisk
-                                            >
-                                                <Group mt="xs">
-                                                    <Radio value="inperson" label="In Person" color="grape.5" />
-                                                    <Radio value="virtual" label="Virtual" color="grape.5" />
-                                                </Group>
-                                            </Radio.Group>
                                             <Checkbox mt="md" color="grape.5" label="I am a member of GTXR." {...form.getInputProps('gtxr')} />
                                         </Fieldset>
                                         <br />

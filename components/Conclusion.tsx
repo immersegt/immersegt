@@ -1,4 +1,3 @@
-import '../styles/index.css';
 import '../styles/conclusion.css';
 
 import { Button, Container } from '@mantine/core';
