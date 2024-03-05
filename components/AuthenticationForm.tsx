@@ -35,11 +35,14 @@ const AuthenticationForm = (props: PaperProps) => {
   const dispatch = useAppDispatch();
 
   async function signInWithEmail(email: string, password: string) {
-    signIn(email, password).then((value) => {
+    let worked = await signIn(email, password).then((value) => {
       if (value != null) {
         dispatch(setEmail(value));
+        return true;
       }
+      return false;
     });
+    return worked;
   }
 
   const [type, toggle] = useToggle(['register', 'login']);
@@ -57,21 +60,38 @@ const AuthenticationForm = (props: PaperProps) => {
     },
   });
 
-  const submitForm = (values: { email: string, password: string }) => {
+  async function submitForm(values: { email: string, password: string }) {
     if (type === 'register') {
-      signUp(values.email, values.password);
-      notifications.show({
-        title: 'Account Created',
-        message: 'Please finish registering your account; email sent to: ' + values.email,
-        color: 'grape.5'
-      });
+      let worked = await signUp(values.email, values.password);
+      if (worked) {
+        notifications.show({
+          title: 'Account Created',
+          message: 'Please finish registering your account; email sent to: ' + values.email,
+          color: 'grape.5'
+        });
+      } else {
+        notifications.show({
+          title: 'Signup failed',
+          message: 'Please try again later',
+          color: 'red'
+        });
+      }
     } else if (type === 'login') {
-      signInWithEmail(values.email, values.password);
-      notifications.show({
-        title: 'Account Logged In',
-        message: 'You have successfully logged in to the email: ' + values.email,
-        color: 'grape.5'
-      });
+      let worked = await signInWithEmail(values.email, values.password);
+      if (worked) {
+        notifications.show({
+          title: 'Account Logged In',
+          message: 'You have successfully logged in to the email: ' + values.email,
+          color: 'grape.5'
+        });
+      } else {
+        notifications.show({
+          title: 'Login failed',
+          message: 'Please check your email and password',
+          color: 'red'
+        });
+      }
+
     }
   }
 

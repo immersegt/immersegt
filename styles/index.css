@@ -73,6 +73,10 @@ p.small {
 
 .hidden {
   visibility: hidden;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .noLine {
@@ -88,4 +92,25 @@ p.small {
 
 .noBackground {
   background: none;
+}
+
+.mlhTrustBadge {
+  display: block;
+  max-width: 100px;
+  min-width: 60px;
+  position: absolute;
+  right: 30px;
+  top: 60px;
+  width: 10%;
+  z-index: 10000;
+  @media(max-width: 600px) {
+    right: 18px;
+  }
+  @media(max-width: 360px) {
+    visibility: hidden;
+  }
+}
+
+.mlhTrustBadge img {
+  width: 100%;
 }

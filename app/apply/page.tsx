@@ -72,7 +72,21 @@ const Register = () => {
             github: '',
             linkedin: '',
             answer1: '',
-            answer2: ''
+            answer2: '',
+            mlh1: false,
+            mlh2: false,
+            mlh3: false,
+            dietary: [],
+            underrepresented: '',
+            pronouns: '',
+            otherPronoun: '',
+            orientation: '',
+            otherOrientation: '',
+            level: '',
+            otherLevel: '',
+            field: '',
+            otherField: '',
+            country: ''
         },
 
         validate: (values) => {
@@ -99,6 +113,8 @@ const Register = () => {
                         (invalid(values.ethnicity) ? 'Must select an ethnicity' : null),
                     race:
                         (invalid(values.race) ? 'Must select a race' : null),
+                    country:
+                        (invalid(values.country) ? 'Must select a country' : null),
                     shirt:
                         (invalid(values.shirt) ? 'Must select a shirt size' : null),
                 };
@@ -154,9 +170,22 @@ const Register = () => {
                         (values.goals == null || values.goals.length == 0 ? 'Must select goals' : null),
                 };
             }
-            if (active === 4){
+            if (active === 4) {
                 return {
-
+                    mlh1:
+                        (values.mlh1 ? null : 'Must agree to MLH Code of Conduct'),
+                    mlh2:
+                        (values.mlh2 ? null : 'Must agree to MLH Contest Terms and Conditions and Privacy Policy'),
+                    underrepresented:
+                        (values.underrepresented == "" ? "Must select underrepresented group status" : null),
+                    pronouns:
+                        (values.pronouns == "" ? "Must select pronouns" : values.pronouns == "Other" && values.otherPronoun == "" ? "Must enter pronouns" : null),
+                    orientation:
+                        (values.orientation == "" ? "Must select orientation" : null),
+                    level:
+                        (values.level == "" ? "Must select level of education" : null),
+                    field:
+                        (values.field == "" ? "Must select field of study" : null),
                 }
             }
             return {};
@@ -169,7 +198,7 @@ const Register = () => {
                 return current;
             }
             scrollToTop();
-            return current < 6 ? current + 1 : current;
+            return current < 7 ? current + 1 : current;
         });
     }
 
@@ -228,6 +257,7 @@ const Register = () => {
                                 <Stepper.Step label="Basic Information" />
                                 <Stepper.Step label="Relevant Education" />
                                 <Stepper.Step label="Profile Questions" />
+                                <Stepper.Step label="MLH Questions" />
                                 <Stepper.Step label="Additional Info" />
                                 <Stepper.Step label="Final Check" />
                             </Stepper>
@@ -283,11 +313,13 @@ const Register = () => {
                                             withAsterisk
                                             classNames={classes}
                                         />
+                                        <TextInput mt="md" label="Country of Residence" placeholder="Country" {...form.getInputProps('country')} withAsterisk classNames={classes} />
+
                                         <Select
                                             mt="md"
                                             label="T-Shirt Size"
                                             placeholder="Select..."
-                                            data={['XS', 'S', 'M', 'L', 'XL']}
+                                            data={['XS', 'S', 'M', 'L', 'XL', 'XXL']}
                                             {...form.getInputProps('shirt')}
                                             withAsterisk
                                             classNames={classes}
@@ -301,7 +333,7 @@ const Register = () => {
                                         <Select
                                             label="Current Level of Study"
                                             placeholder="Select..."
-                                            data={['High School', 'Undergraduate', 'Graduate', 'PhD', 'Not a Student']}
+                                            data={['Undergraduate', 'Graduate', 'PhD', 'Not a Student']}
                                             {...form.getInputProps('study')}
                                             withAsterisk
                                             classNames={classes}
@@ -446,6 +478,111 @@ const Register = () => {
                                     </div>
                                 ) : active === 4 ? (
                                     <div>
+                                        <p>We are currently in the process of partnering with MLH. The following questions are for this partnership. If we do not end up partnering with MLH, your information will not be shared.</p>
+                                        <Checkbox mt="md" color="grape.5" label={
+                                            <>
+                                                I have read and agree to the{' '}
+                                                <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank" rel="noopener noreferrer">
+                                                    MLH Code of Conduct.
+                                                </a>
+                                            </>
+                                        } {...form.getInputProps('mlh1')} />
+                                        <Checkbox mt="md" color="grape.5" label={
+                                            <>
+                                                I authorize you to share my application/registration information with Major League Hacking for event administration,
+                                                ranking, and MLH administration in-line with the{' '}
+                                                <a href="https://mlh.io/privacy" target="_blank" rel="noopener noreferrer">
+                                                    MLH Privacy Policy.
+                                                </a>
+                                                {' '}I further agree to the terms of both the{' '}
+                                                <a href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md" target="_blank" rel="noopener noreferrer">
+                                                    MLH Contest Terms and Conditions
+                                                </a>
+                                                {' '}and the{' '}
+                                                <a href="https://mlh.io/privacy" target="_blank" rel="noopener noreferrer">
+                                                    MLH Privacy Policy
+                                                </a>
+                                            </>
+                                        } {...form.getInputProps('mlh2')} />
+                                        <Checkbox mt="md" color="grape.5"
+                                            label="I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements."
+                                            {...form.getInputProps('mlh3')} />
+
+                                        <MultiSelect
+                                            mt="md"
+                                            label="Dietary Restrictions"
+                                            placeholder="Select..."
+                                            data={['Vegetarian', 'Vegan', 'Celiac Disease', 'Allergies', 'Kosher', 'Halal']}
+                                            {...form.getInputProps('dietary')}
+                                            classNames={classes}
+                                        />
+                                        <Select
+                                            mt="md"
+                                            label="Do you identify as part of an underrepresented group in the technology industry?"
+                                            placeholder="Select..."
+                                            data={['Yes', 'No', 'Unsure']}
+                                            {...form.getInputProps('underrepresented')}
+                                            classNames={classes}
+                                            withAsterisk
+                                        />
+                                        <Select
+                                            mt="md"
+                                            label="Pronouns"
+                                            placeholder="Select..."
+                                            data={['She/Her', 'He/Him', 'They/Them', 'She/They', 'He/They', 'Prefer not to answer', 'Other']}
+                                            {...form.getInputProps('pronouns')}
+                                            classNames={classes}
+                                            withAsterisk
+                                        />
+                                        <TextInput placeholder="Pronouns" {...form.getInputProps('otherPronoun')} classNames={classes} className={form.values.pronouns == "Other" ? "" : "hidden"} withAsterisk />
+                                        <Select
+                                            mt="md"
+                                            label="Do you consider yourself to be any of the following?"
+                                            placeholder="Select..."
+                                            data={['Heterosexual or Straight', 'Gay or Lesbian', 'Bisexual', 'Prefer not to answer', 'Different identity']}
+                                            {...form.getInputProps('orientation')}
+                                            classNames={classes}
+                                            withAsterisk
+                                        />
+                                        <TextInput placeholder="Orientation" {...form.getInputProps('otherOrientation')} classNames={classes} className={form.values.orientation == "Different identity" ? "" : "hidden"} withAsterisk />
+                                        <Select
+                                            mt="md"
+                                            label="What is the highest level of formal education that you have completed?"
+                                            placeholder="Select..."
+                                            data={['Less than Secondary / High School', 'Secondary / High School', 'Undergraduate University (2 year - community college or similar)', 'Undergraduate University (3+ year)', 'Graduate University (Masters, Professional, Doctoral, etc) ', 'Code School / Bootcamp', 'Other Vocational / Trade Program or Apprenticeship', 'Other (please specify)', 'I’m not currently a student', 'Prefer not to answer']}
+                                            {...form.getInputProps('level')}
+                                            classNames={classes}
+                                            withAsterisk
+                                        />
+                                        <TextInput placeholder="Level of education" {...form.getInputProps('otherLevel')} classNames={classes} className={form.values.level == "Other (please specify)" ? "" : "hidden"} withAsterisk />
+                                        <Select
+                                            mt="md"
+                                            label="Major/Field of Study"
+                                            placeholder="Select..."
+                                            data={['Computer science, computer engineering, or software engineering',
+                                                'Another engineering discipline (such as civil, electrical, mechanical, etc.)',
+                                                'Information systems, information technology, or system administration',
+                                                'A natural science (such as biology, chemistry, physics, etc.)',
+                                                'Mathematics or statistics',
+                                                'Web development or web design',
+                                                'Business discipline (such as accounting, finance, marketing, etc.)',
+                                                'Humanities discipline (such as literature, history, philosophy, etc.)',
+                                                'Social science (such as anthropology, psychology, political science, etc.)',
+                                                'Fine arts or performing arts (such as graphic design, music, studio art, etc.)',
+                                                'Health science (such as nursing, pharmacy, radiology, etc.)',
+                                                'Other (please specify)',
+                                                'Undecided / No Declared Major',
+                                                'My school does not offer majors / primary areas of study',
+                                                'Prefer not to answer']}
+                                            {...form.getInputProps('field')}
+                                            classNames={classes}
+                                            withAsterisk
+                                        />
+                                        <TextInput placeholder="Field of study" {...form.getInputProps('otherField')} classNames={classes} className={form.values.field == "Other (please specify)" ? "" : "hidden"} withAsterisk />
+
+                                    </div>
+                                ) : active === 5 ? (
+                                    <div>
                                         <p>These additional questions are optional but could be used for application decisions depending on how many applications we receive.</p>
                                         <TextInput mt="md" label="Resume" placeholder="Resume" {...form.getInputProps('resume')} classNames={classes} />
                                         <TextInput mt="md" label="Website" placeholder="Website" {...form.getInputProps('website')} classNames={classes} />
@@ -454,7 +591,7 @@ const Register = () => {
                                         <TextInput mt="md" label="Describe your experience with coding and/or XR." placeholder="Answer here..." {...form.getInputProps('answer1')} classNames={classes} />
                                         <TextInput mt="md" label="Why do you want to participate in ImmerseGT?" placeholder="Answer here..." {...form.getInputProps('answer2')} classNames={classes} />
                                     </div>
-                                ) : active === 5 ? (
+                                ) : active === 6 ? (
                                     <div>
                                         <p>Your data will not be provided to the ImmerseGT organizers until you click apply. Please double check your
                                             responses on the previous pages before you submit as you will not be able to change your answers.
@@ -478,8 +615,8 @@ const Register = () => {
                                             Back
                                         </Button>
                                     )}
-                                    {active < 5 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
-                                    {active === 5 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Apply</Button>}
+                                    {active < 6 && <Button onClick={nextStep} color="grape.5">Next step</Button>}
+                                    {active === 6 && <Button onClick={registerUser} color="grape.5" disabled={!verified}>Apply</Button>}
                                 </Group>
                             </div>
                         </div>
