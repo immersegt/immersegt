@@ -352,7 +352,7 @@ const Register = () => {
             if (active === 1) {
                 return {
                     age:
-                        (invalid(values.age) || values.age == null || values.age <= 0 || values.age > 99) ? 'Invalid age' : null,
+                        (invalid(values.age) || values.age == null || values.age <= 0 || values.age > 99) ? 'Invalid age' : values.age < 18 ? 'Must be 18 to participate in ImmerseGT' : null,
                     gender:
                         (invalid(values.gender) ? 'Must select a gender' : null),
                     ethnicity:
