@@ -17,7 +17,7 @@ const redirectBoxData = [
     {
         id: 1,
         title: "Apply for ImmerseGT",
-        description: "Once you have an account, you can apply to participate in ImmerseGT 2024. You will answer several questions about yourself that will let us collect information about hackathon participants and even match you with a team.",
+        description: "Once you have an account, you can apply to participate in ImmerseGT 2025. You will answer several questions about yourself that will let us collect information about hackathon participants and even match you with a team.",
         buttonText: "Apply",
         href: "/apply",
     },

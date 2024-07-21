@@ -24,7 +24,7 @@ const EventCard = ({none, title, time, location, description, soon, longDescript
 
   return none ? (
     <Card shadow="sm" padding="lg" radius="md" withBorder className="eventCard center">
-      <p>There are no more events planned. Thanks for attending ImmerseGT 2024!</p>
+      <p>There are no more events planned. Thanks for attending ImmerseGT 2025!</p>
     </Card>
   ) : (
     <section>
