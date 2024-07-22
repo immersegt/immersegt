@@ -9,7 +9,7 @@ const Conclusion = () => {
             <Container size="xl" className="ConclusionBanner">
                 <div>
                     <h2 className="ConclusionTitle"><b>Don't miss out on ImmerseGT.</b></h2>
-                    <span className="ConclusionSubtitle">April 5th-7th @ Georgia Tech</span>
+                    <span className="ConclusionSubtitle">April 4th-6th @ Georgia Tech</span>
                 </div>
                 <div>
                     <p className="ConclusionText">Apply for the ImmerseGT hackathon and prepare for three days of building XR projects,

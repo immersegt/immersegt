@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="footerLogo">
             <span className="title"><b>ImmerseGT</b></span>
             <div className="footerDescription">
-              In-person XR hackathon hosted by GTXR. Participate at Georgia Tech from April 5th-7th, 2025.
+              In-person XR hackathon hosted by GTXR. Participate at Georgia Tech from April 4th-6th, 2025.
             </div>
           </div>
         </div>
