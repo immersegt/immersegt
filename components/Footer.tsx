@@ -86,9 +86,6 @@ const Footer = () => {
           <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://github.com/AlexT101/ImmerseGT" target="_blank" rel="noopener noreferrer">
             <IconBrandGithub style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://www.instagram.com/immerse.gt/" target="_blank" rel="noopener noreferrer">
-            <IconBrandInstagram style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-          </ActionIcon>
         </Group>
       </Container>
     </footer>
