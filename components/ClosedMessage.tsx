@@ -9,9 +9,9 @@ const ComingSoon = () => {
         <div className="container">
             <div className="registeredBox">
                 <div className="registeredTitle">
-                    Applications Closed.
+                Stay Tuned!
                 </div>
-                <p className="registeredLargeText">Thank you for your interest in ImmerseGT! We are no unfortunately no longer accepting applications. We anticipate the event will return next year.</p>
+                <p className="registeredLargeText">Thank you for your interest in ImmerseGT! Applications for ImmerseGT 2025 will be opening soon.</p>
             </div>
         </div>
     )
