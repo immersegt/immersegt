@@ -179,7 +179,7 @@ const PrivacyPage = () => {
         <h2>Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, You can contact us:</p>
         <ul>
-            <li>By email: <a href="mailto:immersegt@gmail.com">immersegt@gmail.com</a></li></ul></Container>)
+            <li>By email: <a href="mailto:contact@gtxr.com">contact@gtxr.com</a></li></ul></Container>)
 }
 
 export default PrivacyPage

@@ -34,7 +34,7 @@ const data = [
       { label: 'Privacy policy', link: '/privacy-policy' },
       { label: 'Devpost Page', link: 'https://immersegt.devpost.com/' },
       { label: 'Discord Community', link: 'https://discord.gg/bwnbCMDzxK' },
-      { label: 'Contact Us', link: 'mailto:immersegt@gmail.com' },
+      { label: 'Contact Us', link: 'mailto:contact@gtxr.com' },
     ],
   },
 ];
