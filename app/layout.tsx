@@ -14,7 +14,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://immersegt.vercel.app/'),
+  metadataBase: new URL('https://www.immersegt.org/'),
   title: "ImmerseGT Event Platform",
   description: "Participate in the 2025 XR Hackathon",
   openGraph: {
