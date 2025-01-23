@@ -57,7 +57,7 @@ const faqQuestions = [
   {
     id: "10",
     question: "Who is running the ImmerseGT event?",
-    content: "ImmerseGT is a collaborative effort organized jointly by the GTXR club, a student club at Georgia Tech. GTXR club is dedicated to bringing together students passionate about Extended Reality (XR) technologies, providing a platform for networking and building innovative projects."
+    content: "ImmerseGT is a collaborative effort organized jointly by the GTXR club, a student club at Georgia Tech, and Startup Exchange. GTXR club is dedicated to bringing together students passionate about Extended Reality (XR) technologies, providing a platform for networking and building innovative projects."
   },
   {
     id: "11",

@@ -3,6 +3,7 @@ import Sponsors from '../components/Sponsors';
 import Tracks from '../components/Tracks';
 import Sell from '../components/Sell';
 import Judges from '../components/Judges';
+import Gallery from '../components/Gallery';
 import FAQ from '../components/FAQ';
 import Conclusion from '../components/Conclusion';
 
@@ -17,6 +18,7 @@ const HomePage = () => {
       <Sell />
       <a id="judges" />
       <Judges />
+      <Gallery />
       <a id="faq" />
       <FAQ />
       <Conclusion />
