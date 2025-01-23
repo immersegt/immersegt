@@ -1,5 +1,3 @@
-'use client';
-
 import ComingSoon from 'components/ComingSoon';
 
 import 'styles/index.css'

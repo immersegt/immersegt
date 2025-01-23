@@ -79,8 +79,6 @@ const Tracks = () => {
     const [active, setActive] = useState(0);
     const autoplay = useRef(Autoplay({ delay: 4000 }));
 
-    const [mockSave, setMockSave] = useState(false);
-
     const matches = useMediaQuery("(min-width: 768px)");
 
     return (
@@ -125,7 +123,7 @@ const Tracks = () => {
                         <img src={Illustration1.src} className="illustration" />
                     </div>
                     <div className="mockTeamCard"  data-aos="fade-in" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <Card team_id={""} name={mockCard.name} description={mockCard.description} members={mockCard.members} joined={mockCard.joined} saved={mockSave} disabled={true} toggleSave={()=>{setMockSave(!mockSave)}}/>
+                        <Card name={mockCard.name} description={mockCard.description} members={mockCard.members}/>
                     </div>
                     <div className="illustrationContainer disappear" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration2.src} className="illustration" />

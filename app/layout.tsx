@@ -9,7 +9,6 @@ import Footer from '../components/Footer';
 import '../styles/index.css';
 
 import { Metadata } from 'next';
-import Redux from './redux';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -45,16 +44,14 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body style={bodyStyle}>
-        <Redux>
-          <MantineProvider theme={theme} forceColorScheme="dark">
-            <Navbar />
-            <div style={contentStyle}>{children}</div>
-            <Footer />
-            <Notifications />
-            <Analytics />
-            <SpeedInsights />
-          </MantineProvider>
-        </Redux>
+        <MantineProvider theme={theme} forceColorScheme="dark">
+          <Navbar />
+          <div style={contentStyle}>{children}</div>
+          <Footer />
+          <Notifications />
+          <Analytics />
+          <SpeedInsights />
+        </MantineProvider>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import '../styles/judges.css';
 
 import {Button, Container} from '@mantine/core';

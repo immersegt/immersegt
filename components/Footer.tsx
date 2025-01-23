@@ -1,5 +1,3 @@
-'use client';
-
 import '../styles/index.css';
 import '../styles/footer.css';
 import { Text, Container, ActionIcon, Group, rem } from '@mantine/core';
@@ -23,7 +21,6 @@ const data = [
     links: [
       { label: 'Home', link: '/' },
       { label: 'Apply', link: '/apply' },
-      { label: 'Team', link: '/team' },
       { label: 'Schedule', link: '/schedule' },
     ],
   },
@@ -31,7 +28,7 @@ const data = [
     title: 'Resources',
     links: [
       { label: 'Code of Conduct', link: '/rules' },
-      { label: 'Privacy policy', link: '/privacy-policy' },
+      { label: 'Privacy Policy', link: '/privacy-policy' },
       { label: 'Devpost Page', link: 'https://immersegt.devpost.com/' },
       { label: 'Discord Community', link: 'https://discord.gg/bwnbCMDzxK' },
       { label: 'Contact Us', link: 'mailto:contact@gtxr.com' },
@@ -68,7 +65,7 @@ const Footer = () => {
           <div className="footerLogo">
             <span className="title"><b>ImmerseGT</b></span>
             <div className="footerDescription">
-              In-person XR hackathon hosted by GTXR. Participate at Georgia Tech from April 4th-6th, 2025.
+              In-person XR hackathon hosted by GTXR and Startup Exchange. Participate at Georgia Tech from April 4th-6th, 2025.
             </div>
           </div>
         </div>

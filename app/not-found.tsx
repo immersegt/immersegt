@@ -1,5 +1,3 @@
-'use client';
-
 import 'styles/forbidden.css';
 
 const NotFound = () => {

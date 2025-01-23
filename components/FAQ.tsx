@@ -1,3 +1,5 @@
+'use client';
+
 import '../styles/faq.css';
 
 import { Accordion, Container } from '@mantine/core';
