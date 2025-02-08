@@ -19,7 +19,7 @@ const Conclusion = () => {
                         by top companies from around the globe, to be announced soon. 
                     </p>
                 </div>
-                <Button rightSection={<FaLongArrowAltRight />} variant="filled" color="gray" size="xl" component="a" href="/apply">
+                <Button rightSection={<FaLongArrowAltRight />} variant="filled" color="gray" size="xl" component="a" href="https://lu.ma/fscb1e9s">
                     Apply Today
                 </Button>
             </Container>

@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link href="/" className="link">
               Home
             </Link>
-            <Link href="/apply" className="link">
+            <Link href="https://lu.ma/fscb1e9s" className="link">
               Apply
             </Link>
             <Link href="/schedule" className="link">
@@ -70,7 +70,7 @@ const Navbar = () => {
           <Link href="/" className="link" onClick={closeDrawer}>
             Home
           </Link>
-          <Link href="/apply" className="link" onClick={closeDrawer}>
+          <Link href="https://lu.ma/fscb1e9s" className="link" onClick={closeDrawer}>
             Apply
           </Link>
           <Link href="/schedule" className="link" onClick={closeDrawer}>

@@ -1,7 +1,7 @@
 import '../styles/index.css';
 import '../styles/footer.css';
 import { Text, Container, ActionIcon, Group, rem } from '@mantine/core';
-import { IconBrandDiscord, IconBrandGithub, IconBrandInstagram } from '@tabler/icons-react';
+import { IconBrandDiscord, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin } from '@tabler/icons-react';
 import Link from 'next/link';
 
 import Logo from '../public/ImmerseGTLogo.svg';
@@ -73,15 +73,15 @@ const Footer = () => {
       </Container>
       <Container className="footerAfter">
         <Text c="dimmed" size="sm">
-          © 2024 ImmerseGT. All rights reserved.
+          © 2025 ImmerseGT. All rights reserved.
         </Text>
 
         <Group gap={0} className="footerSocial" justify="flex-end" wrap="nowrap">
-          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://discord.gg/bwnbCMDzxK" target="_blank" rel="noopener noreferrer">
-            <IconBrandDiscord style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="www.linkedin.com/company/immersegt" target="_blank" rel="noopener noreferrer">
+            <IconBrandLinkedin style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://github.com/AlexT101/ImmerseGT" target="_blank" rel="noopener noreferrer">
-            <IconBrandGithub style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+          <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://www.instagram.com/immerse.gt" target="_blank" rel="noopener noreferrer">
+            <IconBrandInstagram style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
           </ActionIcon>
         </Group>
       </Container>
