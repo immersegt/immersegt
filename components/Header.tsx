@@ -16,7 +16,7 @@ const Header = () => {
                     <span className="homeSubtitle2"><b><FaCalendarAlt /> April 4th-6th, 2025</b></span>
                     <span className="homeSubtitle2"><b><FaLocationDot /> Georgia Tech</b></span>
                     </div>
-                    <p className="homeDescription">Participate in ImmerseGT, an innovative XR hackathon hosted by GTXR, on Georgia Tech's campus from April 4th-6th. Compete for your share of prizes as you build and test XR applications using state-of-the-art headsets.</p>
+                    <p className="homeDescription">Participate in ImmerseGT, an innovative XR hackathon hosted by GTXR and Startup Exchange, on Georgia Tech's campus from April 4th-6th. Compete for your share of prizes as you build and test XR applications using state-of-the-art headsets.</p>
                     <div className="buttonGroup">
                         <UnstyledButton className="redirectButton main" component="a" href="https://lu.ma/fscb1e9s">Apply Now&nbsp;<FaLongArrowAltRight /></UnstyledButton>
                         <UnstyledButton className="redirectButton" component="a" href="#tracks">Learn More</UnstyledButton>
