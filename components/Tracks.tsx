@@ -116,17 +116,11 @@ const Tracks = () => {
             <Container size="xl" className="trackSection">
                 <h2 className="purple">2. Find Your Team</h2>
                 <div className="centeredText">
-                    <p className="tracksDescription">Whether you choose to join up with friends or network with other event participants, ImmerseGT's event platform allows you to build effective, skilled teams. You can search for members, filter teams based on key criteria, and more.</p>
+                    <p className="tracksDescription">Whether you join up with friends or collaborate with other event participants, you can compete in ImmerseGT in teams of up to six members.</p>
                 </div>
                 <div className="teamHolder">
                     <div className="illustrationContainer" data-aos="fade-right" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
                         <img src={Illustration1.src} className="illustration" />
-                    </div>
-                    <div className="mockTeamCard"  data-aos="fade-in" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <Card name={mockCard.name} description={mockCard.description} members={mockCard.members}/>
-                    </div>
-                    <div className="illustrationContainer disappear" data-aos="fade-left" data-aos-easing="ease-sine" data-aos-anchor-placement="center-bottom" data-aos-once="true">
-                        <img src={Illustration2.src} className="illustration" />
                     </div>
                 </div>
 
